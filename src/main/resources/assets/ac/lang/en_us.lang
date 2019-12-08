@@ -1,0 +1,27 @@
+# Creative Tab
+itemGroup.acTab=ApocalypseCore
+
+# Blocks
+tile.ac.example_block.name=Example Block
+tile.ac.barbed_wire.name=Barbed Wire
+
+# Items
+item.ac.example_item.name=Example Item
+item.ac.wrench.name=Wrench
+
+item.ac.smoke_bomb.white.name=White Smoke Bomb
+item.ac.smoke_bomb.orange.name=Orange Smoke Bomb
+item.ac.smoke_bomb.magenta.name=Magenta Smoke Bomb
+item.ac.smoke_bomb.lightBlue.name=Light-blue Smoke Bomb
+item.ac.smoke_bomb.yellow.name=Yellow Smoke Bomb
+item.ac.smoke_bomb.lime.name=Lime Smoke Bomb
+item.ac.smoke_bomb.pink.name=Pink Smoke Bomb
+item.ac.smoke_bomb.gray.name=Gray Smoke Bomb
+item.ac.smoke_bomb.silver.name=Silver Smoke Bomb
+item.ac.smoke_bomb.cyan.name=Cyan Smoke Bomb
+item.ac.smoke_bomb.purple.name=Purple Smoke Bomb
+item.ac.smoke_bomb.blue.name=Blue Smoke Bomb
+item.ac.smoke_bomb.brown.name=Brown Smoke Bomb
+item.ac.smoke_bomb.green.name=Green Smoke Bomb
+item.ac.smoke_bomb.red.name=Red Smoke Bomb
+item.ac.smoke_bomb.black.name=Black Smoke Bomb
