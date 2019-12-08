@@ -1,14 +1,25 @@
 package org.golde.apocalypsecore.client.render.util;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderEnderman;
+import net.minecraft.client.renderer.entity.RenderLivingBase;
+import net.minecraft.client.renderer.entity.RenderSpider;
+import net.minecraft.client.renderer.entity.layers.LayerEndermanEyes;
+import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.entity.layers.LayerSpiderEyes;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.scoreboard.ScorePlayerTeam;
 import net.minecraft.scoreboard.Scoreboard;
@@ -27,13 +38,13 @@ import net.minecraftforge.fml.relauncher.Side;
 public class EntityGlowlyThing {
 
 	//modified from https://github.com/Laike-Endaril/Dynamic-Stealth/blob/1.12.2/src/main/java/com/fantasticsource/dynamicstealth/client/RenderAlterer.java
-	
+
 	private static HashSet<ScorePlayerTeam> colorTeams = new HashSet<>();
 
 	private static Scoreboard scoreboard;
 	private static HashSet<EntityLivingBase> glowCache = new HashSet<>();
 	private static LinkedHashMap<EntityLivingBase, Team> teamCache = new LinkedHashMap<>();
-	
+
 	private static HashMap<EntityLivingBase, String> entityColor = new HashMap<EntityLivingBase, String>();
 
 	private static boolean ready = false;
@@ -118,7 +129,7 @@ public class EntityGlowlyThing {
 					//System.out.println(livingBase.getName() + " - " + entityColor.get(livingBase));
 					scoreboard.addPlayerToTeam(livingBase.getUniqueID().toString(),entityColor.get(livingBase));
 				}
-				
+
 			}
 		}
 	}
@@ -149,7 +160,7 @@ public class EntityGlowlyThing {
 				if(entityColor.containsKey(livingBase)) {
 					setTempGlow(event);
 				}
-				
+
 			}
 
 
@@ -158,21 +169,65 @@ public class EntityGlowlyThing {
 		}
 	}
 
+	@SubscribeEvent(priority = EventPriority.LOWEST)
+	public static void entityJoin(EntityJoinWorldEvent event)
+	{
+		if(event.getWorld().isRemote) {
+			Entity entity = event.getEntity();
+			if (entity instanceof EntityLiving) {
+				replaceLayers((EntityLiving)entity);
+			}
+		}
+	}
+
+	private static void replaceLayers(EntityLivingBase livingBase)
+	{
+		try {
+			Render render = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject(livingBase);
+			if (render instanceof RenderLivingBase)
+			{
+				Field privateStringField = RenderLivingBase.class.getDeclaredField("layerRenderers");
+
+				privateStringField.setAccessible(true);
+
+				List<LayerRenderer> list = (List<LayerRenderer>) privateStringField.get((RenderLivingBase) render);
+
+				for (LayerRenderer layer : list.toArray(new LayerRenderer[0]))
+				{
+					if (layer instanceof LayerSpiderEyes)
+					{
+						list.remove(layer);
+						list.add(new LayerSpiderEyesEdit((RenderSpider) render));
+					}
+					else if (layer instanceof LayerEndermanEyes)
+					{
+						list.remove(layer);
+						list.add(new LayerEndermanEyesEdit((RenderEnderman) render));
+					}
+				}
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 	private static void setTempGlow(RenderLivingEvent.Post event)
 	{
 		EntityLivingBase entity = event.getEntity();
 		entity.setGlowing(true);
 		glowCache.add(entity);
 	}
-	
+
 	private static String getScoreboardName(TextFormatting tf) {
 		return "ac_" + tf.name().toLowerCase();
 	}
-	
+
 	public static void setColor(EntityLivingBase entity, TextFormatting color) {
 		entityColor.put(entity, getScoreboardName(color));
 	}
-	
+
 	public static void removeGlow(EntityLivingBase entity) {
 		entityColor.remove(entity);
 	}
