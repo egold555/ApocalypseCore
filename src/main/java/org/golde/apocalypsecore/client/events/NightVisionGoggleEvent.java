@@ -44,7 +44,7 @@ public class NightVisionGoggleEvent {
 				}
 				
 				Minecraft mc = Minecraft.getMinecraft();
-				int expand = 40;
+				int expand = 20;
 				List<EntityMob> mobs = Minecraft.getMinecraft().world.getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB(
 						mc.player.posX - 1, 
 						mc.player.posY - 1, 
@@ -52,7 +52,7 @@ public class NightVisionGoggleEvent {
 						mc.player.posX + 1, 
 						mc.player.posY + 1, 
 						mc.player.posZ + 1
-						).expand(expand, expand, expand));
+						).grow(expand));
 				
 				glowingMobs.clear();
 				for(EntityMob mob : mobs) {
