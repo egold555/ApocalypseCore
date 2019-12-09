@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.item.ItemFlamethrower;
+import org.golde.apocalypsecore.item.ItemGrapplingHook;
 import org.golde.apocalypsecore.item.ItemNightVisionGoggles;
 import org.golde.apocalypsecore.item.ItemSmokeBomb;
 import org.golde.apocalypsecore.item.ItemWrench;
@@ -30,12 +31,10 @@ public class ACItems {
 	public static _ACItem exampleItem;
 	public static ItemWrench wrench;
 	public static ItemSmokeBomb smokeBomb;
-	
 	public static GunAimable gunGlock;
-	
 	public static ItemFlamethrower flamethrower;
-	
 	public static ItemNightVisionGoggles nightVisionGoggles;
+	public static ItemGrapplingHook grapplingHook;
 	
 	private static List<_IACItem> ALL_ITEMS = new ArrayList<_IACItem>();
 
@@ -48,6 +47,7 @@ public class ACItems {
 		event.getRegistry().register(gunGlock = new GunAimable("glock", 12, 12, 50, 1, 3, 200, Items.APPLE, 1, "gun.glock.desc", "9mm Clip", 1));
 		event.getRegistry().register(flamethrower = new ItemFlamethrower());
 		event.getRegistry().register(nightVisionGoggles = new ItemNightVisionGoggles());
+		event.getRegistry().register(grapplingHook = new ItemGrapplingHook());
 
 		for(_ACBlock block : ACBlocks.getAllBlocksReflection()) {
 			if(block != null && block.shouldRegisterItem()) {

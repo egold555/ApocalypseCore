@@ -2,8 +2,10 @@ package org.golde.apocalypsecore.init;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityBullet;
+import org.golde.apocalypsecore.client.render.entity.RenderEntityGrapplingHook;
 import org.golde.apocalypsecore.client.render.entity.RenderItemSmokebomb;
 import org.golde.apocalypsecore.entity.EntityBullet;
+import org.golde.apocalypsecore.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.entity.EntitySmokeCloud;
 
@@ -51,6 +53,17 @@ public class ACEntities {
 		
 		event.getRegistry().register(
 				EntityEntryBuilder.create()
+				.entity(EntityGrapplingHook.class)
+				.id(new ResourceLocation(ApocalypseCore.MODID, "grapplinghook"), id++)
+				.name("grapplinghook")
+				.tracker(64, 1, true)
+//				.egg(MapColor.BLACK.colorValue, MapColor.BLACK_STAINED_HARDENED_CLAY.colorValue)
+//				.spawn(EnumCreatureType.CREATURE, 20, 1, 5, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
+				.build()
+				);
+		
+		event.getRegistry().register(
+				EntityEntryBuilder.create()
 				.entity(EntityBullet.class)
 				.id(new ResourceLocation(ApocalypseCore.MODID, "bullet"), id++)
 				.name("bullet")
@@ -66,6 +79,7 @@ public class ACEntities {
     public static void registerRenders() {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmokeBombThrowable.class, RenderEntitySmokeBombThrowableFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBulletFactory.INSTANCE);
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, RenderGrapplingHookFactory.INSTANCE);
 		
 	}
 	
@@ -88,6 +102,17 @@ public class ACEntities {
         public Render<EntityBullet> createRenderFor(RenderManager manager)
         {
             return new RenderEntityBullet(manager);
+        }
+    }
+	
+	@SideOnly(Side.CLIENT)
+	public static class RenderGrapplingHookFactory implements IRenderFactory<EntityGrapplingHook> {
+        public final static RenderGrapplingHookFactory INSTANCE = new RenderGrapplingHookFactory();
+    
+        @Override
+        public Render<EntityGrapplingHook> createRenderFor(RenderManager manager)
+        {
+            return new RenderEntityGrapplingHook(manager);
         }
     }
 	

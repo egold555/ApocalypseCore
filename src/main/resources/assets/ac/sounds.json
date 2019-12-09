@@ -1,0 +1,4 @@
+{
+    "nightvision.on": { "category": "player", "sounds":["ac:nightvision_on"] },
+	"nightvision.off": { "category": "player", "sounds":["ac:nightvision_off"] }
+}
