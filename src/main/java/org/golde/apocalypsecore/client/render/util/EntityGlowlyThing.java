@@ -36,9 +36,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 @Mod.EventBusSubscriber(modid = ApocalypseCore.MODID, value = Side.CLIENT)
 public class EntityGlowlyThing {
-
-	//modified from https://github.com/Laike-Endaril/Dynamic-Stealth/blob/1.12.2/src/main/java/com/fantasticsource/dynamicstealth/client/RenderAlterer.java
-
+	
 	private static HashSet<ScorePlayerTeam> colorTeams = new HashSet<>();
 
 	private static Scoreboard scoreboard;
@@ -57,9 +55,11 @@ public class EntityGlowlyThing {
 			scoreboard = Minecraft.getMinecraft().world.getScoreboard();
 
 			for(TextFormatting tf : TextFormatting.values()) {
-				ScorePlayerTeam team = scoreboard.createTeam(getScoreboardName(tf));
-				team.setPrefix(tf.toString());
-				colorTeams.add(team);
+				if(!tf.isFancyStyling()) {
+					ScorePlayerTeam team = scoreboard.createTeam(getScoreboardName(tf));
+					team.setPrefix(tf.toString());
+					colorTeams.add(team);
+				}
 			}
 
 			ready = true;
@@ -225,7 +225,9 @@ public class EntityGlowlyThing {
 	}
 
 	public static void setColor(EntityLivingBase entity, TextFormatting color) {
-		entityColor.put(entity, getScoreboardName(color));
+		if(!color.isFancyStyling()) {
+			entityColor.put(entity, getScoreboardName(color));
+		}
 	}
 
 	public static void removeGlow(EntityLivingBase entity) {

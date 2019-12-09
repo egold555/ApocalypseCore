@@ -13,7 +13,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//https://github.com/Laike-Endaril/Dynamic-Stealth/blob/1.12.2/src/main/java/com/fantasticsource/dynamicstealth/client/layeredits/LayerEndermanEyesEdit.java
 @SideOnly(Side.CLIENT)
 public class LayerEndermanEyesEdit implements LayerRenderer<EntityEnderman>
 {

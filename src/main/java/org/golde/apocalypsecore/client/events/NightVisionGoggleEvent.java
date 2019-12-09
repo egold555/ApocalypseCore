@@ -38,10 +38,12 @@ public class NightVisionGoggleEvent {
 				if(!isShaderActive) {
 					isShaderActive = true;
 
+					
 					Minecraft.getMinecraft().entityRenderer.loadShader(new ResourceLocation(ApocalypseCore.MODID, "shaders/post/night_vision.json"));
 				}
 
-
+				
+				
 				Minecraft mc = Minecraft.getMinecraft();
 				int expand = 20;
 				List<EntityMob> mobs = Minecraft.getMinecraft().world.getEntitiesWithinAABB(EntityMob.class, new AxisAlignedBB(

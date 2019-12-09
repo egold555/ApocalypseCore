@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//https://github.com/Laike-Endaril/Dynamic-Stealth/blob/1.12.2/src/main/java/com/fantasticsource/dynamicstealth/client/layeredits/LayerSpiderEyesEdit.java
+
 @SideOnly(Side.CLIENT)
 public class LayerSpiderEyesEdit<T extends EntitySpider> implements LayerRenderer<T>
 {
