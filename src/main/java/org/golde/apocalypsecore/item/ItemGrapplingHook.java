@@ -55,6 +55,7 @@ public class ItemGrapplingHook extends _ACItemBowAnimation {
 
         if (!this.isShot) {
             EntityGrapplingHook hook1 = new EntityGrapplingHook(worldIn, player, 1.5F);
+           
             NBTTagCompound nbt1 = new NBTTagCompound();
 
             nbt1.setString("HookID", hook1.getUniqueID().toString());

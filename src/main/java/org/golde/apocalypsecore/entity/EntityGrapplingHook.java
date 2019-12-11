@@ -6,11 +6,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.datasync.DataParameter;
+import net.minecraft.network.datasync.DataSerializers;
+import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -33,11 +37,12 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
     public int canBePickedUp;
     public int hookShake;
     public Entity shootingEntity;
-    private String shootingEntityUUID;
     private int ticksInAir;
     public double destdistX;
     public double destdistY;
     public double destdistZ;
+    
+    public static final DataParameter<String> SHOOT_UUID = EntityDataManager.<String>createKey(EntityGrapplingHook.class, DataSerializers.STRING);
 
     public EntityGrapplingHook(World worldIn) {
         super(worldIn);
@@ -80,6 +85,7 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
     public EntityGrapplingHook(World worldIn, EntityLivingBase shooter, float p_i1756_3_) {
         super(worldIn);
         this.shootingEntity = shooter;
+        this.setShootingEntityUUID(shooter.getCachedUniqueIdString());
         if (shooter instanceof EntityPlayer) {
             this.canBePickedUp = 1;
         }
@@ -95,6 +101,7 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
         this.motionY = (double) (-MathHelper.sin(this.rotationPitch / 180.0F * 3.1415927F));
         this.shoot(this.motionX, this.motionY, this.motionZ, p_i1756_3_ * 1.5F, 1.0F);
     }
+ 
 
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
         float f2 = MathHelper.sqrt(x * x + y * y + z * z);
@@ -141,11 +148,11 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
     }
 
     public void setShootingEntityUUID(String uuid) {
-        this.shootingEntityUUID = uuid;
+        this.dataManager.set(SHOOT_UUID, uuid);
     }
 
     public String getShootingEntityUUID() {
-        return this.shootingEntityUUID;
+        return this.dataManager.get(SHOOT_UUID);
     }
 
     public void onUpdate() {
@@ -320,8 +327,8 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
             this.setShootingEntityUUID(this.shootingEntity.getUniqueID().toString());
         }
 
-        if (this.shootingEntity == null && this.shootingEntityUUID != null) {
-            this.shootingEntity = this.world.getPlayerEntityByUUID(UUID.fromString(this.shootingEntityUUID));
+        if (this.shootingEntity == null && this.getShootingEntityUUID() != null) {
+            this.shootingEntity = this.world.getPlayerEntityByUUID(UUID.fromString(this.getShootingEntityUUID()));
         }
 
     }
@@ -380,5 +387,8 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
         return this.inGround;
     }
 
-    protected void entityInit() {}
+    @Override
+    protected void entityInit() {
+    	this.dataManager.register(SHOOT_UUID, "");
+    }
 }
