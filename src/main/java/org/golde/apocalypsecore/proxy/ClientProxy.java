@@ -41,6 +41,7 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenders() {
 		ACBlocks.bindTESR();
 		ACEntities.registerRenders();
+		
 	}
 	
 	@SubscribeEvent

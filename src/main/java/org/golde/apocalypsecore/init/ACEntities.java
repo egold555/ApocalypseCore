@@ -4,6 +4,7 @@ import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityBullet;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityGrapplingHook;
 import org.golde.apocalypsecore.client.render.entity.RenderItemSmokebomb;
+import org.golde.apocalypsecore.client.render.entity.variant.VariantManager;
 import org.golde.apocalypsecore.entity.EntityBullet;
 import org.golde.apocalypsecore.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
@@ -80,7 +81,7 @@ public class ACEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmokeBombThrowable.class, RenderEntitySmokeBombThrowableFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBulletFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, RenderGrapplingHookFactory.INSTANCE);
-		
+		VariantManager.registerRenders();
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -18,7 +18,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderEntityBullet extends Render<EntityBullet>
 {
-	private static final ResourceLocation TEXTURES = new ResourceLocation(ApocalypseCore.MODID, "textures/entities/bullet.png");
+	private static final ResourceLocation TEXTURES = new ResourceLocation(ApocalypseCore.MODID, "textures/entity/bullet.png");
     private final ModelBullet model = new ModelBullet();
  
     public RenderEntityBullet(RenderManager manager) 

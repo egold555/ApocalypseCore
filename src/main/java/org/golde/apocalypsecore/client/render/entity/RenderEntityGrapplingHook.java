@@ -25,7 +25,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderEntityGrapplingHook extends Render<EntityGrapplingHook> {
 
-	private static final ResourceLocation hookTexture = new ResourceLocation(ApocalypseCore.MODID, "textures/entities/grappling_hook.png");
+	private static final ResourceLocation hookTexture = new ResourceLocation(ApocalypseCore.MODID, "textures/entity/grappling_hook.png");
 
 	public RenderEntityGrapplingHook(RenderManager renderManagerIn) {
 		super(renderManagerIn);
