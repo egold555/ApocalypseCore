@@ -3,10 +3,11 @@ package org.golde.apocalypsecore.client.render.entity.variant;
 import org.golde.apocalypsecore.client.render.entity.variant.VariantManager.RandomTextureType;
 
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RenderZombie;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderZombieVariant extends net.minecraft.client.renderer.entity.RenderZombie {
+public class RenderZombieVariant extends RenderZombie {
 
 	public RenderZombieVariant(RenderManager renderManagerIn) {
 		super(renderManagerIn);

@@ -11,6 +11,9 @@ import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.monster.EntityPigZombie;
+import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -23,22 +26,31 @@ public class VariantManager {
 	
 	public static void registerRenders() {
 		textures = Multimaps.newListMultimap(new EnumMap<>(RandomTextureType.class), ArrayList::new);
+		
 		registerTextures(RandomTextureType.ZOMBIE, 608, new ResourceLocation("textures/entity/zombie/zombie.png"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityZombie.class, RenderZombieVariant::new);
 		
+		
+		registerTextures(RandomTextureType.ZOMBIE, 30, new ResourceLocation("textures/entity/zombie_pigman.png"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityPigZombie.class, RenderZombiePigVariant::new);
+		
+		registerTextures(RandomTextureType.SKELETON, 67, new ResourceLocation("textures/skeleton/skeleton.png"));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySkeleton.class, RenderSkeletonVariant::new);
+		
+		registerTextures(RandomTextureType.SKELETON, 14, new ResourceLocation("textures/skeleton/wither_skeleton.png"));
+		RenderingRegistry.registerEntityRenderingHandler(EntityWitherSkeleton.class, RenderSkeletonWitherVariant::new);
 	}
 	
 	@SideOnly(Side.CLIENT)
 	private static void registerTextures(RandomTextureType type, int count, ResourceLocation vanilla) {
 		String name = type.name().toLowerCase();
 		for(int i = 1; i < count + 1; i++) {
-			System.out.println("Registering: " + String.format("textures/entity/random/%s/%d.png", name, i));
 			textures.put(type, new ResourceLocation(ApocalypseCore.MODID, String.format("textures/entity/random/%s/%d.png", name, i)));
 			
 		}
-		if(vanilla != null)
+		if(vanilla != null) {
 			textures.put(type, vanilla);
-		
+		}
 		
 	}
 	
@@ -53,7 +65,7 @@ public class VariantManager {
 	}
 	
 	public enum RandomTextureType {
-		ZOMBIE
+		ZOMBIE, ZOMBIE_PIG, SKELETON, SKELETON_WITHER
 	}
 	
 }
