@@ -124,7 +124,7 @@ public class RenderEntityGrapplingHook extends Render<EntityGrapplingHook> {
 
 		if (entity != null)
 		{
-			y = y - (1.6D - (double)entityLivingIn.height) * 0.5D;
+			y = y - (3.6D - (double)entityLivingIn.height) * 0.5D;
 			Tessellator tessellator = Tessellator.getInstance();
 			BufferBuilder bufferbuilder = tessellator.getBuffer();
 			double d0 = this.interpolateValue((double)entity.prevRotationYaw, (double)entity.rotationYaw, (double)(partialTicks * 0.5F)) * 0.01745329238474369D;
@@ -132,13 +132,6 @@ public class RenderEntityGrapplingHook extends Render<EntityGrapplingHook> {
 			double d2 = Math.cos(d0);
 			double d3 = Math.sin(d0);
 			double d4 = Math.sin(d1);
-
-			if (entity instanceof EntityHanging)
-			{
-				d2 = 0.0D;
-				d3 = 0.0D;
-				d4 = -1.0D;
-			}
 
 			double d5 = Math.cos(d1);
 			double d6 = this.interpolateValue(entity.prevPosX, entity.posX, (double)partialTicks) - d2 * 0.7D - d3 * 0.5D * d5;
@@ -164,8 +157,8 @@ public class RenderEntityGrapplingHook extends Render<EntityGrapplingHook> {
 
 			for (int j = 0; j <= 24; ++j)
 			{
-				float f = 0.5F;
-				float f1 = 0.4F;
+				float f = 0.3F;
+				float f1 = 0.3F;
 				float f2 = 0.3F;
 
 				if (j % 2 == 0)
@@ -185,8 +178,8 @@ public class RenderEntityGrapplingHook extends Render<EntityGrapplingHook> {
 
 			for (int k = 0; k <= 24; ++k)
 			{
-				float f4 = 0.5F;
-				float f5 = 0.4F;
+				float f4 = 0.3F;
+				float f5 = 0.3F;
 				float f6 = 0.3F;
 
 				if (k % 2 == 0)

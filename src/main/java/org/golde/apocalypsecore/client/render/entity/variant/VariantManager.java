@@ -34,10 +34,10 @@ public class VariantManager {
 		registerTextures(RandomTextureType.ZOMBIE_PIG, 30, new ResourceLocation("textures/entity/zombie_pigman.png"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityPigZombie.class, RenderZombiePigVariant::new);
 		
-		registerTextures(RandomTextureType.SKELETON, 67, new ResourceLocation("textures/skeleton/skeleton.png"));
+		registerTextures(RandomTextureType.SKELETON, 67, new ResourceLocation("textures/entity/skeleton/skeleton.png"));
 		RenderingRegistry.registerEntityRenderingHandler(EntitySkeleton.class, RenderSkeletonVariant::new);
 		
-		registerTextures(RandomTextureType.SKELETON_WITHER, 14, new ResourceLocation("textures/skeleton/wither_skeleton.png"));
+		registerTextures(RandomTextureType.SKELETON_WITHER, 14, new ResourceLocation("textures/entity/skeleton/wither_skeleton.png"));
 		RenderingRegistry.registerEntityRenderingHandler(EntityWitherSkeleton.class, RenderSkeletonWitherVariant::new);
 	}
 	
@@ -45,8 +45,7 @@ public class VariantManager {
 	private static void registerTextures(RandomTextureType type, int count, ResourceLocation vanilla) {
 		String name = type.name().toLowerCase();
 		for(int i = 1; i < count + 1; i++) {
-			textures.put(type, new ResourceLocation(ApocalypseCore.MODID, String.format("textures/entity/random/%s/%d.png", name, i)));
-			
+			textures.put(type, new ResourceLocation(ApocalypseCore.MODID, String.format("textures/entity/random/%s/%d.png", name, i)));	
 		}
 		if(vanilla != null) {
 			textures.put(type, vanilla);
@@ -60,12 +59,16 @@ public class VariantManager {
 		UUID id = e.getUniqueID();
 		long most = id.getMostSignificantBits();
 		int choice = Math.abs((int) (most % styles.size()));
+		//dont want to rename all the files in order
+		if(choice == 66 && type == RandomTextureType.ZOMBIE) {
+			choice = 0;
+		}
 		//System.out.println(choice);
 		return styles.get(choice);
 	}
 	
 	public enum RandomTextureType {
-		ZOMBIE, ZOMBIE_PIG, SKELETON, SKELETON_WITHER
+		ZOMBIE, ZOMBIE_PIG, SKELETON, SKELETON_WITHER, STRAY, STRAY_OVERLAY
 	}
 	
 }
