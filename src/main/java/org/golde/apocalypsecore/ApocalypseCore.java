@@ -33,6 +33,7 @@ public class ApocalypseCore {
     
     public static ACTab tab;
     public static ACTabCD tabCD;
+    public static ACTabFood tabFood;
 	
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -43,6 +44,7 @@ public class ApocalypseCore {
         
         tab = new ACTab();
         tabCD = new ACTabCD();
+        tabFood = new ACTabFood();
     }
 
     @Mod.EventHandler
@@ -69,6 +71,19 @@ public class ApocalypseCore {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(Items.ARROW);
+		}
+    	
+    }
+    
+    public static class ACTabFood extends CreativeTabs {
+
+		public ACTabFood() {
+			super("acTabFood");
+		}
+
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(Items.GLASS_BOTTLE);
 		}
     	
     }
