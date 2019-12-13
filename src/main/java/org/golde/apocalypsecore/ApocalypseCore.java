@@ -32,6 +32,7 @@ public class ApocalypseCore {
     public static Random RANDOM;
     
     public static ACTab tab;
+    public static ACTabCD tabCD;
 	
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -41,6 +42,7 @@ public class ApocalypseCore {
         proxy.registerRenders();
         
         tab = new ACTab();
+        tabCD = new ACTabCD();
     }
 
     @Mod.EventHandler
@@ -67,6 +69,19 @@ public class ApocalypseCore {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(Items.ARROW);
+		}
+    	
+    }
+    
+    public static class ACTabCD extends CreativeTabs {
+
+		public ACTabCD() {
+			super("acTabCD");
+		}
+
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(Items.BOW);
 		}
     	
     }
