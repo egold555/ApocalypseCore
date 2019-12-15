@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.golde.apocalypsecore.blocks.BlockBarbedWire;
+import org.golde.apocalypsecore.blocks.BlockCagedLight;
+import org.golde.apocalypsecore.blocks.BlockCagedLight2;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 
@@ -22,7 +24,8 @@ public class ACBlocks {
 
 	public static _ACBlock exampleBlock;
 	public static BlockBarbedWire barbedWire;
-	
+	public static BlockCagedLight light;
+	public static BlockCagedLight2 light2;
 
 	private static List<_ACBlock> ALL_BLOCKS = new ArrayList<_ACBlock>();
 
@@ -30,6 +33,8 @@ public class ACBlocks {
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(exampleBlock = new _ACBlock("example_block"));
 		event.getRegistry().register(barbedWire = new BlockBarbedWire());
+		event.getRegistry().register(light = new BlockCagedLight());
+		event.getRegistry().register(light2 = new BlockCagedLight2());
 		
 		
 		populateAllBlocksArray();
