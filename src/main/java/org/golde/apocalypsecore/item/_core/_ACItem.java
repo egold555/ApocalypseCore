@@ -4,6 +4,7 @@ import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.init.shared._IBObject;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
@@ -15,6 +16,11 @@ public class _ACItem extends Item implements _IACItem {
 		setRegistryName(name);
         setUnlocalizedName(ApocalypseCore.MODID + "." + name);
         if(shouldBeInCreatveTab()) {setCreativeTab(ApocalypseCore.tab);}
+	}
+	
+	public _ACItem setCreativeTab(CreativeTabs tab) {
+		super.setCreativeTab(tab);
+		return this;
 	}
 
 	@SideOnly(Side.CLIENT)

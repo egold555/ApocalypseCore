@@ -3,6 +3,7 @@ package org.golde.apocalypsecore;
 import java.util.Random;
 
 import org.apache.logging.log4j.Logger;
+import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.proxy.CommonProxy;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -62,7 +63,7 @@ public class ApocalypseCore {
     	proxy.serverStarting(e);
     }
     
-    public static class ACTab extends CreativeTabs {
+    private static class ACTab extends CreativeTabs {
 
 		public ACTab() {
 			super("acTab");
@@ -70,12 +71,12 @@ public class ApocalypseCore {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(Items.ARROW);
+			return new ItemStack(ACItems.wrench);
 		}
     	
     }
     
-    public static class ACTabFood extends CreativeTabs {
+    private static class ACTabFood extends CreativeTabs {
 
 		public ACTabFood() {
 			super("acTabFood");
@@ -83,12 +84,12 @@ public class ApocalypseCore {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(Items.GLASS_BOTTLE);
+			return new ItemStack(ACItems.sodaorange);
 		}
     	
     }
     
-    public static class ACTabCD extends CreativeTabs {
+    private static class ACTabCD extends CreativeTabs {
 
 		public ACTabCD() {
 			super("acTabCD");
