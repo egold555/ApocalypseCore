@@ -18,5 +18,7 @@ build
 .gradle
 
 # other
-eclipse
+
 run
+
+eclipse/FileGenerator/output/
