@@ -12,6 +12,7 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
@@ -24,13 +25,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCagedLight2 extends _ACBlock {
+public class BlockCagedOn extends _ACBlock {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	protected static final AxisAlignedBB LAMP_AAB = new AxisAlignedBB(0.375D, 0.71875D, 0.375D, 0.625D, 1.0D, 0.625D);
 
-	public BlockCagedLight2() {
-		super("lamp2", Material.IRON);
+	public BlockCagedOn(EnumDyeColor c) {
+		super("lamp_" + c.getName().toLowerCase(), Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(2.0F);
 		this.setLightLevel(1F);
