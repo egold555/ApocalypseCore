@@ -25,6 +25,23 @@ public class ACBlocks {
 	public static _ACBlock exampleBlock;
 	public static BlockBarbedWire barbedWire;
 	
+	public static BlockColoredLamp lamp_white;
+	public static BlockColoredLamp lamp_orange;
+	public static BlockColoredLamp lamp_magenta;
+	public static BlockColoredLamp lamp_light_blue;
+	public static BlockColoredLamp lamp_yellow;
+	public static BlockColoredLamp lamp_lime;
+	public static BlockColoredLamp lamp_pink;
+	public static BlockColoredLamp lamp_gray;
+	public static BlockColoredLamp lamp_silver;
+	public static BlockColoredLamp lamp_cyan;
+	public static BlockColoredLamp lamp_purple;
+	public static BlockColoredLamp lamp_blue;
+	public static BlockColoredLamp lamp_brown;
+	public static BlockColoredLamp lamp_green;
+	public static BlockColoredLamp lamp_red;
+	public static BlockColoredLamp lamp_black;
+	
 	public static BlockColoredLamp lamp_white_caged;
 	public static BlockColoredLamp lamp_orange_caged;
 	public static BlockColoredLamp lamp_magenta_caged;
@@ -48,6 +65,23 @@ public class ACBlocks {
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(exampleBlock = new _ACBlock("example_block"));
 		event.getRegistry().register(barbedWire = new BlockBarbedWire());
+		
+		event.getRegistry().register(lamp_white = new BlockColoredLamp(EnumDyeColor.WHITE, false));
+		event.getRegistry().register(lamp_orange = new BlockColoredLamp(EnumDyeColor.ORANGE, false));
+		event.getRegistry().register(lamp_magenta = new BlockColoredLamp(EnumDyeColor.MAGENTA, false));
+		event.getRegistry().register(lamp_light_blue = new BlockColoredLamp(EnumDyeColor.LIGHT_BLUE, false));
+		event.getRegistry().register(lamp_yellow = new BlockColoredLamp(EnumDyeColor.YELLOW, false));
+		event.getRegistry().register(lamp_lime = new BlockColoredLamp(EnumDyeColor.LIME, false));
+		event.getRegistry().register(lamp_pink = new BlockColoredLamp(EnumDyeColor.PINK, false));
+		event.getRegistry().register(lamp_gray = new BlockColoredLamp(EnumDyeColor.GRAY, false));
+		event.getRegistry().register(lamp_silver = new BlockColoredLamp(EnumDyeColor.SILVER, false));
+		event.getRegistry().register(lamp_cyan = new BlockColoredLamp(EnumDyeColor.CYAN, false));
+		event.getRegistry().register(lamp_purple = new BlockColoredLamp(EnumDyeColor.PURPLE, false));
+		event.getRegistry().register(lamp_blue = new BlockColoredLamp(EnumDyeColor.BLUE, false));
+		event.getRegistry().register(lamp_brown = new BlockColoredLamp(EnumDyeColor.BROWN, false));
+		event.getRegistry().register(lamp_green = new BlockColoredLamp(EnumDyeColor.GREEN, false));
+		event.getRegistry().register(lamp_red = new BlockColoredLamp(EnumDyeColor.RED, false));
+		event.getRegistry().register(lamp_black = new BlockColoredLamp(EnumDyeColor.BLACK, false));
 		
 		event.getRegistry().register(lamp_white_caged = new BlockColoredLamp(EnumDyeColor.WHITE, true));
 		event.getRegistry().register(lamp_orange_caged = new BlockColoredLamp(EnumDyeColor.ORANGE, true));

@@ -1,0 +1,7 @@
+{
+   "parent": "ac:block/lamp",
+   "textures": {
+       "color": "ac:blocks/lamp/on/1",
+	   "particle": "ac:blocks/lamp/on/1"
+   }
+}

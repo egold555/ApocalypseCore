@@ -28,7 +28,7 @@ public class ColoredLightGenerator {
 			"}";
 
 	private static final String BLOCK_JSON = "{\r\n" + 
-			"   \"parent\": \"ac:block/lamp_caged\",\r\n" + 
+			"   \"parent\": \"ac:block/lamp\",\r\n" + 
 			"   \"textures\": {\r\n" + 
 			"       \"color\": \"ac:blocks/lamp/on/%dye%\",\r\n" + 
 			"	   \"particle\": \"ac:blocks/lamp/on/%dye%\"\r\n" + 
@@ -57,7 +57,7 @@ public class ColoredLightGenerator {
 			"    }\r\n" + 
 			"  },\r\n" + 
 			"  \"result\": {\r\n" + 
-			"    \"item\": \"ac:lamp_%color%\",\r\n" + 
+			"    \"item\": \"ac:lamp_%color%_caged\",\r\n" + 
 			"	\"count\": 8\r\n" + 
 			"  }\r\n" + 
 			"}";
@@ -65,11 +65,11 @@ public class ColoredLightGenerator {
 
 	public void run() throws Exception {
 
-		genBlockModelFiles();
-		genItemModelFiles();
-		genStateFiles();
-		generateLanguage();
-		generateReg();
+		//genBlockModelFiles();
+		//genItemModelFiles();
+		//genStateFiles();
+		//generateLanguage();
+		//generateReg();
 		//generateTexturesOn();
 		//generateTexturesOff();
 		generateRecipeFiles();
@@ -129,13 +129,13 @@ public class ColoredLightGenerator {
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			String tp = "public static BlockColoredLamp lamp_" +color +  "_caged;";
+			String tp = "public static BlockColoredLamp lamp_" +color +  ";";
 			System.out.println(tp);
 		}
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			String tp = "event.getRegistry().register(lamp_" + color + "_caged = new BlockColoredLamp(EnumDyeColor." + color.toUpperCase() + ", true));";
+			String tp = "event.getRegistry().register(lamp_" + color + " = new BlockColoredLamp(EnumDyeColor." + color.toUpperCase() + ", false));";
 			System.out.println(tp);
 		}
 	}
@@ -144,7 +144,7 @@ public class ColoredLightGenerator {
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			String tp = "item.ac.lamp_" + color + "_caged.name=" + capitaliseFirstLetter(color) + " Caged Lamp";
+			String tp = "tile.ac.lamp_" + color + ".name=" + capitaliseFirstLetter(color) + " Lamp";
 			System.out.println(tp);
 		}
 	}
@@ -160,7 +160,7 @@ public class ColoredLightGenerator {
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			File jsonFile = new File(folder, "lamp_" + color + "_caged.json");
+			File jsonFile = new File(folder, "lamp_" + color + ".json");
 			jsonFile.createNewFile();
 			BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
 			writer.write(BLOCK_JSON.replace("%dye%", "" + c.getMetadata()));
@@ -176,10 +176,10 @@ public class ColoredLightGenerator {
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			File jsonFile = new File(folder, "lamp_" + color + "_caged.json");
+			File jsonFile = new File(folder, "lamp_" + color + ".json");
 			jsonFile.createNewFile();
 			BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
-			writer.write(ITEM_JSON.replace("%color%", "lamp_" + color + "_caged"));
+			writer.write(ITEM_JSON.replace("%color%", "lamp_" + color));
 			writer.close();
 
 		}
@@ -192,10 +192,10 @@ public class ColoredLightGenerator {
 		for(EnumDyeColor c : EnumDyeColor.values()) {
 			String color = c.name().toLowerCase();
 
-			File jsonFile = new File(folder, "lamp_" + color + "_caged.json");
+			File jsonFile = new File(folder, "lamp_" + color + ".json");
 			jsonFile.createNewFile();
 			BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
-			writer.write(STATE_JSON.replace("%color%", "lamp_" + color + "_caged"));
+			writer.write(STATE_JSON.replace("%color%", "lamp_" + color));
 			writer.close();
 
 		}
