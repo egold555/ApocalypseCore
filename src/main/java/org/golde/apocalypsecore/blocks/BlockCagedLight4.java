@@ -25,13 +25,13 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCagedLight3 extends _ACBlock {
+public class BlockCagedLight4 extends _ACBlock {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	protected static final AxisAlignedBB LAMP_AAB = new AxisAlignedBB(0.375D, 0.71875D, 0.375D, 0.625D, 1.0D, 0.625D);
 
-	public BlockCagedLight3(EnumDyeColor color) {
-		super("lamp_" + color.getName(), Material.IRON);
+	public BlockCagedLight4(EnumDyeColor c) {
+		super("lamp_" + c.getName().toLowerCase(), Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(2.0F);
 		this.setLightLevel(1F);

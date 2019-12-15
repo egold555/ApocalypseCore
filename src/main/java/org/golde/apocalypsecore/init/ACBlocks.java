@@ -8,7 +8,7 @@ import java.util.List;
 import org.golde.apocalypsecore.blocks.BlockBarbedWire;
 import org.golde.apocalypsecore.blocks.BlockCagedLight;
 import org.golde.apocalypsecore.blocks.BlockCagedLight2;
-import org.golde.apocalypsecore.blocks.BlockCagedLight3;
+import org.golde.apocalypsecore.blocks.BlockCagedLight4;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 
@@ -28,7 +28,24 @@ public class ACBlocks {
 	public static BlockBarbedWire barbedWire;
 	public static BlockCagedLight light;
 	public static BlockCagedLight2 light2;
-
+	
+	public static BlockCagedLight4 lamp_white;
+	public static BlockCagedLight4 lamp_orange;
+	public static BlockCagedLight4 lamp_magenta;
+	public static BlockCagedLight4 lamp_light_blue;
+	public static BlockCagedLight4 lamp_yellow;
+	public static BlockCagedLight4 lamp_lime;
+	public static BlockCagedLight4 lamp_pink;
+	public static BlockCagedLight4 lamp_gray;
+	public static BlockCagedLight4 lamp_silver;
+	public static BlockCagedLight4 lamp_cyan;
+	public static BlockCagedLight4 lamp_purple;
+	public static BlockCagedLight4 lamp_blue;
+	public static BlockCagedLight4 lamp_brown;
+	public static BlockCagedLight4 lamp_green;
+	public static BlockCagedLight4 lamp_red;
+	public static BlockCagedLight4 lamp_black;
+	
 	private static List<_ACBlock> ALL_BLOCKS = new ArrayList<_ACBlock>();
 
 	@SubscribeEvent
@@ -38,9 +55,23 @@ public class ACBlocks {
 		event.getRegistry().register(light = new BlockCagedLight());
 		event.getRegistry().register(light2 = new BlockCagedLight2());
 		
-		for(EnumDyeColor c: EnumDyeColor.values()) {
-			event.getRegistry().register(new BlockCagedLight3(c));
-		}
+		event.getRegistry().register(lamp_white = new BlockCagedLight4(EnumDyeColor.WHITE));
+		event.getRegistry().register(lamp_orange = new BlockCagedLight4(EnumDyeColor.ORANGE));
+		event.getRegistry().register(lamp_magenta = new BlockCagedLight4(EnumDyeColor.MAGENTA));
+		event.getRegistry().register(lamp_light_blue = new BlockCagedLight4(EnumDyeColor.LIGHT_BLUE));
+		event.getRegistry().register(lamp_yellow = new BlockCagedLight4(EnumDyeColor.YELLOW));
+		event.getRegistry().register(lamp_lime = new BlockCagedLight4(EnumDyeColor.LIME));
+		event.getRegistry().register(lamp_pink = new BlockCagedLight4(EnumDyeColor.PINK));
+		event.getRegistry().register(lamp_gray = new BlockCagedLight4(EnumDyeColor.GRAY));
+		event.getRegistry().register(lamp_silver = new BlockCagedLight4(EnumDyeColor.SILVER));
+		event.getRegistry().register(lamp_cyan = new BlockCagedLight4(EnumDyeColor.CYAN));
+		event.getRegistry().register(lamp_purple = new BlockCagedLight4(EnumDyeColor.PURPLE));
+		event.getRegistry().register(lamp_blue = new BlockCagedLight4(EnumDyeColor.BLUE));
+		event.getRegistry().register(lamp_brown = new BlockCagedLight4(EnumDyeColor.BROWN));
+		event.getRegistry().register(lamp_green = new BlockCagedLight4(EnumDyeColor.GREEN));
+		event.getRegistry().register(lamp_red = new BlockCagedLight4(EnumDyeColor.RED));
+		event.getRegistry().register(lamp_black = new BlockCagedLight4(EnumDyeColor.BLACK));
+
 		populateAllBlocksArray();
 
 		registerTileEntities();

@@ -2,9 +2,9 @@
     "parent": "block/orientable",
 	"__comment": "Designed by Eric with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "ac:blocks/lamp/light",
+		"particle": "ac:blocks/lamp/on/11",
 		"texture": "ac:blocks/lamp/light_cage",
-		"texture1": "ac:blocks/lamp/light",
+		"texture1": "ac:blocks/lamp/on/11",
 		"texture2": "ac:blocks/lamp/top"
 	},
 	"elements": [ 	 
