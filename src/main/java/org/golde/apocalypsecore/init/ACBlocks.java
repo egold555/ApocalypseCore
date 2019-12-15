@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.golde.apocalypsecore.blocks.BlockBarbedWire;
-import org.golde.apocalypsecore.blocks.BlockCagedLight;
-import org.golde.apocalypsecore.blocks.BlockCagedLight2;
 import org.golde.apocalypsecore.blocks.BlockCagedOn;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
