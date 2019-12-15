@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dye",
+      "data": 14
+    },
+    {
+      "item": "minecraft:gunpowder",
+      "data": 0
+    },
+    {
+      "item": "minecraft:glass_bottle",
+      "data": 0
+    }
+  ],
+  "result": {
+    "item": "ac:smoke_bomb",
+	"data": 14,
+	"count": 8
+  }
+}

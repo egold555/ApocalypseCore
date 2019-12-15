@@ -19,7 +19,28 @@ public class SmokeBombGenerator {
 			"  }\r\n" + 
 			"}";
 
-	
+	private static final String RECIPE_JSON = "{\r\n" + 
+			"  \"type\": \"minecraft:crafting_shapeless\",\r\n" + 
+			"  \"ingredients\": [\r\n" + 
+			"    {\r\n" + 
+			"      \"item\": \"minecraft:dye\",\r\n" + 
+			"      \"data\": %dye%\r\n" + 
+			"    },\r\n" + 
+			"    {\r\n" + 
+			"      \"item\": \"minecraft:gunpowder\",\r\n" + 
+			"      \"data\": 0\r\n" + 
+			"    },\r\n" + 
+			"    {\r\n" + 
+			"      \"item\": \"minecraft:glass_bottle\",\r\n" + 
+			"      \"data\": 0\r\n" + 
+			"    }\r\n" + 
+			"  ],\r\n" + 
+			"  \"result\": {\r\n" + 
+			"    \"item\": \"ac:smoke_bomb\",\r\n" + 
+			"	\"data\": %dye%,\r\n" + 
+			"	\"count\": 8\r\n" + 
+			"  }\r\n" + 
+			"}";
 
 	public void run() throws Exception {
 
@@ -29,9 +50,21 @@ public class SmokeBombGenerator {
 		generateRecipes();
 	}
 
-	private void generateRecipes() {
-		// TODO Auto-generated method stub
-		
+	private void generateRecipes() throws IOException {
+		File folder = new File("output/smoke/recipe");
+		folder.mkdirs();
+
+		for(EnumDyeColor c : EnumDyeColor.values()) {
+			String color = c.name().toLowerCase();
+			int dye = c.getDyeDamage();
+
+			File jsonFile = new File(folder, "smoke_bomb_" + color + ".json");
+			jsonFile.createNewFile();
+			BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
+			writer.write(RECIPE_JSON.replace("%dye%", "" + dye));
+			writer.close();
+
+		}
 	}
 
 	private void generateImages() throws IOException {
