@@ -6,23 +6,6 @@ itemGroup.acTabBuilding=ApocalypseCore (Blocks)
 tile.ac.example_block.name=Example Block
 tile.ac.barbed_wire.name=Barbed Wire
 
-tile.ac.lamp_white.name=White Lamp
-tile.ac.lamp_orange.name=Orange Lamp
-tile.ac.lamp_magenta.name=Magenta Lamp
-tile.ac.lamp_light_blue.name=Light_blue Lamp
-tile.ac.lamp_yellow.name=Yellow Lamp
-tile.ac.lamp_lime.name=Lime Lamp
-tile.ac.lamp_pink.name=Pink Lamp
-tile.ac.lamp_gray.name=Gray Lamp
-tile.ac.lamp_silver.name=Silver Lamp
-tile.ac.lamp_cyan.name=Cyan Lamp
-tile.ac.lamp_purple.name=Purple Lamp
-tile.ac.lamp_blue.name=Blue Lamp
-tile.ac.lamp_brown.name=Brown Lamp
-tile.ac.lamp_green.name=Green Lamp
-tile.ac.lamp_red.name=Red Lamp
-tile.ac.lamp_black.name=Black Lamp
-
 tile.ac.lamp_white_caged.name=White Caged Lamp
 tile.ac.lamp_orange_caged.name=Orange Caged Lamp
 tile.ac.lamp_magenta_caged.name=Magenta Caged Lamp
