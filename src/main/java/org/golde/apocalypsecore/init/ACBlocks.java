@@ -8,10 +8,12 @@ import java.util.List;
 import org.golde.apocalypsecore.blocks.BlockBarbedWire;
 import org.golde.apocalypsecore.blocks.BlockCagedLight;
 import org.golde.apocalypsecore.blocks.BlockCagedLight2;
+import org.golde.apocalypsecore.blocks.BlockCagedLight3;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 
 import net.minecraft.block.Block;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -36,7 +38,9 @@ public class ACBlocks {
 		event.getRegistry().register(light = new BlockCagedLight());
 		event.getRegistry().register(light2 = new BlockCagedLight2());
 		
-		
+		for(EnumDyeColor c: EnumDyeColor.values()) {
+			event.getRegistry().register(new BlockCagedLight3(c));
+		}
 		populateAllBlocksArray();
 
 		registerTileEntities();
