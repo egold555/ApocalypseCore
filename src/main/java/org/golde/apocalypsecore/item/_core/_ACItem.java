@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.item._core;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.init.shared._IBObject;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
@@ -15,7 +15,7 @@ public class _ACItem extends Item implements _IACItem {
 	public _ACItem(String name) {
 		setRegistryName(name);
         setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-        if(shouldBeInCreatveTab()) {setCreativeTab(ApocalypseCore.tab);}
+        if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 	}
 	
 	public _ACItem setCreativeTab(CreativeTabs tab) {

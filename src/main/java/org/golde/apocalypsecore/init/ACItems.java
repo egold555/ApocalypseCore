@@ -5,9 +5,9 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
-import org.golde.apocalypsecore.item.ItemCD;
 import org.golde.apocalypsecore.item.ItemFlamethrower;
 import org.golde.apocalypsecore.item.ItemGrapplingHook;
 import org.golde.apocalypsecore.item.ItemNightVisionGoggles;
@@ -131,86 +131,83 @@ public class ACItems {
 		event.getRegistry().register(nightVisionGoggles = new ItemNightVisionGoggles());
 		event.getRegistry().register(grapplingHook = new ItemGrapplingHook());
 		
-		event.getRegistry().register(apple = new _ACItemFood("apple", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(apple_rotten = new _ACItemFood("apple_rotten", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(beans = new _ACItem("beans").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(beans_open = new _ACItemFood("beans_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(blueberry = new _ACItemFood("blueberry", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(blueberry_rotten = new _ACItemFood("blueberry_rotten", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(bottlecure = new _ACItemFood("bottlecure", EnumAnimation.DRINK).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(bottlerbi = new _ACItemFood("bottlerbi", EnumAnimation.DRINK).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(candybar = new _ACItemFood("candybar", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cannedcorn = new _ACItem("cannedcorn").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cannedcorn_open = new _ACItemFood("cannedcorn_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(canneddogfood = new _ACItem("canneddogfood").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(canneddogfood_open = new _ACItemFood("canneddogfood_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cannedpickles = new _ACItem("cannedpickles").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cannedpickles_open = new _ACItemFood("cannedpickles_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cereal = new _ACItemFood("cereal", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cerealemerald = new _ACItemFood("cerealemerald", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cerealflakes = new _ACItemFood("cerealflakes", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(cerealnutty = new _ACItemFood("cerealnutty", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(chips = new _ACItemFood("chips", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(chipscheese = new _ACItemFood("chipscheese", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(chipsranch = new _ACItemFood("chipsranch", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(chipssalt = new _ACItemFood("chipssalt", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(coffeebeans = new _ACItemFood("coffeebeans", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(colapop_empty = new _ACItem("colapop_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(colapop = new _ACItemFood("colapop", EnumAnimation.DRINK).setReturnItem(colapop_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(custard_open = new _ACItemFood("custard_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(custard = new _ACItem("custard").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(deadbull_empty = new _ACItem("deadbull_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(deadbull = new _ACItemFood("deadbull", EnumAnimation.DRINK).setReturnItem(deadbull_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(humansteak = new _ACItemFood("humansteak", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(icetea_empty = new _ACItem("icetea_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(icetea = new _ACItemFood("icetea", EnumAnimation.DRINK).setReturnItem(icetea_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(ironbrew_empty = new _ACItem("ironbrew_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(ironbrew = new _ACItemFood("ironbrew", EnumAnimation.DRINK).setReturnItem(ironbrew_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(juice_empty = new _ACItem("juice_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(juice = new _ACItemFood("juice", EnumAnimation.DRINK).setReturnItem(juice_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(lemonfizz_empty = new _ACItem("lemonfizz_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(lemonfizz = new _ACItemFood("lemonfizz", EnumAnimation.DRINK).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(milk_empty = new _ACItem("milk_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(milk = new _ACItemFood("milk", EnumAnimation.DRINK).setReturnItem(milk_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(milk_rotten = new _ACItemFood("milk_rotten", EnumAnimation.DRINK).setReturnItem(milk_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(noodles = new _ACItemFood("noodles", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(pasta = new _ACItem("pasta").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(pasta_open = new _ACItemFood("pasta_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(peach = new _ACItem("peach").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(peach_open = new _ACItemFood("peach_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(pear = new _ACItemFood("pear", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(pear_rotten = new _ACItemFood("pear_rotten", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(popcorn = new _ACItemFood("popcorn", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(raspberry = new _ACItemFood("raspberry", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(raspberry_rotten = new _ACItemFood("raspberry_rotten", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(rice = new _ACItemFood("rice", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodacola_empty = new _ACItem("sodacola_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodacola = new _ACItemFood("sodacola", EnumAnimation.DRINK).setReturnItem(sodacola_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodadew_empty = new _ACItem("sodadew_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodadew = new _ACItemFood("sodadew", EnumAnimation.DRINK).setReturnItem(sodadew_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodaorange_empty = new _ACItem("sodaorange_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodaorange = new _ACItemFood("sodaorange", EnumAnimation.DRINK).setReturnItem(sodaorange_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodapepe_empty = new _ACItem("sodapepe_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sodapepe = new _ACItemFood("sodapepe", EnumAnimation.DRINK).setReturnItem(sodapepe_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sprite_empty = new _ACItem("sprite_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(sprite = new _ACItemFood("sprite", EnumAnimation.DRINK).setReturnItem(sprite_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tacticalbacon = new _ACItem("tacticalbacon").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tacticalbacon_open = new _ACItemFood("tacticalbacon_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tomatosoup = new _ACItem("tomatosoup").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tomatosoup_open = new _ACItemFood("tomatosoup_open", EnumAnimation.DRINK).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tuna = new _ACItem("tuna").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(tuna_open = new _ACItemFood("tuna_open", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(waterbottle_empty = new _ACItem("waterbottle_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(waterbottle = new _ACItemFood("waterbottle", EnumAnimation.DRINK).setReturnItem(waterbottle_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(watercanteen_empty = new _ACItem("watercanteen_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(watercanteen = new _ACItemFood("watercanteen", EnumAnimation.DRINK).setReturnItem(watercanteen_empty).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(watermelon = new _ACItemFood("watermelon", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(watermelon_rotten = new _ACItemFood("watermelon_rotten", EnumAnimation.EAT).setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(zombieenergy_empty = new _ACItem("zombieenergy_empty").setCreativeTab(ApocalypseCore.tabFood));
-		event.getRegistry().register(zombieenergy = new _ACItemFood("zombieenergy", EnumAnimation.DRINK).setReturnItem(zombieenergy_empty).setCreativeTab(ApocalypseCore.tabFood));
-		
-		
-		ACItemsCD.registerItems(event);
+		event.getRegistry().register(apple = new _ACItemFood("apple", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(apple_rotten = new _ACItemFood("apple_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(beans = new _ACItem("beans").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(beans_open = new _ACItemFood("beans_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(blueberry = new _ACItemFood("blueberry", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(blueberry_rotten = new _ACItemFood("blueberry_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(bottlecure = new _ACItemFood("bottlecure", EnumAnimation.DRINK).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(bottlerbi = new _ACItemFood("bottlerbi", EnumAnimation.DRINK).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(candybar = new _ACItemFood("candybar", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cannedcorn = new _ACItem("cannedcorn").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cannedcorn_open = new _ACItemFood("cannedcorn_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(canneddogfood = new _ACItem("canneddogfood").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(canneddogfood_open = new _ACItemFood("canneddogfood_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cannedpickles = new _ACItem("cannedpickles").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cannedpickles_open = new _ACItemFood("cannedpickles_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cereal = new _ACItemFood("cereal", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cerealemerald = new _ACItemFood("cerealemerald", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cerealflakes = new _ACItemFood("cerealflakes", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(cerealnutty = new _ACItemFood("cerealnutty", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(chips = new _ACItemFood("chips", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(chipscheese = new _ACItemFood("chipscheese", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(chipsranch = new _ACItemFood("chipsranch", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(chipssalt = new _ACItemFood("chipssalt", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(coffeebeans = new _ACItemFood("coffeebeans", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(colapop_empty = new _ACItem("colapop_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(colapop = new _ACItemFood("colapop", EnumAnimation.DRINK).setReturnItem(colapop_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(custard_open = new _ACItemFood("custard_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(custard = new _ACItem("custard").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(deadbull_empty = new _ACItem("deadbull_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(deadbull = new _ACItemFood("deadbull", EnumAnimation.DRINK).setReturnItem(deadbull_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(humansteak = new _ACItemFood("humansteak", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(icetea_empty = new _ACItem("icetea_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(icetea = new _ACItemFood("icetea", EnumAnimation.DRINK).setReturnItem(icetea_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(ironbrew_empty = new _ACItem("ironbrew_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(ironbrew = new _ACItemFood("ironbrew", EnumAnimation.DRINK).setReturnItem(ironbrew_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(juice_empty = new _ACItem("juice_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(juice = new _ACItemFood("juice", EnumAnimation.DRINK).setReturnItem(juice_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(lemonfizz_empty = new _ACItem("lemonfizz_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(lemonfizz = new _ACItemFood("lemonfizz", EnumAnimation.DRINK).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(milk_empty = new _ACItem("milk_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(milk = new _ACItemFood("milk", EnumAnimation.DRINK).setReturnItem(milk_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(milk_rotten = new _ACItemFood("milk_rotten", EnumAnimation.DRINK).setReturnItem(milk_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(noodles = new _ACItemFood("noodles", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(pasta = new _ACItem("pasta").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(pasta_open = new _ACItemFood("pasta_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(peach = new _ACItem("peach").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(peach_open = new _ACItemFood("peach_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(pear = new _ACItemFood("pear", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(pear_rotten = new _ACItemFood("pear_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(popcorn = new _ACItemFood("popcorn", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(raspberry = new _ACItemFood("raspberry", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(raspberry_rotten = new _ACItemFood("raspberry_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(rice = new _ACItemFood("rice", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodacola_empty = new _ACItem("sodacola_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodacola = new _ACItemFood("sodacola", EnumAnimation.DRINK).setReturnItem(sodacola_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodadew_empty = new _ACItem("sodadew_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodadew = new _ACItemFood("sodadew", EnumAnimation.DRINK).setReturnItem(sodadew_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodaorange_empty = new _ACItem("sodaorange_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodaorange = new _ACItemFood("sodaorange", EnumAnimation.DRINK).setReturnItem(sodaorange_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodapepe_empty = new _ACItem("sodapepe_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sodapepe = new _ACItemFood("sodapepe", EnumAnimation.DRINK).setReturnItem(sodapepe_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sprite_empty = new _ACItem("sprite_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(sprite = new _ACItemFood("sprite", EnumAnimation.DRINK).setReturnItem(sprite_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tacticalbacon = new _ACItem("tacticalbacon").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tacticalbacon_open = new _ACItemFood("tacticalbacon_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tomatosoup = new _ACItem("tomatosoup").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tomatosoup_open = new _ACItemFood("tomatosoup_open", EnumAnimation.DRINK).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tuna = new _ACItem("tuna").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(tuna_open = new _ACItemFood("tuna_open", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(waterbottle_empty = new _ACItem("waterbottle_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(waterbottle = new _ACItemFood("waterbottle", EnumAnimation.DRINK).setReturnItem(waterbottle_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(watercanteen_empty = new _ACItem("watercanteen_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(watercanteen = new _ACItemFood("watercanteen", EnumAnimation.DRINK).setReturnItem(watercanteen_empty).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(watermelon = new _ACItemFood("watermelon", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(watermelon_rotten = new _ACItemFood("watermelon_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(zombieenergy_empty = new _ACItem("zombieenergy_empty").setCreativeTab(ACTabs.FOOD));
+		event.getRegistry().register(zombieenergy = new _ACItemFood("zombieenergy", EnumAnimation.DRINK).setReturnItem(zombieenergy_empty).setCreativeTab(ACTabs.FOOD));
 
 		for(_ACBlock block : ACBlocks.getAllBlocksReflection()) {
 			if(block != null && block.shouldRegisterItem()) {
@@ -231,19 +228,6 @@ public class ACItems {
 	private static void populateAllItemsArray(){
 
 		for (Field field : ACItems.class.getDeclaredFields()) {
-			if (Modifier.isStatic(field.getModifiers()) && Modifier.isPublic(field.getModifiers())) {
-
-				try {
-					ALL_ITEMS.add((_IACItem) field.get(null));
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					e.printStackTrace();
-				}
-
-			}
-		}
-		
-		//ac items cd
-		for (Field field : ACItemsCD.class.getDeclaredFields()) {
 			if (Modifier.isStatic(field.getModifiers()) && Modifier.isPublic(field.getModifiers())) {
 
 				try {

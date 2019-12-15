@@ -3,12 +3,8 @@ package org.golde.apocalypsecore;
 import java.util.Random;
 
 import org.apache.logging.log4j.Logger;
-import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.proxy.CommonProxy;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -31,10 +27,6 @@ public class ApocalypseCore {
     
     public static Logger logger;
     public static Random RANDOM;
-    
-    public static ACTab tab;
-    public static ACTabCD tabCD;
-    public static ACTabFood tabFood;
 	
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -42,10 +34,6 @@ public class ApocalypseCore {
         logger = event.getModLog();
         proxy.preInit(event);
         proxy.registerRenders();
-        
-        tab = new ACTab();
-        tabCD = new ACTabCD();
-        tabFood = new ACTabFood();
     }
 
     @Mod.EventHandler
@@ -63,43 +51,6 @@ public class ApocalypseCore {
     	proxy.serverStarting(e);
     }
     
-    private static class ACTab extends CreativeTabs {
-
-		public ACTab() {
-			super("acTab");
-		}
-
-		@Override
-		public ItemStack getTabIconItem() {
-			return new ItemStack(ACItems.wrench);
-		}
-    	
-    }
     
-    private static class ACTabFood extends CreativeTabs {
-
-		public ACTabFood() {
-			super("acTabFood");
-		}
-
-		@Override
-		public ItemStack getTabIconItem() {
-			return new ItemStack(ACItems.sodaorange);
-		}
-    	
-    }
-    
-    private static class ACTabCD extends CreativeTabs {
-
-		public ACTabCD() {
-			super("acTabCD");
-		}
-
-		@Override
-		public ItemStack getTabIconItem() {
-			return new ItemStack(Items.BOW);
-		}
-    	
-    }
     
 }

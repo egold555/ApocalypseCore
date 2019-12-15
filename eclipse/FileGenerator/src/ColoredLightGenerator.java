@@ -111,6 +111,32 @@ public class ColoredLightGenerator {
 			"	}\r\n" + 
 			"}";
 
+	private static final String RECIPE_JSON = "{\r\n" + 
+			"  \"type\": \"minecraft:crafting_shaped\",\r\n" + 
+			"  \"pattern\": [\r\n" + 
+			"    \" S \",\r\n" + 
+			"    \"IDI\",\r\n" + 
+			"    \" I \"\r\n" + 
+			"  ],\r\n" + 
+			"  \"key\": {\r\n" + 
+			"    \"S\": {\r\n" + 
+			"      \"item\": \"minecraft:stone\",\r\n" + 
+			"      \"data\": 0\r\n" + 
+			"    },\r\n" + 
+			"    \"I\": {\r\n" + 
+			"      \"item\": \"minecraft:iron_bars\",\r\n" + 
+			"      \"data\": 0\r\n" + 
+			"    },\r\n" + 
+			"    \"D\": {\r\n" + 
+			"      \"item\": \"minecraft:dye\",\r\n" + 
+			"      \"data\": %dye%\r\n" + 
+			"    }\r\n" + 
+			"  },\r\n" + 
+			"  \"result\": {\r\n" + 
+			"    \"item\": \"ac:lamp_%color%\",\r\n" + 
+			"	\"count\": 8\r\n" + 
+			"  }\r\n" + 
+			"}";
 
 
 	public void run() throws Exception {
@@ -121,7 +147,25 @@ public class ColoredLightGenerator {
 		//generateLanguage();
 		//generateReg();
 		//generateTexturesOn();
-		generateTexturesOff();
+		//generateTexturesOff();
+		generateRecipeFiles();
+	}
+
+	private void generateRecipeFiles() throws IOException {
+		File folder = new File("output/light/recipe");
+		folder.mkdirs();
+
+		for(EnumDyeColor c : EnumDyeColor.values()) {
+			String color = c.name().toLowerCase();
+			int dye = c.getDyeDamage();
+
+			File jsonFile = new File(folder, "lamp_" + color + ".json");
+			jsonFile.createNewFile();
+			BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
+			writer.write(RECIPE_JSON.replace("%color%", color).replace("%dye%", "" + dye));
+			writer.close();
+
+		}
 	}
 
 	private void generateTexturesOff() throws IOException {

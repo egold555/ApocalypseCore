@@ -25,7 +25,13 @@ public class SmokeBombGenerator {
 
 		//generateModelFiles();
 		//generateLanguage();
-		generateImages();
+		//generateImages();
+		generateRecipes();
+	}
+
+	private void generateRecipes() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void generateImages() throws IOException {

@@ -1,5 +1,6 @@
 package org.golde.apocalypsecore.blocks;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 
 import net.minecraft.block.Block;
@@ -36,6 +37,7 @@ public class BlockCagedOn extends _ACBlock {
 		setHardness(2.0F);
 		this.setLightLevel(1F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+		setCreativeTab(ACTabs.BUILDING);
 	}
 
 	@Override

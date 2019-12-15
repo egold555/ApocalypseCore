@@ -1,6 +1,7 @@
 # Creative Tab
-itemGroup.acTab=ApocalypseCore (MISC)
+itemGroup.acTab=ApocalypseCore (Misc)
 itemGroup.acTabFood=ApocalypseCore (Food)
+itemGroup.acTabBuilding=ApocalypseCore (Blocks)
 # Blocks
 tile.ac.example_block.name=Example Block
 tile.ac.barbed_wire.name=Barbed Wire

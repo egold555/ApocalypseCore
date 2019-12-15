@@ -1,5 +1,6 @@
 package org.golde.apocalypsecore.item._core;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
 
 import net.minecraft.advancements.CriteriaTriggers;
@@ -8,7 +9,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -45,7 +45,7 @@ public class _ACItemFood extends ItemFood implements _IACItem {
 		super(amount, saturation, false);
 		setRegistryName(name);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-		if(shouldBeInCreatveTab()) {setCreativeTab(ApocalypseCore.tab);}
+		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 		this.animation = anim;
 
 		if(anim == EnumAnimation.DRINK) {

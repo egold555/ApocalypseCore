@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.item._core;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.init.shared._IBObject;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -16,7 +16,7 @@ public class _ACItemArmor extends ItemArmor implements _IACItem {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setRegistryName(name);
         setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-        if(shouldBeInCreatveTab()) {setCreativeTab(ApocalypseCore.tab);}
+        if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 	}
 
 	@SideOnly(Side.CLIENT)

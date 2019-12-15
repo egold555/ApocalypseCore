@@ -4,6 +4,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.init.ACDamageSource;
 
@@ -37,6 +38,7 @@ public class BlockBarbedWire extends _ACBlock implements IShearable{
 		setHardness(1);
 		setResistance(0);
 		setSoundType(SoundType.METAL);
+		setCreativeTab(ACTabs.BUILDING);
 	}
 
 

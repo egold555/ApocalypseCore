@@ -1,6 +1,7 @@
 package org.golde.apocalypsecore.blocks._core;
 
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
 
 import net.minecraft.block.Block;
@@ -26,7 +27,7 @@ public class _ACBlock extends Block implements _IACBlock {
 		super(mat);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
 		setRegistryName(name);
-		if(shouldBeInCreatveTab()) {setCreativeTab(ApocalypseCore.tab);}
+		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setSoundType(SoundType.STONE);
