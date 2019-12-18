@@ -13,6 +13,7 @@ public class ACTabs {
 	public static final ACTab MISC = new ACTab();
 	public static final ACTabBuilding BUILDING = new ACTabBuilding();
 	public static final ACTabFood FOOD = new ACTabFood();
+	public static final ACTabWeapons WEAPONS = new ACTabWeapons();
 
 	private static class ACTab extends CreativeTabs {
 
@@ -35,7 +36,7 @@ public class ACTabs {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ACItems.sodaorange);
+			return new ItemStack(ACItems._Food.sodaorange);
 		}
 
 	}
@@ -49,6 +50,19 @@ public class ACTabs {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ACBlocks.barbedWire);
+		}
+
+	}
+	
+	private static class ACTabWeapons extends CreativeTabs {
+
+		public ACTabWeapons() {
+			super("acTabWeapons");
+		}
+
+		@Override
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ACItems._Weapons.smokeBomb);
 		}
 
 	}

@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.entity.EntityBullet;
 import org.golde.apocalypsecore.item._core._ACItem;
 import org.lwjgl.input.Keyboard;
@@ -84,6 +85,8 @@ public class GunBase extends _ACItem {
 		this.ammoName = ammoName;
 		this.strength = strength;
 
+		setCreativeTab(ACTabs.WEAPONS);
+		
 		this.addPropertyOverride(new ResourceLocation("aiming"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {

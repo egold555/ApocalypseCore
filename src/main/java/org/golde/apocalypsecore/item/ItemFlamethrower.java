@@ -2,6 +2,7 @@ package org.golde.apocalypsecore.item;
 
 import java.util.Random;
 
+import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.entity.Entity;
@@ -26,6 +27,7 @@ public class ItemFlamethrower extends _ACItem {
 		super("flamethrower");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
+		setCreativeTab(ACTabs.WEAPONS);
 	}
 
 	@Override

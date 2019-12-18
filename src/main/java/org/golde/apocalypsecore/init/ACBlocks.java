@@ -24,47 +24,49 @@ public class ACBlocks {
 
 	public static _ACBlock exampleBlock;
 	public static BlockBarbedWire barbedWire;
-	
-	public static BlockCagedOn lamp_white;
-	public static BlockCagedOn lamp_orange;
-	public static BlockCagedOn lamp_magenta;
-	public static BlockCagedOn lamp_light_blue;
-	public static BlockCagedOn lamp_yellow;
-	public static BlockCagedOn lamp_lime;
-	public static BlockCagedOn lamp_pink;
-	public static BlockCagedOn lamp_gray;
-	public static BlockCagedOn lamp_silver;
-	public static BlockCagedOn lamp_cyan;
-	public static BlockCagedOn lamp_purple;
-	public static BlockCagedOn lamp_blue;
-	public static BlockCagedOn lamp_brown;
-	public static BlockCagedOn lamp_green;
-	public static BlockCagedOn lamp_red;
-	public static BlockCagedOn lamp_black;
-	
+
+	public static class Decoration {
+		public static BlockCagedOn lamp_white;
+		public static BlockCagedOn lamp_orange;
+		public static BlockCagedOn lamp_magenta;
+		public static BlockCagedOn lamp_light_blue;
+		public static BlockCagedOn lamp_yellow;
+		public static BlockCagedOn lamp_lime;
+		public static BlockCagedOn lamp_pink;
+		public static BlockCagedOn lamp_gray;
+		public static BlockCagedOn lamp_silver;
+		public static BlockCagedOn lamp_cyan;
+		public static BlockCagedOn lamp_purple;
+		public static BlockCagedOn lamp_blue;
+		public static BlockCagedOn lamp_brown;
+		public static BlockCagedOn lamp_green;
+		public static BlockCagedOn lamp_red;
+		public static BlockCagedOn lamp_black;
+	}
+
 	private static List<_ACBlock> ALL_BLOCKS = new ArrayList<_ACBlock>();
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(exampleBlock = new _ACBlock("example_block"));
 		event.getRegistry().register(barbedWire = new BlockBarbedWire());
-		
-		event.getRegistry().register(lamp_white = new BlockCagedOn(EnumDyeColor.WHITE));
-		event.getRegistry().register(lamp_orange = new BlockCagedOn(EnumDyeColor.ORANGE));
-		event.getRegistry().register(lamp_magenta = new BlockCagedOn(EnumDyeColor.MAGENTA));
-		event.getRegistry().register(lamp_light_blue = new BlockCagedOn(EnumDyeColor.LIGHT_BLUE));
-		event.getRegistry().register(lamp_yellow = new BlockCagedOn(EnumDyeColor.YELLOW));
-		event.getRegistry().register(lamp_lime = new BlockCagedOn(EnumDyeColor.LIME));
-		event.getRegistry().register(lamp_pink = new BlockCagedOn(EnumDyeColor.PINK));
-		event.getRegistry().register(lamp_gray = new BlockCagedOn(EnumDyeColor.GRAY));
-		event.getRegistry().register(lamp_silver = new BlockCagedOn(EnumDyeColor.SILVER));
-		event.getRegistry().register(lamp_cyan = new BlockCagedOn(EnumDyeColor.CYAN));
-		event.getRegistry().register(lamp_purple = new BlockCagedOn(EnumDyeColor.PURPLE));
-		event.getRegistry().register(lamp_blue = new BlockCagedOn(EnumDyeColor.BLUE));
-		event.getRegistry().register(lamp_brown = new BlockCagedOn(EnumDyeColor.BROWN));
-		event.getRegistry().register(lamp_green = new BlockCagedOn(EnumDyeColor.GREEN));
-		event.getRegistry().register(lamp_red = new BlockCagedOn(EnumDyeColor.RED));
-		event.getRegistry().register(lamp_black = new BlockCagedOn(EnumDyeColor.BLACK));
+
+		event.getRegistry().register(Decoration.lamp_white = new BlockCagedOn(EnumDyeColor.WHITE));
+		event.getRegistry().register(Decoration.lamp_orange = new BlockCagedOn(EnumDyeColor.ORANGE));
+		event.getRegistry().register(Decoration.lamp_magenta = new BlockCagedOn(EnumDyeColor.MAGENTA));
+		event.getRegistry().register(Decoration.lamp_light_blue = new BlockCagedOn(EnumDyeColor.LIGHT_BLUE));
+		event.getRegistry().register(Decoration.lamp_yellow = new BlockCagedOn(EnumDyeColor.YELLOW));
+		event.getRegistry().register(Decoration.lamp_lime = new BlockCagedOn(EnumDyeColor.LIME));
+		event.getRegistry().register(Decoration.lamp_pink = new BlockCagedOn(EnumDyeColor.PINK));
+		event.getRegistry().register(Decoration.lamp_gray = new BlockCagedOn(EnumDyeColor.GRAY));
+		event.getRegistry().register(Decoration.lamp_silver = new BlockCagedOn(EnumDyeColor.SILVER));
+		event.getRegistry().register(Decoration.lamp_cyan = new BlockCagedOn(EnumDyeColor.CYAN));
+		event.getRegistry().register(Decoration.lamp_purple = new BlockCagedOn(EnumDyeColor.PURPLE));
+		event.getRegistry().register(Decoration.lamp_blue = new BlockCagedOn(EnumDyeColor.BLUE));
+		event.getRegistry().register(Decoration.lamp_brown = new BlockCagedOn(EnumDyeColor.BROWN));
+		event.getRegistry().register(Decoration.lamp_green = new BlockCagedOn(EnumDyeColor.GREEN));
+		event.getRegistry().register(Decoration.lamp_red = new BlockCagedOn(EnumDyeColor.RED));
+		event.getRegistry().register(Decoration.lamp_black = new BlockCagedOn(EnumDyeColor.BLACK));
 
 		populateAllBlocksArray();
 
@@ -109,22 +111,34 @@ public class ACBlocks {
 
 	@SideOnly(Side.CLIENT)
 	public static void bindTESR() {
-		
+
 	}
 
 	private static void populateAllBlocksArray(){
 
-		for (Field field : ACBlocks.class.getDeclaredFields()) {
-			if (Modifier.isStatic(field.getModifiers()) && Modifier.isPublic(field.getModifiers())) {
+		List<Class<?>> classes = new ArrayList<Class<?>>();
 
-				try {
-					ALL_BLOCKS.add((_ACBlock) field.get(null));
-				} catch (IllegalArgumentException | IllegalAccessException e) {
-					e.printStackTrace();
+		classes.add(ACBlocks.class);
+
+		for(Class c : ACBlocks.class.getClasses()) {
+			classes.add(c);
+		}
+
+		for(Class c : classes) {
+			for (Field field : c.getDeclaredFields()) {
+				if (Modifier.isStatic(field.getModifiers()) && Modifier.isPublic(field.getModifiers())) {
+
+					try {
+						ALL_BLOCKS.add((_ACBlock) field.get(null));
+					} catch (IllegalArgumentException | IllegalAccessException e) {
+						e.printStackTrace();
+					}
+
 				}
-
 			}
 		}
+
+
 
 	}
 

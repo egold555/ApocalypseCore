@@ -2,6 +2,7 @@
 itemGroup.acTab=ApocalypseCore (Misc)
 itemGroup.acTabFood=ApocalypseCore (Food)
 itemGroup.acTabBuilding=ApocalypseCore (Blocks)
+itemGroup.acTabWeapons=ApocalypseCore (Weapons)
 # Blocks
 tile.ac.example_block.name=Example Block
 tile.ac.barbed_wire.name=Barbed Wire
@@ -29,11 +30,13 @@ item.ac.wrench.name=Wrench
 item.ac.night_vision_goggles.name=Night Vision Goggles
 item.ac.flamethrower.name=Flame Thrower (WIP)
 item.ac.grappling_hook.name=Grappling Hook
+item.ac.bat.name=Bat
+item.ac.bat_spiked.name=Spiked Bat
 
 item.ac.smoke_bomb.white.name=White Smoke Bomb
 item.ac.smoke_bomb.orange.name=Orange Smoke Bomb
 item.ac.smoke_bomb.magenta.name=Magenta Smoke Bomb
-item.ac.smoke_bomb.lampBlue.name=Light-blue Smoke Bomb
+item.ac.smoke_bomb.lightBlue.name=Light-blue Smoke Bomb
 item.ac.smoke_bomb.yellow.name=Yellow Smoke Bomb
 item.ac.smoke_bomb.lime.name=Lime Smoke Bomb
 item.ac.smoke_bomb.pink.name=Pink Smoke Bomb
@@ -65,6 +68,7 @@ item.ac.cannedpickles_open.name=Canned Pickles (Open)
 item.ac.cereal.name=Generic Cereal
 item.ac.cerealflakes.name=Cereal Flakes
 item.ac.cerealnutty.name=Nutty Cereal
+item.ac.cerealemerald.name=Emerald Cereal
 item.ac.chips.name=Chips
 item.ac.chipscheese.name=Cheese Chips
 item.ac.chipsranch.name=Ranch Chips

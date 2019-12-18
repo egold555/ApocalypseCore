@@ -91,7 +91,7 @@ public class ACEntities {
         @Override
         public Render<EntitySmokeBombThrowable> createRenderFor(RenderManager manager)
         {
-            return new RenderItemSmokebomb(manager, ACItems.smokeBomb);
+            return new RenderItemSmokebomb(manager, ACItems._Weapons.smokeBomb);
         }
     }
 	
