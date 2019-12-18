@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore;
+package org.golde.apocalypsecore.init;
 
 import net.minecraft.util.DamageSource;
 

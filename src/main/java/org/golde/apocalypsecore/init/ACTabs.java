@@ -1,7 +1,4 @@
-package org.golde.apocalypsecore;
-
-import org.golde.apocalypsecore.init.ACBlocks;
-import org.golde.apocalypsecore.init.ACItems;
+package org.golde.apocalypsecore.init;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -14,6 +11,7 @@ public class ACTabs {
 	public static final ACTabBuilding BUILDING = new ACTabBuilding();
 	public static final ACTabFood FOOD = new ACTabFood();
 	public static final ACTabWeapons WEAPONS = new ACTabWeapons();
+	public static final ACTabDrugs DRUGS = new ACTabDrugs();
 
 	private static class ACTab extends CreativeTabs {
 
@@ -63,6 +61,20 @@ public class ACTabs {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ACItems._Weapons.smokeBomb);
+		}
+
+	}
+	
+	private static class ACTabDrugs extends CreativeTabs {
+
+		public ACTabDrugs() {
+			super("acTabDrugs");
+		}
+
+		@Override
+		public ItemStack getTabIconItem() {
+			System.out.println("CALLED");
+			return new ItemStack(ACItems.syringeEmpty);
 		}
 
 	}

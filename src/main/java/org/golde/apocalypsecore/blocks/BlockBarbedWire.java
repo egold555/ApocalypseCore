@@ -4,9 +4,9 @@ import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.init.ACDamageSource;
+import org.golde.apocalypsecore.init.ACTabs;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

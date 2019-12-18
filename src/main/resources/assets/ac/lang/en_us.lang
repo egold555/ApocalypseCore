@@ -32,6 +32,8 @@ item.ac.flamethrower.name=Flame Thrower (WIP)
 item.ac.grappling_hook.name=Grappling Hook
 item.ac.bat.name=Bat
 item.ac.bat_spiked.name=Spiked Bat
+item.ac.syringe_empty.name=Empty Syringe
+item.ac.syringe_full.name=Syringe
 
 item.ac.smoke_bomb.white.name=White Smoke Bomb
 item.ac.smoke_bomb.orange.name=Orange Smoke Bomb

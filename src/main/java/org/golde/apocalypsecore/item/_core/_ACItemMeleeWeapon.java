@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.item._core;
 
-import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.init.ACTabs;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;

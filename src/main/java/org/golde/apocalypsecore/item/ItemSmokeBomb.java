@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.item;
 
-import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
+import org.golde.apocalypsecore.init.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

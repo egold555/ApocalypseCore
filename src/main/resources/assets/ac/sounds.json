@@ -1,4 +1,5 @@
 {
     "nightvision.on": { "category": "player", "sounds":["ac:nightvision_on"] },
-	"nightvision.off": { "category": "player", "sounds":["ac:nightvision_off"] }
+	"nightvision.off": { "category": "player", "sounds":["ac:nightvision_off"] },
+	"syringe": { "category": "player", "sounds":["ac:syringe"] }
 }

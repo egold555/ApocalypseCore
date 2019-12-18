@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.blocks;
 
-import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
+import org.golde.apocalypsecore.init.ACTabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
