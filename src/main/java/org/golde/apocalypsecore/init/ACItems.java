@@ -19,8 +19,11 @@ import org.golde.apocalypsecore.item._core._ACItemFood.EnumAnimation;
 import org.golde.apocalypsecore.item._core._ACItemMeleeWeapon;
 import org.golde.apocalypsecore.item._core._IACItem;
 import org.golde.apocalypsecore.item.gun.GunAimable;
+import org.golde.apocalypsecore.item.syringe.ItemSyringeEmpty;
+import org.golde.apocalypsecore.item.syringe.ItemSyringeFull;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -37,7 +40,8 @@ public class ACItems {
 	public static ItemWrench wrench;
 	public static ItemNightVisionGoggles nightVisionGoggles;
 	public static ItemGrapplingHook grapplingHook;
-	
+	public static ItemSyringeEmpty syringeEmpty;
+	public static ItemSyringeEmpty syringeFull;
 	public static class _Weapons {
 		public static ItemFlamethrower flamethrower;
 		public static ItemSmokeBomb smokeBomb;
@@ -139,9 +143,12 @@ public class ACItems {
 		event.getRegistry().register(_Weapons.flamethrower = new ItemFlamethrower());
 		event.getRegistry().register(nightVisionGoggles = new ItemNightVisionGoggles());
 		event.getRegistry().register(grapplingHook = new ItemGrapplingHook());
-		event.getRegistry().register(_Weapons.itemBaseBallBat = new _ACItemMeleeWeapon("bat", 3));
-		event.getRegistry().register(_Weapons.itemBaseBallBatSpiked = new _ACItemMeleeWeapon("bat_spiked", 6));
-
+		event.getRegistry().register(_Weapons.itemBaseBallBat = new _ACItemMeleeWeapon("bat", 3, 50, Blocks.PLANKS));
+		event.getRegistry().register(_Weapons.itemBaseBallBatSpiked = new _ACItemMeleeWeapon("bat_spiked", 6, 100, Blocks.PLANKS));
+		event.getRegistry().register(syringeEmpty = new ItemSyringeEmpty());
+		event.getRegistry().register(syringeFull = new ItemSyringeFull());
+		
+		
 		event.getRegistry().register(_Food.apple = new _ACItemFood("apple", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
 		event.getRegistry().register(_Food.apple_rotten = new _ACItemFood("apple_rotten", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
 		event.getRegistry().register(_Food.beans = new _ACItem("beans").setCreativeTab(ACTabs.FOOD));

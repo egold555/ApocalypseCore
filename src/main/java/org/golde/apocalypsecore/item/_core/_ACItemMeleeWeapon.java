@@ -3,12 +3,13 @@ package org.golde.apocalypsecore.item._core;
 import org.golde.apocalypsecore.ACTabs;
 import org.golde.apocalypsecore.ApocalypseCore;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -26,32 +27,41 @@ public class _ACItemMeleeWeapon extends ItemSword implements _IACItem {
 	private final int enchantability;
 	private final ItemStack repairItemstack;
 
-	public _ACItemMeleeWeapon(String name, float attackDamage) {
-		this(name, attackDamage, (ItemStack)null);
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses) {
+		this(name, attackDamage, maxUses, (ItemStack)null);
 	}
 
-	public _ACItemMeleeWeapon(String name, float attackDamage, ItemStack repair) {
-		this(name, attackDamage, repair, 0);
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, ItemStack repair) {
+		this(name, attackDamage, maxUses, repair, 0);
 	}
 
-	public _ACItemMeleeWeapon(String name, float attackDamage, Item repair) {
-		this(name, attackDamage, new ItemStack(repair));
-	}
-
-	public _ACItemMeleeWeapon(String name, float attackDamage, int enchantability) {
-		this(name, attackDamage, (ItemStack)null, enchantability);
-	}
-
-	public _ACItemMeleeWeapon(String name, float attackDamage, Item repair, int enchantability) {
-		this(name, attackDamage, new ItemStack(repair), enchantability);
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, Item repair) {
+		this(name, attackDamage, maxUses, new ItemStack(repair));
 	}
 	
-	public _ACItemMeleeWeapon(String name, float attackDamage, ItemStack repair, int enchantability) {
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, Block repair) {
+		this(name, attackDamage, maxUses, new ItemStack(repair));
+	}
+
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, int enchantability) {
+		this(name, attackDamage, maxUses, (ItemStack)null, enchantability);
+	}
+
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, Item repair, int enchantability) {
+		this(name, attackDamage, maxUses, new ItemStack(repair), enchantability);
+	}
+	
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, Block repair, int enchantability) {
+		this(name, attackDamage, maxUses, new ItemStack(repair), enchantability);
+	}
+	
+	public _ACItemMeleeWeapon(String name, float attackDamage, int maxUses, ItemStack repair, int enchantability) {
 		super(ToolMaterial.WOOD); //we override all method that use the toolMaterial, so what we pass in doesnt much matter
 
 		setRegistryName(name);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
 		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.WEAPONS);}
+		this.setMaxDamage(maxUses);
 		this.attackDamageIn = attackDamage;
 		this.enchantability = enchantability;
 		this.repairItemstack = repair;
@@ -96,7 +106,7 @@ public class _ACItemMeleeWeapon extends ItemSword implements _IACItem {
 	@Override //No material fix
 	public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
 	{
-		Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+		Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
 		if (equipmentSlot == EntityEquipmentSlot.MAINHAND)
 		{

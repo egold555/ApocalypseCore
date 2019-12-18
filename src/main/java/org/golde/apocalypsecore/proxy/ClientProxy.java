@@ -4,11 +4,14 @@ import org.golde.apocalypsecore.client.render.particle.ParticleGasSmoke;
 import org.golde.apocalypsecore.init.ACBlocks;
 import org.golde.apocalypsecore.init.ACEntities;
 import org.golde.apocalypsecore.init.ACItems;
+import org.golde.apocalypsecore.item.syringe.SyringeLiquidColor;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleFlame;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.world.World;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -73,6 +76,12 @@ public class ClientProxy extends CommonProxy {
                 Minecraft.getMinecraft().effectRenderer.addEffect(particle); 
             }
         }
+    }
+	
+	@SubscribeEvent
+    public static void itemColorHandlers(ColorHandlerEvent.Item event) {
+        ItemColors colors = event.getItemColors();
+        colors.registerItemColorHandler(new SyringeLiquidColor(), ACItems.syringeFull);
     }
 	
 }

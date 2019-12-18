@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ac:items/syringe",
+	"layer1": "ac:items/syringe_overlay"
+  }
+}
