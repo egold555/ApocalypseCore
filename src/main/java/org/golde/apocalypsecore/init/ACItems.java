@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
+import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.item.ItemFlamethrower;
 import org.golde.apocalypsecore.item.ItemGrapplingHook;
 import org.golde.apocalypsecore.item.ItemNightVisionGoggles;
@@ -227,7 +228,7 @@ public class ACItems {
 		event.getRegistry().register(_Food.zombieenergy = new _ACItemFood("zombieenergy", EnumAnimation.DRINK).setReturnItem(_Food.zombieenergy_empty).setCreativeTab(ACTabs.FOOD));
 
 		
-		for(_ACBlock block : ACBlocks.getAllBlocksReflection()) {
+		for(_IACBlock block : ACBlocks.getAllBlocksReflection()) {
 			if(block != null && block.shouldRegisterItem()) {
 				event.getRegistry().register(getItem(block));
 			}
@@ -237,6 +238,10 @@ public class ACItems {
 
 	}
 
+	private static ItemBlock getItem(_IACBlock iblock) {
+		return getItem((Block)iblock); //BAD but it works
+	}
+	
 	private static ItemBlock getItem(Block block) {
 		ItemBlock ib = new ItemBlock(block);
 		ib.setRegistryName(block.getRegistryName());

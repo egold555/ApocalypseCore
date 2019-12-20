@@ -7,8 +7,10 @@ import java.util.List;
 
 import org.golde.apocalypsecore.blocks.BlockBarbedWire;
 import org.golde.apocalypsecore.blocks.BlockCagedOn;
+import org.golde.apocalypsecore.blocks.BlockLandMine;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
+import org.golde.apocalypsecore.blocks._core._IACBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
@@ -24,7 +26,8 @@ public class ACBlocks {
 
 	public static _ACBlock exampleBlock;
 	public static BlockBarbedWire barbedWire;
-
+	public static BlockLandMine landMine;
+	
 	public static class Decoration {
 		public static BlockCagedOn lamp_white;
 		public static BlockCagedOn lamp_orange;
@@ -44,12 +47,13 @@ public class ACBlocks {
 		public static BlockCagedOn lamp_black;
 	}
 
-	private static List<_ACBlock> ALL_BLOCKS = new ArrayList<_ACBlock>();
+	private static List<_IACBlock> ALL_BLOCKS = new ArrayList<_IACBlock>();
 
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		event.getRegistry().register(exampleBlock = new _ACBlock("example_block"));
 		event.getRegistry().register(barbedWire = new BlockBarbedWire());
+		event.getRegistry().register(landMine = new BlockLandMine());
 
 		event.getRegistry().register(Decoration.lamp_white = new BlockCagedOn(EnumDyeColor.WHITE));
 		event.getRegistry().register(Decoration.lamp_orange = new BlockCagedOn(EnumDyeColor.ORANGE));
@@ -74,7 +78,7 @@ public class ACBlocks {
 	}
 
 	private static void registerTileEntities() {
-		for(_ACBlock block : ALL_BLOCKS) {
+		for(_IACBlock block : ALL_BLOCKS) {
 
 			if(block == null) {
 				System.err.println("Null block detected. Check assignmentss");
@@ -95,7 +99,7 @@ public class ACBlocks {
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 
-		for(_ACBlock block : ALL_BLOCKS) {
+		for(_IACBlock block : ALL_BLOCKS) {
 			if(block.shouldRegisterItem()) {
 				block.initModel();
 			}
@@ -129,7 +133,7 @@ public class ACBlocks {
 				if (Modifier.isStatic(field.getModifiers()) && Modifier.isPublic(field.getModifiers())) {
 
 					try {
-						ALL_BLOCKS.add((_ACBlock) field.get(null));
+						ALL_BLOCKS.add((_IACBlock) field.get(null));
 					} catch (IllegalArgumentException | IllegalAccessException e) {
 						e.printStackTrace();
 					}
@@ -142,7 +146,7 @@ public class ACBlocks {
 
 	}
 
-	public static List<_ACBlock> getAllBlocksReflection() {
+	public static List<_IACBlock> getAllBlocksReflection() {
 		return ALL_BLOCKS;
 	}
 

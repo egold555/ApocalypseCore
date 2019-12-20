@@ -31,20 +31,21 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if(tab == ACTabs.DRUGS) {
-//			for(int i = 0; i < 255; i++) {
-//				float hue = i / 255F;
-//				Color c = Color.getHSBColor(hue, 1, 1);
-//				ItemStack is = new ItemStack(this);
-//				setItemStackColor(is, c);
-//				items.add(is);
-//			}
-			
-			for(String s : Drugs.DRUGS) {
+			for(int i = 0; i < 255; i++) {
+				float hue = i / 255F;
+				Color c = Color.getHSBColor(hue, 1, 1);
 				ItemStack is = new ItemStack(this);
-				setItemStackColor(is, Drugs.getHashColor(s));
-				setItemStackName(is, s);
+				setItemStackName(is, "R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
+				setItemStackColor(is, c);
 				items.add(is);
 			}
+			
+//			for(String s : Drugs.DRUGS) {
+//				ItemStack is = new ItemStack(this);
+//				setItemStackColor(is, Drugs.getHashColor(s));
+//				setItemStackName(is, s);
+//				items.add(is);
+//			}
 		}
 		
 	}
@@ -59,11 +60,11 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 		if(stack.getTagCompound().hasKey("name")) {
 			String name = stack.getTagCompound().getString("name");
 			tooltip.add(name);
-			tooltip.add("");
-			tooltip.add("Symptoms");
-			for(String s : Drugs.getSymptoms(name)) {
-				tooltip.add("   - " + s);
-			}
+//			tooltip.add("");
+//			tooltip.add("Symptoms");
+//			for(String s : Drugs.getSymptoms(name)) {
+//				tooltip.add("   - " + s);
+//			}
 		}
 	}
 	
