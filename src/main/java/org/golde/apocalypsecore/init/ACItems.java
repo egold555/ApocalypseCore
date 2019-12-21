@@ -10,6 +10,7 @@ import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.item.ItemFlamethrower;
 import org.golde.apocalypsecore.item.ItemGrapplingHook;
+import org.golde.apocalypsecore.item.ItemMolotovCocktail;
 import org.golde.apocalypsecore.item.ItemNightVisionGoggles;
 import org.golde.apocalypsecore.item.ItemSmokeBomb;
 import org.golde.apocalypsecore.item.ItemTaser;
@@ -50,6 +51,7 @@ public class ACItems {
 		public static _ACItemMeleeWeapon itemBaseBallBat;
 		public static _ACItemMeleeWeapon itemBaseBallBatSpiked;
 		public static ItemTaser taser;
+		public static ItemMolotovCocktail molotovCocktail;
 	}
 
 	public static class _Food {
@@ -150,6 +152,7 @@ public class ACItems {
 		event.getRegistry().register(syringeEmpty = new ItemSyringeEmpty());
 		event.getRegistry().register(syringeFull = new ItemSyringeFull());
 		event.getRegistry().register(_Weapons.taser = new ItemTaser());
+		event.getRegistry().register(_Weapons.molotovCocktail = new ItemMolotovCocktail());
 		
 		
 		event.getRegistry().register(_Food.apple = new _ACItemFood("apple", EnumAnimation.EAT).setCreativeTab(ACTabs.FOOD));
