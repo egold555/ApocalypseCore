@@ -1,11 +1,14 @@
 package org.golde.apocalypsecore.item;
 
+import java.util.List;
+
 import org.golde.apocalypsecore.entity.EntityMolotovCocktail;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.init.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntitySnowball;
@@ -31,6 +34,12 @@ public class ItemMolotovCocktail extends _ACItem {
         this.setMaxDamage(0);
         this.maxStackSize = 16;
         setCreativeTab(ACTabs.WEAPONS);
+	}
+	
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		//tooltip.add("\"Fireball\" - Pitbull");
+		tooltip.add("\"Baby, I'm a fireball\" - Pitbull");
 	}
 	
 	@Override

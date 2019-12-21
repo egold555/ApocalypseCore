@@ -35,11 +35,16 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 				float hue = i / 255F;
 				Color c = Color.getHSBColor(hue, 1, 1);
 				ItemStack is = new ItemStack(this);
-				setItemStackName(is, "R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
+				//setItemStackName(is, "R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
 				setItemStackColor(is, c);
 				items.add(is);
 			}
 			
+			ItemStack rain = new ItemStack(this);
+			NBTTagCompound tag = rain.hasTagCompound() ? rain.getTagCompound() : new NBTTagCompound();
+			tag.setBoolean("rainbow", true);
+			rain.setTagCompound(tag);
+			items.add(rain);
 //			for(String s : Drugs.DRUGS) {
 //				ItemStack is = new ItemStack(this);
 //				setItemStackColor(is, Drugs.getHashColor(s));
@@ -65,6 +70,11 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 //			for(String s : Drugs.getSymptoms(name)) {
 //				tooltip.add("   - " + s);
 //			}
+		}
+		
+		if(stack.getTagCompound().hasKey("color")) {
+			Color c = new Color(stack.getTagCompound().getInteger("color"));
+tooltip.add("R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
 		}
 	}
 	

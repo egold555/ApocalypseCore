@@ -4,6 +4,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class ACTabs {
 
@@ -73,8 +74,13 @@ public class ACTabs {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			System.out.println("CALLED");
-			return new ItemStack(ACItems.syringeEmpty);
+			ItemStack it = new ItemStack(ACItems.syringeFull);
+			if(it.getTagCompound() == null) {
+				it.setTagCompound(new NBTTagCompound());
+			}
+			
+			it.getTagCompound().setBoolean("rainbow", true);
+			return it;
 		}
 
 	}

@@ -41,13 +41,21 @@ public class EntityMolotovCocktail extends EntityThrowable {
 			for(int x = -range1; x < range1; x++) {
 				for(int z = -range2; z < range2; z++) {
 					if(rand.nextBoolean()) {
-						BlockPos p = new BlockPos(this.posX + x, this.posY, this.posZ + z);
+						BlockPos p = new BlockPos(this.posX + x, world.getHeight((int)(this.posX + x), (int)(posZ + z)), this.posZ + z);
 						if(world.getBlockState(p) == Blocks.AIR.getDefaultState()) {
 							world.setBlockState(p, Blocks.FIRE.getDefaultState());
 						}
 					}
 				}
 			}
+		}
+	}
+	
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+		if(world.isRemote) {
+			world.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, posX, posY, posZ, 0, 0, 0);
 		}
 	}
 

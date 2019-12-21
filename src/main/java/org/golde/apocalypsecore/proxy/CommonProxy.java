@@ -2,6 +2,7 @@ package org.golde.apocalypsecore.proxy;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.gui.ForgeGuiHandler;
+import org.golde.apocalypsecore.init.ACDispenser;
 
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
@@ -21,6 +22,7 @@ public class CommonProxy {
 	public void init(FMLInitializationEvent e) {
 		//idk this needs to be called server side. COnfusing cause guis on client side but its forge who knows
 		NetworkRegistry.INSTANCE.registerGuiHandler(ApocalypseCore.instance, new ForgeGuiHandler());
+		ACDispenser.init();
 	}
 
 	public void postInit(FMLPostInitializationEvent e) {
