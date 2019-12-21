@@ -15,12 +15,14 @@ public class ACSounds {
 	public static SoundEvent NIGHT_VISION_ON;
 	public static SoundEvent NIGHT_VISION_OFF;
 	public static SoundEvent SYRINGE;
+	public static SoundEvent TASER;
 	
 	@SubscribeEvent
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
 		event.getRegistry().register(NIGHT_VISION_ON = registerSoundEvent("nightvision.on"));
 		event.getRegistry().register(NIGHT_VISION_OFF = registerSoundEvent("nightvision.off"));
 		event.getRegistry().register(SYRINGE = registerSoundEvent("syringe"));
+		event.getRegistry().register(TASER = registerSoundEvent("taser"));
 	}
 	
 	private static SoundEvent registerSoundEvent(String name){

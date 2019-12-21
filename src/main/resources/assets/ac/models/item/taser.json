@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ac:items/taser_off"
+  },
+  "overrides": [
+        {
+            "predicate": {
+                "active": 1.0
+            },
+            "model": "ac:item/taser_active"
+        }
+    ]
+}
