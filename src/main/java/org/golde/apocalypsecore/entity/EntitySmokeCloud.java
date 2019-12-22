@@ -7,6 +7,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.network.ACPacketHandler;
+import org.golde.apocalypsecore.network.packets.client.ACPacketParticle;
+import org.golde.apocalypsecore.utils.ACParticleTypes;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +22,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraftforge.fml.common.network.NetworkRegistry.TargetPoint;
 
 public class EntitySmokeCloud extends Entity {
 
@@ -56,7 +60,8 @@ public class EntitySmokeCloud extends Entity {
 				Entity emitter = ((WorldServer)world).getEntityFromUuid(emitterID);
 				if (emitter != null) {
 					this.setPosition(emitter.posX, emitter.posY, emitter.posZ);
-					ApocalypseCore.proxy.makeSmoke(world, posX, posY, posZ, color, particleAmount, MAX_PROPAGATION_DISTANCE-2, 2);
+					//ApocalypseCore.proxy.makeSmoke(world, posX, posY, posZ, color, particleAmount, MAX_PROPAGATION_DISTANCE-2, 2);
+					ACPacketHandler.NETWORK.sendToAllAround(new ACPacketParticle(ACParticleTypes.SMOKE, posX, posY, posZ, 0, 0, 0, particleAmount, color, MAX_PROPAGATION_DISTANCE-2, 2), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 200));
 				}
 			}
 			

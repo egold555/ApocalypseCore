@@ -32,25 +32,25 @@ public class SyringeLiquidColor implements IItemColor {
 			case 0: return Color.WHITE.getRGB();
 			case 1: {
 				
-				if(stack.getTagCompound().hasKey("rainbow")) {
-					if(stack.getTagCompound().getBoolean("rainbow")) {
-						
-						if(!stack.getTagCompound().hasKey("rainbowIndex")) {
-							stack.getTagCompound().setInteger("rainbowIndex", 0);
-						}
-						int index = stack.getTagCompound().getInteger("rainbowIndex");
-						int c = Color.HSBtoRGB(index / 1000F, 1, 1);
-						index++;
-						if(index > 1000) {
-							index = 0;
-						}
-						stack.getTagCompound().setInteger("rainbowIndex", index);
-						stack.getTagCompound().setInteger("color", c);
-						return c;
-					}
-				}
+//				if(stack.getTagCompound().hasKey("rainbow")) {
+//					if(stack.getTagCompound().getBoolean("rainbow")) {
+//						
+//						if(!stack.getTagCompound().hasKey("rainbowIndex")) {
+//							stack.getTagCompound().setInteger("rainbowIndex", 0);
+//						}
+//						int index = stack.getTagCompound().getInteger("rainbowIndex");
+//						int c = Color.HSBtoRGB(index / 1000F, 1, 1);
+//						index++;
+//						if(index > 1000) {
+//							index = 0;
+//						}
+//						stack.getTagCompound().setInteger("rainbowIndex", index);
+//						stack.getTagCompound().setInteger("color", c);
+//						return c;
+//					}
+//				}
 				
-				else if(stack.getTagCompound().hasKey("color")) {
+				/* else */if(stack.getTagCompound().hasKey("color")) {
 					int c = stack.getTagCompound().getInteger("color");
 					
 					return c;

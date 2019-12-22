@@ -30,4 +30,22 @@ public class ACParticle extends Particle {
 		return 1;
 	}
 
+	@Override
+	public String toString() {
+		return "ACParticle [prevPosX=" + prevPosX + ", prevPosY=" + prevPosY + ", prevPosZ="
+				+ prevPosZ + ", posX=" + posX + ", posY=" + posY + ", posZ=" + posZ + ", motionX=" + motionX
+				+ ", motionY=" + motionY + ", motionZ=" + motionZ + ", onGround=" + onGround + ", canCollide="
+				+ canCollide + ", isExpired=" + isExpired + ", width=" + width + ", height=" + height + ", rand=" + rand
+				+ ", particleTextureIndexX=" + particleTextureIndexX + ", particleTextureIndexY="
+				+ particleTextureIndexY + ", particleTextureJitterX=" + particleTextureJitterX
+				+ ", particleTextureJitterY=" + particleTextureJitterY + ", particleAge=" + particleAge
+				+ ", particleMaxAge=" + particleMaxAge + ", particleScale=" + particleScale + ", particleGravity="
+				+ particleGravity + ", particleRed=" + particleRed + ", particleGreen=" + particleGreen
+				+ ", particleBlue=" + particleBlue + ", particleAlpha=" + particleAlpha + ", particleTexture="
+				+ particleTexture + ", particleAngle=" + particleAngle + ", prevParticleAngle=" + prevParticleAngle
+				+ ", getFXLayer()=" + getFXLayer() + ", getClass()=" + getClass() + "]";
+	}
+	
+	
+
 }

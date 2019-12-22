@@ -74,12 +74,8 @@ public class ACTabs {
 
 		@Override
 		public ItemStack getTabIconItem() {
-			ItemStack it = new ItemStack(ACItems.syringeFull);
-			if(it.getTagCompound() == null) {
-				it.setTagCompound(new NBTTagCompound());
-			}
-			
-			it.getTagCompound().setBoolean("rainbow", true);
+			ItemStack it = new ItemStack(ACItems.syringeEmpty);
+
 			return it;
 		}
 

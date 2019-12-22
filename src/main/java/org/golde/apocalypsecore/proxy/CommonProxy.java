@@ -1,8 +1,10 @@
 package org.golde.apocalypsecore.proxy;
 
 import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.command.ACCommandParticle;
 import org.golde.apocalypsecore.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.init.ACDispenser;
+import org.golde.apocalypsecore.network.ACPacketHandler;
 
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +18,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent e) {
-
+		ACPacketHandler.preInit();
 	}
 
 	public void init(FMLInitializationEvent e) {
@@ -30,17 +32,13 @@ public class CommonProxy {
 	}
 
 	public void serverStarting(FMLServerStartingEvent e) {
-
+		e.registerServerCommand(new ACCommandParticle());
 	}
 
 	public void registerRenders() {/*Client Only Method*/}
 
 	public boolean isClient() {
 		return false;
-	}
-
-	public void makeSmoke(World world, double x, double y, double z, int color, int amount, int radX, int radY) {
-
 	}
 
 }

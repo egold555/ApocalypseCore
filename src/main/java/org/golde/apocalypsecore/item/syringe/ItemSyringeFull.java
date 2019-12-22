@@ -39,12 +39,7 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 				setItemStackColor(is, c);
 				items.add(is);
 			}
-			
-			ItemStack rain = new ItemStack(this);
-			NBTTagCompound tag = rain.hasTagCompound() ? rain.getTagCompound() : new NBTTagCompound();
-			tag.setBoolean("rainbow", true);
-			rain.setTagCompound(tag);
-			items.add(rain);
+
 //			for(String s : Drugs.DRUGS) {
 //				ItemStack is = new ItemStack(this);
 //				setItemStackColor(is, Drugs.getHashColor(s));
