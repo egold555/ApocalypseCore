@@ -5,8 +5,6 @@ import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.item.ItemFlamethrower;
 import org.golde.apocalypsecore.item.ItemGrapplingHook;
@@ -236,6 +234,7 @@ public class ACItems {
 		
 		for(_IACBlock block : ACBlocks.getAllBlocksReflection()) {
 			if(block != null && block.shouldRegisterItem()) {
+				
 				event.getRegistry().register(getItem(block));
 			}
 		}

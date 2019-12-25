@@ -1,16 +1,8 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "ac:items/grappling_hook"
+        "layer0": "ac:items/grappling_hook_shot"
     },
-	"overrides": [
-        {
-            "predicate": {
-                "shot": 1.0
-            },
-            "model": "ac:item/grappling_hook_shot"
-        }
-    ],
     "display": {
         "thirdperson_righthand": {
             "rotation": [ 90, -90, 135 ],

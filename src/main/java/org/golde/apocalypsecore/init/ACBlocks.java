@@ -11,10 +11,14 @@ import org.golde.apocalypsecore.blocks.BlockLandMine;
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 import org.golde.apocalypsecore.blocks._core._IACBlock;
+import org.golde.apocalypsecore.blocks.chest.loot.BlockLootChest;
+import org.golde.apocalypsecore.blocks.chest.loot.TIleEntityLootChest;
+import org.golde.apocalypsecore.client.render.block.TESRLootChest;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -27,7 +31,9 @@ public class ACBlocks {
 	public static _ACBlock exampleBlock;
 	public static BlockBarbedWire barbedWire;
 	public static BlockLandMine landMine;
-	
+
+	public static BlockLootChest lootChest;
+
 	public static class Decoration {
 		public static BlockCagedOn lamp_white;
 		public static BlockCagedOn lamp_orange;
@@ -54,6 +60,7 @@ public class ACBlocks {
 		event.getRegistry().register(exampleBlock = new _ACBlock("example_block"));
 		event.getRegistry().register(barbedWire = new BlockBarbedWire());
 		event.getRegistry().register(landMine = new BlockLandMine());
+		event.getRegistry().register(lootChest = new BlockLootChest());
 
 		event.getRegistry().register(Decoration.lamp_white = new BlockCagedOn(EnumDyeColor.WHITE));
 		event.getRegistry().register(Decoration.lamp_orange = new BlockCagedOn(EnumDyeColor.ORANGE));
@@ -92,10 +99,6 @@ public class ACBlocks {
 		}
 	}
 
-	private static void registerTE(_ACBlockWithTE<?> block) {
-		GameRegistry.registerTileEntity(block.getTileEntityClass(), block.getRegistryName());
-	}
-
 	@SideOnly(Side.CLIENT)
 	public static void initModels() {
 
@@ -105,17 +108,11 @@ public class ACBlocks {
 			}
 		}
 
-		//		exampleBlock.initModel();
-		//		tickChanger.initModel();
-		//		tickChanger2.initModel();
-		//		tickChanger3.initModel();
-		//		enhancedObsidian.initModel();
-		//		weatherDetector.initModel();
 	}
 
 	@SideOnly(Side.CLIENT)
 	public static void bindTESR() {
-
+		ClientRegistry.bindTileEntitySpecialRenderer(TIleEntityLootChest.class, new TESRLootChest());
 	}
 
 	private static void populateAllBlocksArray(){

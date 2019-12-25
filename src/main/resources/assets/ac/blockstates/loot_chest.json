@@ -1,0 +1,10 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "transform": "forge:default-block",
+    "model": "ac:loot_chest",
+    "textures": {
+      "particle": "minecraft:blocks/stone"
+    }
+  }
+}

@@ -2,6 +2,8 @@ package org.golde.apocalypsecore.item;
 
 import java.util.Iterator;
 
+import javax.annotation.Nullable;
+
 import org.golde.apocalypsecore.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.item._core._ACItem;
 import org.golde.apocalypsecore.item._core._ACItemBowAnimation;
@@ -9,25 +11,42 @@ import org.golde.apocalypsecore.item._core._ACItemBowAnimation;
 import com.google.common.base.Predicate;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemGrapplingHook extends _ACItemBowAnimation {
 
+	private boolean isShot = false;
+	
 	public ItemGrapplingHook() {
 		super("grappling_hook");
 		setMaxStackSize(1);
 		setMaxDamage(99);
+		this.addPropertyOverride(new ResourceLocation("shot"), new IItemPropertyGetter() {
+			@SideOnly(Side.CLIENT)
+			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+				if (entityIn == null) {
+					return 0.0F;
+				}
+				
+				return isShot ? 1.0F : 0.0F;
+			}
+		});
 	}
 	
-	private boolean isShot = false;
+	
 
     public ActionResult onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
@@ -60,6 +79,7 @@ public class ItemGrapplingHook extends _ACItemBowAnimation {
 
             nbt1.setString("HookID", hook1.getUniqueID().toString());
             stack.setTagInfo("HookInfo", nbt1);
+            
             if (!worldIn.isRemote) {
                 worldIn.spawnEntity(hook1);
                 this.isShot = true;

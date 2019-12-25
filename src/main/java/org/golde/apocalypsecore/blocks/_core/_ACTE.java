@@ -39,12 +39,23 @@ public class _ACTE extends TileEntity {
     @Nullable
     @Override
     public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.pos, -999, this.getUpdateTag());
+        return new SPacketUpdateTileEntity(this.pos, 3, this.getUpdateTag());
     }
+    
+    protected void sendUpdates() {
+		world.markBlockRangeForRenderUpdate(pos, pos);
+		world.notifyBlockUpdate(pos, getState(), getState(), 3);
+		world.scheduleBlockUpdate(pos,this.getBlockType(),0,0);
+		markDirty();
+	}
+    
+    private IBlockState getState() {
+		return world.getBlockState(pos);
+	}
 
     @Override
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-        this.readSyncNBT(pkt.getNbtCompound());
+        handleUpdateTag(pkt.getNbtCompound());
     }
 
     @Override

@@ -1,6 +1,8 @@
 package org.golde.apocalypsecore.utils;
 
 import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.client.render.particle.ParticleFireballHuge;
+import org.golde.apocalypsecore.client.render.particle.ParticleFireballLarge;
 import org.golde.apocalypsecore.client.render.particle.ParticleGasSmoke;
 import org.golde.apocalypsecore.client.render.particle.ParticleItemIcon;
 import org.golde.apocalypsecore.proxy.ClientProxy;
@@ -50,11 +52,23 @@ public enum ACParticleTypes {
 		}
 	}, 
 
-	EXPLOSION {
+	FIREBALL {
 		@Override
 		protected void onRender(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... args) {
-			// TODO Auto-generated method stub
-
+			for (int i = 0; i < count; i++) {
+	            ParticleFireballLarge p = new ParticleFireballLarge(world, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed);
+	            this.addToRenderer(p);
+	        }
+		}
+	},
+	
+	FIREBALL_HUGE {
+		@Override
+		protected void onRender(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... args) {
+			for (int i = 0; i < count; i++) {
+	            ParticleFireballHuge p = new ParticleFireballHuge(world, xCoord, yCoord, zCoord);
+	            this.addToRenderer(p);
+	        }
 		}
 	};
 
