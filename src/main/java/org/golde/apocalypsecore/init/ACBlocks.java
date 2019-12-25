@@ -14,6 +14,7 @@ import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.blocks.chest.loot.BlockLootChest;
 import org.golde.apocalypsecore.blocks.chest.loot.TIleEntityLootChest;
 import org.golde.apocalypsecore.client.render.block.TESRLootChest;
+import org.golde.apocalypsecore.client.render.block.TESRLootChest2;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.EnumDyeColor;
@@ -112,7 +113,7 @@ public class ACBlocks {
 
 	@SideOnly(Side.CLIENT)
 	public static void bindTESR() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TIleEntityLootChest.class, new TESRLootChest());
+		ClientRegistry.bindTileEntitySpecialRenderer(TIleEntityLootChest.class, new TESRLootChest2());
 	}
 
 	private static void populateAllBlocksArray(){

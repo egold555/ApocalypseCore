@@ -110,8 +110,12 @@ public class _ACTESingleChest extends _ACTE implements ITickable {
 	}
 
 	public void toggleChest() {
-		isOpen = !isOpen;
-		sendUpdates();
+		if(isOpen) {
+			closeChest();
+		}
+		else {
+			openChest();
+		}
 	}
 
 	public boolean isOpen() {

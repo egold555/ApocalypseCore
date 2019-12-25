@@ -4,9 +4,11 @@ import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityBullet;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityGrapplingHook;
 import org.golde.apocalypsecore.client.render.entity.RenderEntityMolotovCocktail;
+import org.golde.apocalypsecore.client.render.entity.RenderFallingLootCrate;
 import org.golde.apocalypsecore.client.render.entity.RenderItemSmokebomb;
 import org.golde.apocalypsecore.client.render.entity.variant.VariantManager;
 import org.golde.apocalypsecore.entity.EntityBullet;
+import org.golde.apocalypsecore.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.entity.EntityMolotovCocktail;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
@@ -86,6 +88,17 @@ public class ACEntities {
 //				.spawn(EnumCreatureType.CREATURE, 20, 1, 5, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
 				.build()
 				);
+		
+		event.getRegistry().register(
+				EntityEntryBuilder.create()
+				.entity(EntityFallingLootCrate.class)
+				.id(new ResourceLocation(ApocalypseCore.MODID, "fallinglootcrate"), id++)
+				.name("fallinglootcrate")
+				.tracker(64, 1, true)
+//				.egg(MapColor.BLUE.colorValue, MapColor.YELLOW.colorValue)
+//				.spawn(EnumCreatureType.CREATURE, 20, 1, 5, BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST))
+				.build()
+				);
 
 	}
 	
@@ -95,6 +108,7 @@ public class ACEntities {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, RenderBulletFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, RenderGrapplingHookFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMolotovCocktail.class, RenderEntityMolotovCocktailFactory.INSTANCE);
+		RenderingRegistry.registerEntityRenderingHandler(EntityFallingLootCrate.class, RenderEntityFallingLootCrateFactory.INSTANCE);
 		VariantManager.registerRenders();
 	}
 	
@@ -139,6 +153,17 @@ public class ACEntities {
         public Render<EntityMolotovCocktail> createRenderFor(RenderManager manager)
         {
             return new RenderEntityMolotovCocktail(manager, ACItems._Weapons.molotovCocktail);
+        }
+    }
+	
+	@SideOnly(Side.CLIENT)
+	public static class RenderEntityFallingLootCrateFactory implements IRenderFactory<EntityFallingLootCrate> {
+        public final static RenderEntityFallingLootCrateFactory INSTANCE = new RenderEntityFallingLootCrateFactory();
+    
+        @Override
+        public Render<EntityFallingLootCrate> createRenderFor(RenderManager manager)
+        {
+            return new RenderFallingLootCrate(manager);
         }
     }
 	

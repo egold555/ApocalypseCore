@@ -2,6 +2,7 @@ package org.golde.apocalypsecore.proxy;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.command.ACCommandParticle;
+import org.golde.apocalypsecore.command.ACCommandTest;
 import org.golde.apocalypsecore.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.init.ACDispenser;
 import org.golde.apocalypsecore.network.ACPacketHandler;
@@ -33,6 +34,7 @@ public class CommonProxy {
 
 	public void serverStarting(FMLServerStartingEvent e) {
 		e.registerServerCommand(new ACCommandParticle());
+		e.registerServerCommand(new ACCommandTest());
 	}
 
 	public void registerRenders() {/*Client Only Method*/}

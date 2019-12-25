@@ -11,12 +11,15 @@ public class BlockLootChest extends _ACBlockSingleChest<TIleEntityLootChest> {
 
 	public BlockLootChest() {
 		super("loot_chest", Material.IRON);
-		// TODO Auto-generated constructor stub
+		this.setLightLevel(1.0F);
 	}
 	
 	@Override
 	public void onClickChest(_ACTESingleChest telc, boolean isOpenAlready) {
-		super.onClickChest(telc, isOpenAlready);
+		if(!telc.isOpen()) {
+			telc.openChest();
+		}
+		
 	}
 
 	@Override
