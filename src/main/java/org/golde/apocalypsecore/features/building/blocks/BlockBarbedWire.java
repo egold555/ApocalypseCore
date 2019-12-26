@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.blocks;
+package org.golde.apocalypsecore.features.building.blocks;
 
 import java.util.Random;
 
@@ -38,7 +38,6 @@ public class BlockBarbedWire extends _ACBlock implements IShearable{
 		setHardness(1);
 		setResistance(0);
 		setSoundType(SoundType.METAL);
-		setCreativeTab(ACTabs.BUILDING);
 	}
 
 

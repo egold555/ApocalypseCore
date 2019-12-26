@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.blocks;
+package org.golde.apocalypsecore.features.building.blocks;
 
 import org.golde.apocalypsecore.blocks._core._ACBlock;
 import org.golde.apocalypsecore.init.ACTabs;
@@ -26,18 +26,18 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class BlockCagedOn extends _ACBlock {
+public class BlockCagedLampOn extends _ACBlock {
 
 	public static final PropertyDirection FACING = BlockDirectional.FACING;
 	protected static final AxisAlignedBB LAMP_AAB = new AxisAlignedBB(0.375D, 0.71875D, 0.375D, 0.625D, 1.0D, 0.625D);
 
-	public BlockCagedOn(EnumDyeColor c) {
+	public BlockCagedLampOn(EnumDyeColor c) {
 		super("lamp_" + c.getName().toLowerCase(), Material.IRON);
 		setSoundType(SoundType.METAL);
 		setHardness(2.0F);
 		this.setLightLevel(1F);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
-		setCreativeTab(ACTabs.BUILDING);
+		//setCreativeTab(ACTabs.BUILDING);
 	}
 
 	@Override

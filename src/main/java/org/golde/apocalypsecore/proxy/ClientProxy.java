@@ -1,5 +1,6 @@
 package org.golde.apocalypsecore.proxy;
 
+import org.golde.apocalypsecore.base.features.FeatureRegistration;
 import org.golde.apocalypsecore.client.render.particle.ParticleGasSmoke;
 import org.golde.apocalypsecore.init.ACBlocks;
 import org.golde.apocalypsecore.init.ACEntities;
@@ -44,13 +45,14 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenders() {
 		ACBlocks.bindTESR();
 		ACEntities.registerRenders();
-		
+		FeatureRegistration.bindTESR();
 	}
 	
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		ACItems.initModels();
 		ACBlocks.initModels();
+		FeatureRegistration.initModels();
 	}
 	
 	@Override

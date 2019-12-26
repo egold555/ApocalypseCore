@@ -9,7 +9,6 @@ import net.minecraft.nbt.NBTTagCompound;
 public class ACTabs {
 
 	public static final ACTab MISC = new ACTab();
-	public static final ACTabBuilding BUILDING = new ACTabBuilding();
 	public static final ACTabFood FOOD = new ACTabFood();
 	public static final ACTabWeapons WEAPONS = new ACTabWeapons();
 	public static final ACTabDrugs DRUGS = new ACTabDrugs();
@@ -36,19 +35,6 @@ public class ACTabs {
 		@Override
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ACItems._Food.sodaorange);
-		}
-
-	}
-
-	private static class ACTabBuilding extends CreativeTabs {
-
-		public ACTabBuilding() {
-			super("acTabBuilding");
-		}
-
-		@Override
-		public ItemStack getTabIconItem() {
-			return new ItemStack(ACBlocks.barbedWire);
 		}
 
 	}
