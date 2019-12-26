@@ -21,6 +21,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.text.TextComponentString;
 
 public class ACCommandTest extends CommandBase {
 
@@ -42,17 +43,17 @@ public class ACCommandTest extends CommandBase {
 
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		
-			
-		 EntityFallingLootCrate fb = new EntityFallingLootCrate(sender.getEntityWorld(), sender.getPosition().getX(), sender.getPosition().getY() + 10, sender.getPosition().getZ());
-		 sender.getEntityWorld().spawnEntity(fb);
-        
+
+		server.getPlayerList().sendMessage(new TextComponentString("Incoming SUpply Drop! X Y Z"));
+		EntityFallingLootCrate fb = new EntityFallingLootCrate(sender.getEntityWorld(), sender.getPosition().getX(), sender.getPosition().getY() + 10, sender.getPosition().getZ());
+		sender.getEntityWorld().spawnEntity(fb);
+
 	}
-	
+
 	@Override
 	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, @Nullable BlockPos targetPos)
-    {
+	{
 		return Collections.<String>emptyList();
-    }
+	}
 
 }

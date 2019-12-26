@@ -1,10 +1,18 @@
 package org.golde.apocalypsecore.entity;
 
 import com.google.common.collect.Lists;
+
+import io.netty.handler.codec.http2.Http2FrameLogger.Direction;
+
 import java.util.List;
+import java.util.Random;
+
 import javax.annotation.Nullable;
 
+import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.blocks.chest.loot.BlockLootChest;
 import org.golde.apocalypsecore.init.ACBlocks;
+import org.golde.apocalypsecore.utils.EnumUtils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAnvil;
@@ -40,7 +48,7 @@ public class EntityFallingLootCrate extends Entity
 	public int fallTime = 1;
 	protected static final DataParameter<BlockPos> ORIGIN = EntityDataManager.<BlockPos>createKey(EntityFallingLootCrate.class, DataSerializers.BLOCK_POS);
 
-	private static final IBlockState fallTile = ACBlocks.lootChest.getDefaultState();
+	private IBlockState fallTile = ACBlocks.lootChest.getDefaultState();
 
 	public EntityFallingLootCrate(World worldIn)
 	{
@@ -113,6 +121,10 @@ public class EntityFallingLootCrate extends Entity
 	@Override
 	public void onUpdate()
 	{
+		//idk its sometimes null??
+//		if(fallTile == null) {
+//			this.fallTile = Blocks.RED_GLAZED_TERRACOTTA.getDefaultState();
+//		}
 		Block block = this.fallTile.getBlock();
 
 
