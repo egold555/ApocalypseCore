@@ -6,7 +6,6 @@ import java.util.List;
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.util.EntityGlowlyThing;
 import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
-import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.init.ACSounds;
 
 import net.minecraft.client.Minecraft;

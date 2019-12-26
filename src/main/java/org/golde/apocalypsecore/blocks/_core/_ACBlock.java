@@ -2,7 +2,6 @@ package org.golde.apocalypsecore.blocks._core;
 
 
 import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.init.ACTabs;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;

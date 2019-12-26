@@ -2,7 +2,6 @@ package org.golde.apocalypsecore.features.weapons.items;
 
 import java.util.Random;
 
-import org.golde.apocalypsecore.init.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.entity.Entity;

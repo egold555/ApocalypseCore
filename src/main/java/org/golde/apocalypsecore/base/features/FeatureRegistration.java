@@ -7,12 +7,15 @@ import java.util.List;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.features.food.FeatureFood;
 import org.golde.apocalypsecore.features.misc.FeatureMisc;
 import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.item._core._IACItem;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -29,12 +32,12 @@ public class FeatureRegistration {
 
 	private static List<Feature> features = new ArrayList<Feature>();
 	
-	
 	static {
 		features.add(new FeatureMisc());
 		features.add(new FeatureBuilding());
 		features.add(new FeatureFood());
 		features.add(new FeatureWeapons());
+		features.add(new FeatureDrugs());
 	}
 	
 	@SubscribeEvent
@@ -84,6 +87,20 @@ public class FeatureRegistration {
 			item.initModel();
 		}
 
+	}
+	
+	public static final void registerItemColorHandler(ItemColors colors) {
+		for(Feature f : features) {
+			f.registerItemColorHandlers();
+		}
+		
+		for(IItemColor c : Feature.getColorMapItem().keySet()) {
+			colors.registerItemColorHandler(c, Feature.getColorMapItem().get(c));
+		}
+		
+		for(IItemColor c : Feature.getColorMapBlock().keySet()) {
+			colors.registerItemColorHandler(c, Feature.getColorMapBlock().get(c));
+		}
 	}
 	
 	public static void bindTESR() {

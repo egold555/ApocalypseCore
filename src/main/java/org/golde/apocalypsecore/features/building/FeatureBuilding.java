@@ -51,16 +51,6 @@ public class FeatureBuilding extends Feature {
 	}
 
 	@Override
-	public void registerItems() {
-		
-	}
-
-	@Override
-	public void bindTESR() {
-		
-	}
-
-	@Override
 	public ItemStack getTabIcon() {
 		return new ItemStack(barbedWire);
 	}

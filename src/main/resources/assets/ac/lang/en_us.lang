@@ -1,12 +1,15 @@
 # Creative Tab
-itemGroup.acTab=ApocalypseCore (Misc)
-itemGroup.acTabFood=ApocalypseCore (Food)
-itemGroup.acTabBuilding=ApocalypseCore (Blocks)
-itemGroup.acTabWeapons=ApocalypseCore (Weapons)
+itemGroup.acTab.FeatureMisc=ApocalypseCore §9» §rMiscellaneous
+itemGroup.acTab.FeatureFood=ApocalypseCore §9» §rFood (WIP)
+itemGroup.acTab.FeatureBuilding=ApocalypseCore §9» §rBlocks
+itemGroup.acTab.FeatureWeapons=ApocalypseCore §9» §rWeapons
+itemGroup.acTab.FeatureDrugs=ApocalypseCore §9» §rDrugs (WIP)
+
 # Blocks
 tile.ac.example_block.name=Example Block
 tile.ac.barbed_wire.name=Barbed Wire
 tile.ac.land_mine.name=Land Mine
+tile.ac.loot_chest.name=Loot Box
 
 tile.ac.lamp_white.name=White Caged Lamp
 tile.ac.lamp_orange.name=Orange Caged Lamp

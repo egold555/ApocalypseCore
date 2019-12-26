@@ -1,13 +1,11 @@
 package org.golde.apocalypsecore.features.weapons.items;
 
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
-import org.golde.apocalypsecore.init.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;

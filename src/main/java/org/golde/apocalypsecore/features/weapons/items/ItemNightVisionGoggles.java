@@ -2,7 +2,6 @@ package org.golde.apocalypsecore.features.weapons.items;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
-import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.item._core._ACItemArmor;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,7 +10,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;

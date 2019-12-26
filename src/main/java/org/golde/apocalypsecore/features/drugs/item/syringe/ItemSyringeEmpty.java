@@ -1,14 +1,12 @@
-package org.golde.apocalypsecore.item.syringe;
+package org.golde.apocalypsecore.features.drugs.item.syringe;
 
 import org.golde.apocalypsecore.init.ACDamage;
 import org.golde.apocalypsecore.init.ACSounds;
-import org.golde.apocalypsecore.init.ACTabs;
 import org.golde.apocalypsecore.item._core._ACItem;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
@@ -19,7 +17,6 @@ public class ItemSyringeEmpty extends _ACItem {
 		this("syringe_empty");
 		this.setMaxDamage(0);
 		setMaxStackSize(16);
-		setCreativeTab(ACTabs.DRUGS);
 	}
 	
 	public ItemSyringeEmpty(String name) {

@@ -1,24 +1,19 @@
-package org.golde.apocalypsecore.item.syringe;
+package org.golde.apocalypsecore.features.drugs.item.syringe;
 
 import java.awt.Color;
 import java.util.List;
 
-import org.golde.apocalypsecore.init.ACItems;
-import org.golde.apocalypsecore.init.ACTabs;
-import org.golde.apocalypsecore.utils.Drugs;
+import org.golde.apocalypsecore.features.drugs.FeatureDrugs;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class ItemSyringeFull extends ItemSyringeEmpty{
@@ -30,7 +25,7 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 	
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if(tab == ACTabs.DRUGS) {
+		if(tab == getCreativeTab()) {
 			for(int i = 0; i < 255; i++) {
 				float hue = i / 255F;
 				Color c = Color.getHSBColor(hue, 1, 1);
@@ -84,7 +79,7 @@ tooltip.add("R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
         
         if (itemstack == null || itemstack.isEmpty())
         {
-        	itemstack = new ItemStack(ACItems.syringeEmpty);
+        	itemstack = new ItemStack(FeatureDrugs.syringeEmpty);
         }
         
         super.onItemRightClick(worldIn, player, handIn);

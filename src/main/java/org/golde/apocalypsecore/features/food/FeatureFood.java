@@ -87,11 +87,6 @@ public class FeatureFood extends Feature {
 	public static _ACItemFood watermelon_rotten;
 	public static _ACItemFood zombieenergy;
 	public static _ACItem zombieenergy_empty;
-	
-	@Override
-	public void registerBlocks() {
-		
-	}
 
 	@Override
 	public void registerItems() {
@@ -178,11 +173,6 @@ public class FeatureFood extends Feature {
 	@Override
 	public ItemStack getTabIcon() {
 		return new ItemStack(sodaorange);
-	}
-
-	@Override
-	public void bindTESR() {
-		
 	}
 
 }

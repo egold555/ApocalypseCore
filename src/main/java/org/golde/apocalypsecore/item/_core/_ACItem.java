@@ -1,7 +1,6 @@
 package org.golde.apocalypsecore.item._core;
 
 import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.init.ACTabs;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;

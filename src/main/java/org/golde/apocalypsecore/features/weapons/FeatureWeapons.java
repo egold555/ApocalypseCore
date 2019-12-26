@@ -9,17 +9,15 @@ import org.golde.apocalypsecore.features.weapons.items.ItemNightVisionGoggles;
 import org.golde.apocalypsecore.features.weapons.items.ItemSmokeBomb;
 import org.golde.apocalypsecore.features.weapons.items.ItemTaser;
 import org.golde.apocalypsecore.item._core._ACItemMeleeWeapon;
-import org.golde.apocalypsecore.item.gun.GunAimable;
 
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class FeatureWeapons extends Feature {
 
 	public static ItemFlamethrower flamethrower;
 	public static ItemSmokeBomb smokeBomb;
-	//public static GunAimable gunGlock;
 	public static _ACItemMeleeWeapon itemBaseBallBat;
 	public static _ACItemMeleeWeapon itemBaseBallBatSpiked;
 	public static ItemTaser taser;
@@ -38,7 +36,6 @@ public class FeatureWeapons extends Feature {
 	@Override
 	public void registerItems() {
 		registerItem(smokeBomb = new ItemSmokeBomb());
-		//registerItem(gunGlock = new GunAimable("glock", 12, 12, 50, 1, 3, 200, Items.APPLE, 1, "gun.glock.desc", "9mm Clip", 1));
 		registerItem(flamethrower = new ItemFlamethrower());
 		registerItem(itemBaseBallBat = new _ACItemMeleeWeapon("bat", 3, 50, Blocks.PLANKS));
 		registerItem(itemBaseBallBatSpiked = new _ACItemMeleeWeapon("bat_spiked", 6, 100, Blocks.PLANKS));
@@ -51,12 +48,10 @@ public class FeatureWeapons extends Feature {
 
 	@Override
 	public ItemStack getTabIcon() {
-		return new ItemStack(smokeBomb, 1, 5);
-	}
-
-	@Override
-	public void bindTESR() {
-		
+		ItemStack is = new ItemStack(taser);
+		is.setTagCompound(new NBTTagCompound()); //fix null
+		is.getTagCompound().setBoolean("active", true);
+		return is;
 	}
 
 }
