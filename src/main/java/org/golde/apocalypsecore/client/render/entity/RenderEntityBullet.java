@@ -1,8 +1,8 @@
 package org.golde.apocalypsecore.client.render.entity;
 
-import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.model.entity.ModelBullet;
-import org.golde.apocalypsecore.entity.EntityBullet;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.entity.EntityBullet;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.model.ModelBase;

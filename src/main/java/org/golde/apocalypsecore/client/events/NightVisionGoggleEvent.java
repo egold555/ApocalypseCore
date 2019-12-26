@@ -3,10 +3,10 @@ package org.golde.apocalypsecore.client.events;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.util.EntityGlowlyThing;
-import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
-import org.golde.apocalypsecore.init.ACSounds;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
+import org.golde.apocalypsecore.common.init.ACSounds;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;

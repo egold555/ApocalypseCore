@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.client.events;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.item._core._ACItemBowAnimation;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.items._ACItemBowAnimation;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped.ArmPose;

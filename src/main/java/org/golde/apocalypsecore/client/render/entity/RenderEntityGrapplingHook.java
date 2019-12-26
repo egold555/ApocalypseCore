@@ -2,8 +2,8 @@ package org.golde.apocalypsecore.client.render.entity;
 
 import java.util.UUID;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.entity.EntityGrapplingHook;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.entity.EntityGrapplingHook;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.Minecraft;

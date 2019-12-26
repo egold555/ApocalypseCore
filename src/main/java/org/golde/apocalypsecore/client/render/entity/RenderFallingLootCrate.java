@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.client.render.entity;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.entity.EntityFallingLootCrate;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.entity.EntityFallingLootCrate;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;

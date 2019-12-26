@@ -5,7 +5,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.UUID;
 
-import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.common.ApocalypseCore;
 
 import com.google.common.collect.ListMultimap;
 import com.google.common.collect.Multimaps;

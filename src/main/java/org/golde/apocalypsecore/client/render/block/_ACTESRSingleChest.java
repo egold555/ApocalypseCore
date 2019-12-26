@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.client.render.block;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.blocks._core._ACTESingleChest;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.blocks._ACTESingleChest;
 
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.renderer.GlStateManager;

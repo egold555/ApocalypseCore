@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.client.render.block;
 
-import org.golde.apocalypsecore.blocks._core._ACTE;
+import org.golde.apocalypsecore.common.blocks._ACTE;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 

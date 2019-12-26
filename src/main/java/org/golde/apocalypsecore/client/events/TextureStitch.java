@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.client.events;
 
-import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.common.ApocalypseCore;
 
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.ResourceLocation;

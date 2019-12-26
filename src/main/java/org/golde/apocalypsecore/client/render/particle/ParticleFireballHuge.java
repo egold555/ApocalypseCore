@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.client.render.particle;
 
-import org.golde.apocalypsecore.utils.ACParticleTypes;
+import org.golde.apocalypsecore.common.utils.ACParticleTypes;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;

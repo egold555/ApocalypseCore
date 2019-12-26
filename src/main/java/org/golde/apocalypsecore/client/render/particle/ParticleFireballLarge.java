@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.client.render.particle;
 
-import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.common.ApocalypseCore;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;

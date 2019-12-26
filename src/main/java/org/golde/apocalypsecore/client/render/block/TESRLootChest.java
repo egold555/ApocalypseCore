@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.client.render.block;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.features.misc.blocks.lootchest.TIleEntityLootChest;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 
 import net.minecraft.util.ResourceLocation;
 
