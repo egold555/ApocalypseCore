@@ -19,7 +19,7 @@ public class ApocalypseCore {
     public static final String MODNAME = "ApocalypsCore"; //Apocalypses
     public static final String VERSION = "1.0.0";
     
-    @SidedProxy(modId = ApocalypseCore.MODID, clientSide = "org.golde.apocalypsecore.proxy.ClientProxy", serverSide = "org.golde.apocalypsecore.proxy.ServerProxy")
+    @SidedProxy(modId = ApocalypseCore.MODID, clientSide = "org.golde.apocalypsecore.common.proxy.ClientProxy", serverSide = "org.golde.apocalypsecore.common.proxy.ServerProxy")
     public static CommonProxy proxy;
 
     @Mod.Instance(ApocalypseCore.MODID)
