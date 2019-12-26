@@ -1,9 +1,9 @@
-package org.golde.apocalypsecore.features.drugs;
+package org.golde.apocalypsecore.common.features.drugs;
 
-import org.golde.apocalypsecore.base.features.Feature;
-import org.golde.apocalypsecore.features.drugs.item.syringe.ItemSyringeEmpty;
-import org.golde.apocalypsecore.features.drugs.item.syringe.ItemSyringeFull;
-import org.golde.apocalypsecore.features.drugs.item.syringe.SyringeLiquidColor;
+import org.golde.apocalypsecore.common.features.Feature;
+import org.golde.apocalypsecore.common.features.drugs.item.syringe.ItemSyringeEmpty;
+import org.golde.apocalypsecore.common.features.drugs.item.syringe.ItemSyringeFull;
+import org.golde.apocalypsecore.common.features.drugs.item.syringe.SyringeLiquidColor;
 
 import net.minecraft.item.ItemStack;
 

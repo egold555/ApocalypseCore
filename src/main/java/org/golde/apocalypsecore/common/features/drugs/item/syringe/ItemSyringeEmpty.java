@@ -1,8 +1,8 @@
-package org.golde.apocalypsecore.features.drugs.item.syringe;
+package org.golde.apocalypsecore.common.features.drugs.item.syringe;
 
-import org.golde.apocalypsecore.init.ACDamage;
-import org.golde.apocalypsecore.init.ACSounds;
-import org.golde.apocalypsecore.item._core._ACItem;
+import org.golde.apocalypsecore.common.init.ACDamage;
+import org.golde.apocalypsecore.common.init.ACSounds;
+import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

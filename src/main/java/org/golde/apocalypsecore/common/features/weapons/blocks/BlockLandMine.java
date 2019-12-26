@@ -1,8 +1,8 @@
-package org.golde.apocalypsecore.features.weapons.blocks;
+package org.golde.apocalypsecore.common.features.weapons.blocks;
 
 import java.util.List;
 
-import org.golde.apocalypsecore.blocks._core._ACBlockPreasurePlate;
+import org.golde.apocalypsecore.common.blocks._ACBlockPreasurePlate;
 
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;

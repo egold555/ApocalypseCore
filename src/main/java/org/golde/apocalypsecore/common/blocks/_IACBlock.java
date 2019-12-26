@@ -1,6 +1,6 @@
-package org.golde.apocalypsecore.blocks._core;
+package org.golde.apocalypsecore.common.blocks;
 
-import org.golde.apocalypsecore.init.shared._IBObject;
+import org.golde.apocalypsecore.common.init.shared._IBObject;
 
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;

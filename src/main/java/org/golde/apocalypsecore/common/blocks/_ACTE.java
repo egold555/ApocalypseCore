@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.blocks._core;
+package org.golde.apocalypsecore.common.blocks;
 
 import javax.annotation.Nullable;
 

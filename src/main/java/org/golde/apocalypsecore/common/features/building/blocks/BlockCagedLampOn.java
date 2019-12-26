@@ -1,6 +1,6 @@
-package org.golde.apocalypsecore.features.building.blocks;
+package org.golde.apocalypsecore.common.features.building.blocks;
 
-import org.golde.apocalypsecore.blocks._core._ACBlock;
+import org.golde.apocalypsecore.common.blocks._ACBlock;
 
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.SoundType;

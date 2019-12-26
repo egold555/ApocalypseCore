@@ -1,9 +1,9 @@
-package org.golde.apocalypsecore.blocks._core;
+package org.golde.apocalypsecore.common.blocks;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.utils.InventoryUtils;
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.utils.InventoryUtils;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

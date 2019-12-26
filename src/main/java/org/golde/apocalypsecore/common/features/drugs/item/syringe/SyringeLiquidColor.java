@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.features.drugs.item.syringe;
+package org.golde.apocalypsecore.common.features.drugs.item.syringe;
 
 import java.awt.Color;
 

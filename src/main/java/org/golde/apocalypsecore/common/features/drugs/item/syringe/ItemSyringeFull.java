@@ -1,9 +1,9 @@
-package org.golde.apocalypsecore.features.drugs.item.syringe;
+package org.golde.apocalypsecore.common.features.drugs.item.syringe;
 
 import java.awt.Color;
 import java.util.List;
 
-import org.golde.apocalypsecore.features.drugs.FeatureDrugs;
+import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;

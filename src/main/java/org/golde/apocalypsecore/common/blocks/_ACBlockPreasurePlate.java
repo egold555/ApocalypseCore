@@ -1,6 +1,6 @@
-package org.golde.apocalypsecore.blocks._core;
+package org.golde.apocalypsecore.common.blocks;
 
-import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.common.ApocalypseCore;
 
 import net.minecraft.block.BlockBasePressurePlate;
 import net.minecraft.block.SoundType;

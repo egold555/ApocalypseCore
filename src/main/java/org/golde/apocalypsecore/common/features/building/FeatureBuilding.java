@@ -1,8 +1,8 @@
-package org.golde.apocalypsecore.features.building;
+package org.golde.apocalypsecore.common.features.building;
 
-import org.golde.apocalypsecore.base.features.Feature;
-import org.golde.apocalypsecore.features.building.blocks.BlockBarbedWire;
-import org.golde.apocalypsecore.features.building.blocks.BlockCagedLampOn;
+import org.golde.apocalypsecore.common.features.Feature;
+import org.golde.apocalypsecore.common.features.building.blocks.BlockBarbedWire;
+import org.golde.apocalypsecore.common.features.building.blocks.BlockCagedLampOn;
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;

@@ -1,11 +1,11 @@
-package org.golde.apocalypsecore.features.building.blocks;
+package org.golde.apocalypsecore.common.features.building.blocks;
 
 import java.util.Random;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.blocks._core._ACBlock;
-import org.golde.apocalypsecore.init.ACDamageSource;
+import org.golde.apocalypsecore.common.blocks._ACBlock;
+import org.golde.apocalypsecore.common.init.ACDamageSource;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;

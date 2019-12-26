@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.init.shared;
+package org.golde.apocalypsecore.common.init.shared;
 
 public interface _IBObject {
 

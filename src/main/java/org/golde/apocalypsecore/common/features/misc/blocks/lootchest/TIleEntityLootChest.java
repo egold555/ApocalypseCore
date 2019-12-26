@@ -1,6 +1,6 @@
-package org.golde.apocalypsecore.features.misc.blocks.lootchest;
+package org.golde.apocalypsecore.common.features.misc.blocks.lootchest;
 
-import org.golde.apocalypsecore.blocks._core._ACTESingleChest;
+import org.golde.apocalypsecore.common.blocks._ACTESingleChest;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;

@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.blocks._core;
+package org.golde.apocalypsecore.common.blocks;
 
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.material.Material;
