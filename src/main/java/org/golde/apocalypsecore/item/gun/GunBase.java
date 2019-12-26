@@ -84,8 +84,6 @@ public class GunBase extends _ACItem {
 		this.description = desc;
 		this.ammoName = ammoName;
 		this.strength = strength;
-
-		setCreativeTab(ACTabs.WEAPONS);
 		
 		this.addPropertyOverride(new ResourceLocation("aiming"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)

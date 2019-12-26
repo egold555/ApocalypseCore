@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import java.util.List;
 
@@ -33,7 +33,6 @@ public class ItemMolotovCocktail extends _ACItem {
 		super("molotov_cocktail");
         this.setMaxDamage(0);
         this.maxStackSize = 16;
-        setCreativeTab(ACTabs.WEAPONS);
 	}
 	
 	@Override

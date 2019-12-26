@@ -6,21 +6,12 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.entity.EntityFallingLootCrate;
-import org.golde.apocalypsecore.init.ACBlocks;
-import org.golde.apocalypsecore.network.ACPacketHandler;
-import org.golde.apocalypsecore.network.packets.client.ACPacketParticle;
-import org.golde.apocalypsecore.utils.ACParticleTypes;
-import org.golde.apocalypsecore.utils.EnumUtils;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
-import net.minecraft.command.WrongUsageException;
-import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.text.TextComponentString;
 
 public class ACCommandTest extends CommandBase {

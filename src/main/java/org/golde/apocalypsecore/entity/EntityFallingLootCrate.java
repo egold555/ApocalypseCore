@@ -1,44 +1,19 @@
 package org.golde.apocalypsecore.entity;
 
-import com.google.common.collect.Lists;
-
-import io.netty.handler.codec.http2.Http2FrameLogger.Direction;
-
-import java.util.List;
-import java.util.Random;
-
-import javax.annotation.Nullable;
-
-import org.golde.apocalypsecore.ApocalypseCore;
-import org.golde.apocalypsecore.blocks.chest.loot.BlockLootChest;
-import org.golde.apocalypsecore.init.ACBlocks;
-import org.golde.apocalypsecore.utils.EnumUtils;
+import org.golde.apocalypsecore.features.misc.FeatureMisc;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockAnvil;
 import net.minecraft.block.BlockFalling;
-import net.minecraft.block.ITileEntityProvider;
-import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.crash.CrashReportCategory;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.MoverType;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.datafix.DataFixer;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -48,7 +23,7 @@ public class EntityFallingLootCrate extends Entity
 	public int fallTime = 1;
 	protected static final DataParameter<BlockPos> ORIGIN = EntityDataManager.<BlockPos>createKey(EntityFallingLootCrate.class, DataSerializers.BLOCK_POS);
 
-	private IBlockState fallTile = ACBlocks.lootChest.getDefaultState();
+	private IBlockState fallTile = FeatureMisc.lootChest.getDefaultState();
 
 	public EntityFallingLootCrate(World worldIn)
 	{

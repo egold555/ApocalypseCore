@@ -13,6 +13,7 @@ import org.golde.apocalypsecore.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.entity.EntityMolotovCocktail;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.entity.EntitySmokeCloud;
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -119,7 +120,7 @@ public class ACEntities {
         @Override
         public Render<EntitySmokeBombThrowable> createRenderFor(RenderManager manager)
         {
-            return new RenderItemSmokebomb(manager, ACItems._Weapons.smokeBomb);
+            return new RenderItemSmokebomb(manager, FeatureWeapons.smokeBomb);
         }
     }
 	
@@ -152,7 +153,7 @@ public class ACEntities {
         @Override
         public Render<EntityMolotovCocktail> createRenderFor(RenderManager manager)
         {
-            return new RenderEntityMolotovCocktail(manager, ACItems._Weapons.molotovCocktail);
+            return new RenderEntityMolotovCocktail(manager, FeatureWeapons.molotovCocktail);
         }
     }
 	

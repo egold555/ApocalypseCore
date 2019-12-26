@@ -2,7 +2,7 @@ package org.golde.apocalypsecore.events;
 
 import java.util.LinkedHashMap;
 
-import org.golde.apocalypsecore.item.ItemTaser;
+import org.golde.apocalypsecore.features.weapons.items.ItemTaser;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.Minecraft;

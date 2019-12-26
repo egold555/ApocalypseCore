@@ -1,17 +1,11 @@
 package org.golde.apocalypsecore.proxy;
 
 import org.golde.apocalypsecore.base.features.FeatureRegistration;
-import org.golde.apocalypsecore.client.render.particle.ParticleGasSmoke;
-import org.golde.apocalypsecore.init.ACBlocks;
 import org.golde.apocalypsecore.init.ACEntities;
 import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.item.syringe.SyringeLiquidColor;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.particle.Particle;
-import net.minecraft.client.particle.ParticleFlame;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.world.World;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,7 +37,7 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void registerRenders() {
-		ACBlocks.bindTESR();
+		//ACBlocks.bindTESR();
 		ACEntities.registerRenders();
 		FeatureRegistration.bindTESR();
 	}
@@ -51,7 +45,7 @@ public class ClientProxy extends CommonProxy {
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		ACItems.initModels();
-		ACBlocks.initModels();
+		//ACBlocks.initModels();
 		FeatureRegistration.initModels();
 	}
 	

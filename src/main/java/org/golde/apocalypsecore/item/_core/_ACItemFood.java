@@ -45,7 +45,6 @@ public class _ACItemFood extends ItemFood implements _IACItem {
 		super(amount, saturation, false);
 		setRegistryName(name);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 		this.animation = anim;
 
 		if(anim == EnumAnimation.DRINK) {

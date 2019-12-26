@@ -16,7 +16,6 @@ public class _ACItemArmor extends ItemArmor implements _IACItem {
 		super(materialIn, renderIndexIn, equipmentSlotIn);
 		setRegistryName(name);
         setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-        if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 	}
 
 	@SideOnly(Side.CLIENT)

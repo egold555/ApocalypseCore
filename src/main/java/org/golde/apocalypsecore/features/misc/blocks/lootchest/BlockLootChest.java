@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.blocks.chest.loot;
+package org.golde.apocalypsecore.features.misc.blocks.lootchest;
 
 import org.golde.apocalypsecore.blocks._core._ACBlockSingleChest;
 import org.golde.apocalypsecore.blocks._core._ACTESingleChest;

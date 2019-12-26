@@ -1,9 +1,6 @@
 package org.golde.apocalypsecore.blocks._core;
 
-import org.golde.apocalypsecore.init.ACBlocks;
-
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ITickable;

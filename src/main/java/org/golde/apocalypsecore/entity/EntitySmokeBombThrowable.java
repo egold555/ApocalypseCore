@@ -1,5 +1,6 @@
 package org.golde.apocalypsecore.entity;
 
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.init.ACItems;
 
 import io.netty.util.internal.ThreadLocalRandom;
@@ -68,7 +69,7 @@ public class EntitySmokeBombThrowable extends EntityThrowable {
         {
             for (int i = 0; i < 8; ++i)
             {
-                this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, this.posX, this.posY, this.posZ, ThreadLocalRandom.current().nextDouble(-1, 1), ThreadLocalRandom.current().nextDouble(-1, 1), ThreadLocalRandom.current().nextDouble(-1, 1), Item.getIdFromItem(ACItems._Weapons.smokeBomb), getColorDamage());
+                this.world.spawnParticle(EnumParticleTypes.ITEM_CRACK, this.posX, this.posY, this.posZ, ThreadLocalRandom.current().nextDouble(-1, 1), ThreadLocalRandom.current().nextDouble(-1, 1), ThreadLocalRandom.current().nextDouble(-1, 1), Item.getIdFromItem(FeatureWeapons.smokeBomb), getColorDamage());
             }
         }
     }

@@ -1,16 +1,11 @@
 package org.golde.apocalypsecore.features.building;
 
 import org.golde.apocalypsecore.base.features.Feature;
-import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.features.building.blocks.BlockBarbedWire;
 import org.golde.apocalypsecore.features.building.blocks.BlockCagedLampOn;
-import org.golde.apocalypsecore.init.ACBlocks.Decoration;
 
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.event.RegistryEvent.Register;
 
 public class FeatureBuilding extends Feature {
 

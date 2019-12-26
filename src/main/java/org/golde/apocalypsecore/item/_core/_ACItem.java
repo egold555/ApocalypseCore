@@ -15,7 +15,6 @@ public class _ACItem extends Item implements _IACItem {
 	public _ACItem(String name) {
 		setRegistryName(name);
         setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-        if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 	}
 	
 	public _ACItem setCreativeTab(CreativeTabs tab) {

@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.init.ACTabs;
@@ -30,7 +30,6 @@ public class ItemSmokeBomb extends _ACItem {
 		this.setHasSubtypes(true);
         this.setMaxDamage(0);
         this.maxStackSize = 16;
-        setCreativeTab(ACTabs.WEAPONS);
 	}
 
 	@Override

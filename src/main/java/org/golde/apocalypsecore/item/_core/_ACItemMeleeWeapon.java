@@ -60,7 +60,6 @@ public class _ACItemMeleeWeapon extends ItemSword implements _IACItem {
 
 		setRegistryName(name);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
-		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.WEAPONS);}
 		this.setMaxDamage(maxUses);
 		this.attackDamageIn = attackDamage;
 		this.enchantability = enchantability;

@@ -3,7 +3,7 @@ package org.golde.apocalypsecore.client.render.block;
 import java.nio.FloatBuffer;
 import java.util.Random;
 
-import org.golde.apocalypsecore.blocks.chest.loot.TIleEntityLootChest;
+import org.golde.apocalypsecore.features.misc.blocks.lootchest.TIleEntityLootChest;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;

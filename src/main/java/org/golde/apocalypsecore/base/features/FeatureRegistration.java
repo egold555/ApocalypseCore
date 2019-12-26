@@ -7,6 +7,9 @@ import java.util.List;
 import org.golde.apocalypsecore.blocks._core._ACBlockWithTE;
 import org.golde.apocalypsecore.blocks._core._IACBlock;
 import org.golde.apocalypsecore.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.features.food.FeatureFood;
+import org.golde.apocalypsecore.features.misc.FeatureMisc;
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.item._core._IACItem;
 
 import net.minecraft.block.Block;
@@ -28,7 +31,10 @@ public class FeatureRegistration {
 	
 	
 	static {
+		features.add(new FeatureMisc());
 		features.add(new FeatureBuilding());
+		features.add(new FeatureFood());
+		features.add(new FeatureWeapons());
 	}
 	
 	@SubscribeEvent

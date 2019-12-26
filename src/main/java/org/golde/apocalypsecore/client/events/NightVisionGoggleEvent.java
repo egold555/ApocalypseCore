@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.golde.apocalypsecore.ApocalypseCore;
 import org.golde.apocalypsecore.client.render.util.EntityGlowlyThing;
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.init.ACSounds;
 
@@ -127,7 +128,7 @@ public class NightVisionGoggleEvent {
 			return false;
 		}
 
-		if(ItemStack.areItemsEqual(is, new ItemStack(ACItems.nightVisionGoggles))) {
+		if(ItemStack.areItemsEqual(is, new ItemStack(FeatureWeapons.nightVisionGoggles))) {
 			return true;
 		}
 

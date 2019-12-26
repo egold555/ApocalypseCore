@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import java.util.Random;
 
@@ -27,7 +27,6 @@ public class ItemFlamethrower extends _ACItem {
 		super("flamethrower");
 		this.setMaxStackSize(1);
 		this.setMaxDamage(300);
-		setCreativeTab(ACTabs.WEAPONS);
 	}
 
 	@Override

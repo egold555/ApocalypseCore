@@ -1,6 +1,7 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import org.golde.apocalypsecore.ApocalypseCore;
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.init.ACItems;
 import org.golde.apocalypsecore.item._core._ACItemArmor;
 
@@ -31,7 +32,7 @@ public class ItemNightVisionGoggles extends _ACItemArmor {
 
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-		if (itemStack.getItem() == ACItems.nightVisionGoggles) {
+		if (itemStack.getItem() == FeatureWeapons.nightVisionGoggles) {
 			if (player.getActivePotionEffect(MobEffects.NIGHT_VISION) == null || player.getActivePotionEffect(MobEffects.NIGHT_VISION).getDuration() <= 200)
 				player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 5, 0, true, true));
 		}

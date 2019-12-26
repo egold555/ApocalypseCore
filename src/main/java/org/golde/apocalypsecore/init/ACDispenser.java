@@ -2,7 +2,8 @@ package org.golde.apocalypsecore.init;
 
 import org.golde.apocalypsecore.entity.EntityMolotovCocktail;
 import org.golde.apocalypsecore.entity.EntitySmokeBombThrowable;
-import org.golde.apocalypsecore.item.ItemSmokeBomb;
+import org.golde.apocalypsecore.features.weapons.FeatureWeapons;
+import org.golde.apocalypsecore.features.weapons.items.ItemSmokeBomb;
 
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.dispenser.BehaviorProjectileDispense;
@@ -18,7 +19,7 @@ import net.minecraft.world.World;
 public class ACDispenser {
 
 	public static void init() {
-		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ACItems._Weapons.molotovCocktail, new IBehaviorDispenseItem()
+		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(FeatureWeapons.molotovCocktail, new IBehaviorDispenseItem()
         {
             /**
              * Dispenses the specified ItemStack from a dispenser.
@@ -45,7 +46,7 @@ public class ACDispenser {
                 }).dispense(source, stack);
             }
         });
-		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ACItems._Weapons.smokeBomb, new IBehaviorDispenseItem()
+		BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(FeatureWeapons.smokeBomb, new IBehaviorDispenseItem()
         {
             /**
              * Dispenses the specified ItemStack from a dispenser.

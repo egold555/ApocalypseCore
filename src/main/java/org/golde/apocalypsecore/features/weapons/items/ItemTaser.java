@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import java.util.List;
 
@@ -34,7 +34,6 @@ public class ItemTaser extends _ACItem {
 	public ItemTaser() {
 		super("taser");
 		this.maxStackSize = 1;
-		setCreativeTab(ACTabs.WEAPONS);
 		this.addPropertyOverride(new ResourceLocation("active"), new IItemPropertyGetter() {
 			@SideOnly(Side.CLIENT)
 			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {

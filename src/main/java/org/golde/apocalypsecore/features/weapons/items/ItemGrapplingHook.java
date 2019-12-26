@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.item;
+package org.golde.apocalypsecore.features.weapons.items;
 
 import java.util.Iterator;
 

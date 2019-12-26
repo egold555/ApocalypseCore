@@ -26,7 +26,6 @@ public abstract class _ACBlockPreasurePlate extends BlockBasePressurePlate imple
 		super(materialIn);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
 		setRegistryName(name);
-		if(shouldBeInCreatveTab()) {setCreativeTab(ACTabs.MISC);}
 		setHardness(1.5F);
 		setResistance(10.0F);
 		setSoundType(SoundType.STONE);
