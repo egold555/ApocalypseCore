@@ -38,7 +38,7 @@ public class _ACBlockFluidClassic extends BlockFluidClassic implements _IACBlock
 	
 	public _ACBlockFluidClassic(String name, Fluid fluid)
 	{
-		super(fluid, new MaterialLiquid(MapColor.ORANGE_STAINED_HARDENED_CLAY));
+		super(fluid, Material.WATER);
 		setUnlocalizedName(ApocalypseCore.MODID + "." + name);
 		setRegistryName(name);
 		setHardness(100.0F);
@@ -78,6 +78,7 @@ public class _ACBlockFluidClassic extends BlockFluidClassic implements _IACBlock
 	@Override
 	public void onEntityCollidedWithBlock(World world, BlockPos pos, IBlockState state, Entity entity)
 	{
+		super.onEntityCollidedWithBlock(world, pos, state, entity);
 		if(potionEffects!=null && entity instanceof EntityLivingBase)
 		{
 			for(PotionEffect effect : potionEffects) {

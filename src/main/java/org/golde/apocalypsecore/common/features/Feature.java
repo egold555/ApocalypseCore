@@ -67,7 +67,7 @@ public abstract class Feature {
 										_ACBlockFluidClassic fluidBlock =  (_ACBlockFluidClassic)block;
 										
 										//add a bucket to the gui
-										listOfItemStacks.add(FluidUtil.getFilledBucket(new FluidStack(fluidBlock.getFluid(), 1000)));
+										listOfItemStacks.add(FluidUtil.getFilledBucket(new FluidStack(fluidBlock.getFluid(), Fluid.BUCKET_VOLUME)));
 										
 										
 										//remove the fluid block tile thing
