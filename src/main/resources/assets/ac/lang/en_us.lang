@@ -5,6 +5,10 @@ itemGroup.acTab.FeatureBuilding=ApocalypseCore §9» §rBlocks
 itemGroup.acTab.FeatureWeapons=ApocalypseCore §9» §rWeapons
 itemGroup.acTab.FeatureDrugs=ApocalypseCore §9» §rDrugs (WIP)
 
+# Fluids
+fluid.gasoline=Gasoline
+tile.ac.fluid_gasoline.name=Gasoline
+
 # Blocks
 tile.ac.example_block.name=Example Block
 tile.ac.barbed_wire.name=Barbed Wire

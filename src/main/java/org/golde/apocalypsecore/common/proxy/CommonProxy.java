@@ -3,11 +3,13 @@ package org.golde.apocalypsecore.common.proxy;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.command.ACCommandParticle;
 import org.golde.apocalypsecore.common.command.ACCommandTest;
+import org.golde.apocalypsecore.common.features.FeatureRegistration;
 import org.golde.apocalypsecore.common.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.common.init.ACDispenser;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
 
 import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -20,6 +22,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent e) {
 		ACPacketHandler.preInit();
+		FeatureRegistration.preInit();
 	}
 
 	public void init(FMLInitializationEvent e) {

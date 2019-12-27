@@ -21,6 +21,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fluids.FluidRegistry.FluidRegisterEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -39,10 +42,40 @@ public class FeatureRegistration {
 		features.add(new FeatureWeapons());
 		features.add(new FeatureDrugs());
 	}
+	/*
+	  @EventHandler
+    public void construction(FMLConstructionEvent event)
+    {
+        // Use forge universal bucket
+        FluidRegistry.enableUniversalBucket();
+    }
+
+	 */
+	public static void preInit() {
+		for(Feature feat : features) {
+			feat.registerFluids();
+		}
+		
+		for(Fluid flu : Feature.getALL_FLUID()) {
+			FluidRegistry.registerFluid(flu);
+			FluidRegistry.addBucketForFluid(flu);
+			System.err.println("===== REGISTERING FLUID: " + flu.getName());
+		}
+	}
 	
 	@SubscribeEvent
 	public static void registerBlocks(RegistryEvent.Register<Block> event) {
 		
+//		for(Feature feat : features) {
+//			feat.registerFluids();
+//		}
+//		
+//		for(Fluid flu : Feature.getALL_FLUID()) {
+//			System.err.println("===== REGISTERING FLUID: " + flu.getName());
+//			FluidRegistry.registerFluid(flu);
+//			FluidRegistry.addBucketForFluid(flu);
+//		}
+//		
 		for(Feature f : features) {
 			f.registerBlocks();
 			

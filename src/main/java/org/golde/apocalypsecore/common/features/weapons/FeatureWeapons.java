@@ -1,5 +1,7 @@
 package org.golde.apocalypsecore.common.features.weapons;
 
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.blocks._ACBlockFluidClassic;
 import org.golde.apocalypsecore.common.features.Feature;
 import org.golde.apocalypsecore.common.features.weapons.blocks.BlockLandMine;
 import org.golde.apocalypsecore.common.features.weapons.items.ItemFlamethrower;
@@ -13,6 +15,8 @@ import org.golde.apocalypsecore.common.items._ACItemMeleeWeapon;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fluids.Fluid;
 
 public class FeatureWeapons extends Feature {
 
@@ -27,6 +31,9 @@ public class FeatureWeapons extends Feature {
 	public static ItemGrapplingHook grapplingHook;
 	
 	public static BlockLandMine landMine;
+	
+	
+	
 	
 	@Override
 	public void registerBlocks() {
