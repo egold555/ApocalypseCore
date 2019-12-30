@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CDGenerator {
+public class CDGenerator implements IGenerator {
 
 	private static final String DUMMY_JSON = "{\r\n" + 
 			"  \"parent\": \"item/generated\",\r\n" + 

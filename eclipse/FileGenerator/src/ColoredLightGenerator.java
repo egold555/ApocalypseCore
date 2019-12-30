@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 import javax.imageio.ImageIO;
 
-public class ColoredLightGenerator {
+public class ColoredLightGenerator implements IGenerator {
 
 	private static final String STATE_JSON = "{\r\n" + 
 			"    \"variants\": {\r\n" + 

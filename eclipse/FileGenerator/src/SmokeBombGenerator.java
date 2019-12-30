@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class SmokeBombGenerator {
+public class SmokeBombGenerator implements IGenerator {
 
 	private static final String DUMMY_JSON = "{\r\n" + 
 			"  \"parent\": \"item/generated\",\r\n" + 
