@@ -3,6 +3,7 @@ package org.golde.apocalypsecore.common.events;
 import java.util.LinkedHashMap;
 
 import org.golde.apocalypsecore.common.features.weapons.items.ItemTaser;
+import org.golde.apocalypsecore.common.init.ACPotions;
 import org.lwjgl.input.Keyboard;
 
 import net.minecraft.client.Minecraft;
@@ -48,6 +49,7 @@ public class TaserStun {
 		if(e.getItemStack().getItem() instanceof ItemTaser && e.getTarget() instanceof EntityLivingBase) {
 
 			EntityLivingBase l = (EntityLivingBase)e.getTarget();
+			//l.addPotionEffect(new PotionEffect(ACPotions.STUNNED, 20));
 			entitiesBeingTazed.put(l.getEntityId(), 0);
 		}
 	}

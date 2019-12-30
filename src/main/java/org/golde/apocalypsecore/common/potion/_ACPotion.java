@@ -25,7 +25,6 @@ public class _ACPotion extends Potion {
 	
 	@Override
 	public boolean hasStatusIcon() {
-		//System.out.println("" + getStatusIconIndex());
 		Minecraft.getMinecraft().renderEngine.bindTexture(TEXTURE);
 		return true;
 	}
