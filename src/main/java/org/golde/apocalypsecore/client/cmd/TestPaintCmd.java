@@ -2,6 +2,8 @@ package org.golde.apocalypsecore.client.cmd;
 
 import java.awt.Color;
 
+import org.golde.apocalypsecore.common.utils.PaintUtil;
+
 import ichttt.mods.mcpaint.common.MCPaintUtil;
 import ichttt.mods.mcpaint.common.block.TileEntityCanvas;
 import net.minecraft.client.Minecraft;
@@ -49,14 +51,7 @@ public class TestPaintCmd extends CommandBase implements IClientCommand {
 			}
 			
 			
-			TileEntityCanvas canvas = (TileEntityCanvas)teLookingAt;
-			//canvas.getPaintFor(blockHitSide).
-			for(EnumFacing f : EnumFacing.values()) {
-				MCPaintUtil.uploadPictureToServer(canvas, f, (byte) scaleFactor, data, false);
-			}
-			
-			sender.sendMessage(new TextComponentString("Suc1cess."));
-			canvas.markDirty();
+			PaintUtil.client(sender.getEntityWorld(), new BlockPos(0, 100, 0), EnumFacing.UP, scaleFactor, data);
 		}
 		else {
 			sender.sendMessage(new TextComponentString("Tile not correct"));
