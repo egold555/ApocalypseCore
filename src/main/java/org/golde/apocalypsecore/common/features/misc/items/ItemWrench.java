@@ -3,6 +3,7 @@ package org.golde.apocalypsecore.common.features.misc.items;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.golde.apocalypsecore.common.items._ACItem;
 import org.golde.apocalypsecore.common.utils.PaintUtil;
@@ -44,7 +45,7 @@ public class ItemWrench extends _ACItem {
 //			
 //		}
 		
-		ThreadDownloadUrlSpraypaint.downloadAndSetTexture("http://localhost/websites/spray/?r=255&b=255", new ResourceLocationCallback() {
+		ThreadDownloadUrlSpraypaint.downloadAndSetTexture("http://localhost/websites/spray/?r=255&b=255&f=1&t=Transparent", new ResourceLocationCallback() {
 			
 			@Override
 			public void onTextureLoaded(BufferedImage bi) {
