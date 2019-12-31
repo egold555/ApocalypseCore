@@ -24,16 +24,6 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class PaintUtil {
 
-	public static boolean client(World world, BlockPos pos, EnumFacing facing, byte scale, int[][] data) {
-		TileEntity teLookingAt = world.getTileEntity(pos);
-		if(teLookingAt instanceof TileEntityCanvas) {
-			TileEntityCanvas canvas = (TileEntityCanvas)teLookingAt;
-			MCPaintUtil.uploadPictureToServer(canvas, facing, scale, data, false);
-			return true;
-		}
-		return false;
-	}
-	
 	public static boolean paintBlockServer(World world, BlockPos pos, EnumFacing facing, byte scale, int[][] data) {
 		
 		IBlockState state = world.getBlockState(pos);

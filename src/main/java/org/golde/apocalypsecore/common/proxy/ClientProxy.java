@@ -1,11 +1,9 @@
 package org.golde.apocalypsecore.common.proxy;
 
-import org.golde.apocalypsecore.client.cmd.TestPaintCmd;
 import org.golde.apocalypsecore.common.features.FeatureRegistration;
 import org.golde.apocalypsecore.common.init.ACEntities;
 
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -33,7 +31,6 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void postInit(FMLPostInitializationEvent e) {
 		super.postInit(e);
-		ClientCommandHandler.instance.registerCommand(new TestPaintCmd());
 	}
 	
 	@Override

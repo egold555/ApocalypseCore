@@ -1,11 +1,16 @@
 package org.golde.apocalypsecore.common.features.misc.items;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
 
 import org.golde.apocalypsecore.common.items._ACItem;
 import org.golde.apocalypsecore.common.utils.PaintUtil;
+import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlTexture;
+import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlTexture.ResourceLocationCallback;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -28,22 +33,52 @@ public class ItemWrench extends _ACItem {
 			return EnumActionResult.PASS;
 		}
 
-		byte scaleFactor = (byte)8;
+//		byte scaleFactor = (byte)8;
+//		
+//		int[][] data = new int[128 / scaleFactor][128 / scaleFactor];
+//		
+//		for(int x = 0; x < data.length; x++) {
+//			for(int z = 0; z < data[x].length; z++) {
+//				data[x][z] = Color.HSBtoRGB((x * z) / 255F, 1, 0.5F);
+//			}
+//			
+//		}
 		
-		int[][] data = new int[128 / scaleFactor][128 / scaleFactor];
-		
-		for(int x = 0; x < data.length; x++) {
-			for(int z = 0; z < data[x].length; z++) {
-				data[x][z] = Color.HSBtoRGB((x * z) / 255F, 1, 0.5F);
+		ThreadDownloadUrlTexture.downloadAndSetTexture("http://localhost/websites/spray/256.png", new ResourceLocationCallback() {
+			
+			@Override
+			public void onTextureLoaded(BufferedImage bi) {
+				// TODO Auto-generated method stub
+				
 			}
 			
-		}
+			@Override
+			public void onDataParsed(int[][] data, int imgW, int imgH) {
+				// TODO Auto-generated method stub
+				//boolean success = PaintUtil.paintBlockServer(worldIn, pos, facing.getOpposite(), (byte)1, data);
+				
+				
+				//player.sendMessage(new TextComponentString("Download finished"));;
+			}
+			
+			@Override
+			public void onSplit(HashMap<int[], int[][]> data) {
+				
+				for(int[] offset : data.keySet()) {
+					
+					BlockPos newPos = pos.add(offset[0], -offset[1], 0);
+					int[][] datadraw = data.get(offset); 
+					
+					worldIn.setBlockState(newPos, Blocks.COBBLESTONE.getDefaultState());
+					PaintUtil.paintBlockServer(worldIn, newPos, facing.getOpposite(), (byte)1, datadraw);
+					player.sendMessage(new TextComponentString("Download finished"));;
+				}
+				
+			}
+		});
 		
+		player.sendMessage(new TextComponentString("Facing: " + facing.getName()));
 		
-		boolean success = PaintUtil.paintBlockServer(worldIn, pos, facing.getOpposite(), scaleFactor, data);
-		
-		
-		player.sendMessage(new TextComponentString("Facing: " + facing.getName() + " succ: " + success));;
 		
 		return EnumActionResult.SUCCESS;
 	}
