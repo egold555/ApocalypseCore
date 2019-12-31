@@ -6,8 +6,8 @@ import java.util.HashMap;
 
 import org.golde.apocalypsecore.common.items._ACItem;
 import org.golde.apocalypsecore.common.utils.PaintUtil;
-import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlTexture;
-import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlTexture.ResourceLocationCallback;
+import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlSpraypaint;
+import org.golde.apocalypsecore.common.utils.ThreadDownloadUrlSpraypaint.ResourceLocationCallback;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -44,7 +44,7 @@ public class ItemWrench extends _ACItem {
 //			
 //		}
 		
-		ThreadDownloadUrlTexture.downloadAndSetTexture("http://localhost/websites/spray/256.png", new ResourceLocationCallback() {
+		ThreadDownloadUrlSpraypaint.downloadAndSetTexture("http://localhost/websites/spray/?r=255&b=255", new ResourceLocationCallback() {
 			
 			@Override
 			public void onTextureLoaded(BufferedImage bi) {
@@ -66,10 +66,40 @@ public class ItemWrench extends _ACItem {
 				
 				for(int[] offset : data.keySet()) {
 					
-					BlockPos newPos = pos.add(offset[0], -offset[1], 0);
+					BlockPos newPos = pos;
+					
+					switch(facing) {
+					case DOWN:
+						newPos = pos.add(-offset[0], 0, offset[1]);
+						break;
+					case EAST:
+						//works
+						newPos = pos.add(0, -offset[1], -offset[0]);
+						break;
+					case NORTH:
+						//works
+						newPos = pos.add(-offset[0], -offset[1], 0);
+						break;
+					case SOUTH:
+						//works
+						newPos = pos.add(offset[0], -offset[1], 0);
+						break;
+					case UP:
+						newPos = pos.add(offset[0], 0, offset[1]);
+						break;
+					case WEST:
+						//work
+						newPos = pos.add(0, -offset[1], offset[0]);
+						break;
+					default:
+						break;
+					
+					}
+					
+					
 					int[][] datadraw = data.get(offset); 
 					
-					worldIn.setBlockState(newPos, Blocks.COBBLESTONE.getDefaultState());
+					//worldIn.setBlockState(newPos, Blocks.COBBLESTONE.getDefaultState());
 					PaintUtil.paintBlockServer(worldIn, newPos, facing.getOpposite(), (byte)1, datadraw);
 					player.sendMessage(new TextComponentString("Download finished"));;
 				}

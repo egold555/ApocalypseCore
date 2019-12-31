@@ -10,7 +10,7 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-public class ThreadDownloadUrlTexture {
+public class ThreadDownloadUrlSpraypaint {
 
 	public static void downloadAndSetTexture(String url, ResourceLocationCallback callback)
 	{
@@ -50,7 +50,7 @@ public class ThreadDownloadUrlTexture {
 		int y1 = 0;
 		for(int x = 0; x < image.getWidth(); x+=128) {
 			y1 = 0;
-			for(int y = 0; y < image.getWidth(); y+=128) {
+			for(int y = 0; y < image.getHeight(); y+=128) {
 				BufferedImage sub = image.getSubimage(x, y, 128, 128);
 				int[][] data = decomposeBufferedImageIntoPixels(sub);
 				giantAssMap.put(new int[] {x1, y1}, data);
@@ -89,13 +89,17 @@ public class ThreadDownloadUrlTexture {
 	
 	static int round(int in, int mutiple){
 		
+		if(in == mutiple) {
+			return in;
+		}
+		
 		if(in < mutiple) {
 			return mutiple;
 		}
 		
 		int change = mutiple;
 		while(in > change) {
-			change += 128;
+			change += mutiple;
 		}
 		
 		return change;
