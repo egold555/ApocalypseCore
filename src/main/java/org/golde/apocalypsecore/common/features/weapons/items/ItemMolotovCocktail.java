@@ -2,7 +2,7 @@ package org.golde.apocalypsecore.common.features.weapons.items;
 
 import java.util.List;
 
-import org.golde.apocalypsecore.common.entity.EntityMolotovCocktail;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntityMolotovCocktail;
 import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.client.util.ITooltipFlag;

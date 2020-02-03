@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.entity;
+package org.golde.apocalypsecore.common.features.weapons.entity;
 
 import java.util.List;
 import java.util.UUID;

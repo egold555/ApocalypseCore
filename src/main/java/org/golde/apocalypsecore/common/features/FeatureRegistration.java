@@ -29,6 +29,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidRegistry.FluidRegisterEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.EntityEntry;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -130,6 +132,19 @@ public class FeatureRegistration {
 
 	}
 	
+	@SubscribeEvent
+	public static void registerEntitys(final RegistryEvent.Register<EntityEntry> event) {
+		
+		for(Feature f : features) {
+			f.registerEntities();
+		}
+		
+		for(EntityEntryBuilder builder : Feature.getALL_ENTITIES()) {
+			System.err.println("Attempting to register entity " + builder.build().getName());
+			event.getRegistry().register(builder.build());
+		}
+	}
+	
 	public static final void registerItemColorHandler(ItemColors colors) {
 		for(Feature f : features) {
 			f.registerItemColorHandlers();
@@ -147,6 +162,12 @@ public class FeatureRegistration {
 	public static void bindTESR() {
 		for(Feature f : features) {
 			f.bindTESR();
+		}
+	}
+	
+	public static void regsterEntityRenderers() {
+		for(Feature f : features) {
+			f.regsterEntityRenderers();
 		}
 	}
 	

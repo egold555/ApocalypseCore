@@ -1,8 +1,8 @@
 package org.golde.apocalypsecore.common.init;
 
-import org.golde.apocalypsecore.common.entity.EntityMolotovCocktail;
-import org.golde.apocalypsecore.common.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntityMolotovCocktail;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.common.features.weapons.items.ItemSmokeBomb;
 
 import net.minecraft.block.BlockDispenser;

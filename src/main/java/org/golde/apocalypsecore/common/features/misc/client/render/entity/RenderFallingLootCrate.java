@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.client.render.entity;
+package org.golde.apocalypsecore.common.features.misc.client.render.entity;
 
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.entity.EntityFallingLootCrate;

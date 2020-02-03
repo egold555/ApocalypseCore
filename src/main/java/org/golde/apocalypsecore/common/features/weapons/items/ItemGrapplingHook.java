@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.common.entity.EntityGrapplingHook;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntityGrapplingHook;
 import org.golde.apocalypsecore.common.items._ACItem;
 import org.golde.apocalypsecore.common.items._ACItemBowAnimation;
 

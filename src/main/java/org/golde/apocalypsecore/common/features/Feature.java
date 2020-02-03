@@ -16,11 +16,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
-import net.minecraftforge.fluids.UniversalBucket;
+import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -32,14 +31,23 @@ public abstract class Feature {
 	private static HashMap<IItemColor, Item[]> colorMapItem = new HashMap<IItemColor, Item[]>();
 	private static HashMap<IItemColor, Block[]> colorMapBlock = new HashMap<IItemColor, Block[]>();
 	private static List<Fluid> ALL_FLUID = new ArrayList<Fluid>();
+	private static List<EntityEntryBuilder> ALL_ENTITIES = new ArrayList<EntityEntryBuilder>();
 	
 	public void registerBlocks() {};
 	public void registerItems() {};
 	public abstract ItemStack getTabIcon();
 	@SideOnly(Side.CLIENT)
 	public void bindTESR() {};
+	
+	@SideOnly(Side.CLIENT)
 	public void registerItemColorHandlers() {};
 	public void registerFluids() {};
+	public void registerEntities() {};
+	
+	@SideOnly(Side.CLIENT)
+	public void regsterEntityRenderers() {};
+	
+	protected static int entityId = -1;
 
 	public Feature() {
 		if(getTabIcon() != null) {
@@ -110,6 +118,10 @@ public abstract class Feature {
 	protected final void registerItemColorHandler(IItemColor key, Block... block) {
 		this.colorMapBlock.put(key, block);
 	}
+	
+	protected final void registerEntity(EntityEntryBuilder builder) {
+		this.ALL_ENTITIES.add(builder);
+	}
 
 
 
@@ -131,6 +143,10 @@ public abstract class Feature {
 	
 	public static final List<Fluid> getALL_FLUID() {
 		return ALL_FLUID;
+	}
+	
+	public static List<EntityEntryBuilder> getALL_ENTITIES() {
+		return ALL_ENTITIES;
 	}
 
 }

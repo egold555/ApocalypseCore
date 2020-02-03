@@ -1,6 +1,6 @@
-package org.golde.apocalypsecore.client.render.entity;
+package org.golde.apocalypsecore.common.features.weapons.client.render.entity;
 
-import org.golde.apocalypsecore.common.entity.EntityMolotovCocktail;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntityMolotovCocktail;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;

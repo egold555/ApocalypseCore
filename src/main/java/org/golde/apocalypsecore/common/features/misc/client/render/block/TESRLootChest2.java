@@ -1,8 +1,10 @@
-package org.golde.apocalypsecore.client.render.block;
+package org.golde.apocalypsecore.common.features.misc.client.render.block;
 
 import java.nio.FloatBuffer;
 import java.util.Random;
 
+import org.golde.apocalypsecore.client.render.block._ACTESRSingleChest;
+import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 
 import net.minecraft.client.Minecraft;
@@ -11,10 +13,9 @@ import net.minecraft.client.renderer.GLAllocation;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ResourceLocation;
 
-public class TESRLootChest2 extends TESRLootChest {
+public class TESRLootChest2 extends _ACTESRSingleChest<TIleEntityLootChest> {
 
 	private static final ResourceLocation END_SKY_TEXTURE = new ResourceLocation("textures/environment/end_sky.png");
 	private static final ResourceLocation END_PORTAL_TEXTURE = new ResourceLocation("textures/entity/end_portal.png");
@@ -173,6 +174,13 @@ public class TESRLootChest2 extends TESRLootChest {
 		this.buffer.put(p_147525_1_).put(p_147525_2_).put(p_147525_3_).put(p_147525_4_);
 		this.buffer.flip();
 		return this.buffer;
+	}
+
+private static final ResourceLocation ENDER_CHEST_TEXTURE = new ResourceLocation(ApocalypseCore.MODID, "textures/blocks/loot_chest.png");
+	
+	@Override
+	protected ResourceLocation getTexture() {
+		return ENDER_CHEST_TEXTURE;
 	}
 
 }

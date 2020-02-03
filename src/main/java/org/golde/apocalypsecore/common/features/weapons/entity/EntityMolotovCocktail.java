@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.entity;
+package org.golde.apocalypsecore.common.features.weapons.entity;
 
 import org.golde.apocalypsecore.client.render.particle.ACParticle;
 import org.golde.apocalypsecore.common.utils.ACParticleTypes;

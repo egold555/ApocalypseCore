@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.common.features.weapons.items;
 
-import org.golde.apocalypsecore.common.entity.EntitySmokeBombThrowable;
+import org.golde.apocalypsecore.common.features.weapons.entity.EntitySmokeBombThrowable;
 import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
