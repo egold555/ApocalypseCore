@@ -2,7 +2,7 @@ package org.golde.apocalypsecore.common.features.weapons.items;
 
 import java.util.Random;
 
-import org.golde.apocalypsecore.common.items._ACItem;
+import org.golde.apocalypsecore.common.items._ACItemRightClickToKeepActive;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,7 +20,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class ItemFlamethrower extends _ACItem {
+public class ItemFlamethrower extends _ACItemRightClickToKeepActive {
 
 	public ItemFlamethrower() {
 		super("flamethrower");
@@ -31,7 +31,55 @@ public class ItemFlamethrower extends _ACItem {
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 
-
+		//		if(!(entityIn instanceof EntityPlayer)) {
+		//			System.out.println("Returning");
+		//			return;
+		//		}
+		//		
+		//		if(worldIn.isRemote) {
+		//			return;
+		//		}
+		//		
+		//		EntityPlayer playerIn = (EntityPlayer)entityIn;
+		//
+		//		Vec3d lockVector = playerIn.getLookVec();
+		//		double x = lockVector.x / 10;
+		//		double y = lockVector.y / 10;
+		//		double z = lockVector.z / 10;
+		//		Random random = new Random();
+		//		ItemStack itemstack = playerIn.getHeldItem(playerIn.getActiveHand());
+		//		for (int i = 0; i < 100; i++) {
+		//			double xCoord = playerIn.posX + x * i + random.nextDouble();
+		//			double yCoord = playerIn.posY + y * i + random.nextDouble();
+		//			double zCoord = playerIn.posZ + z * i + random.nextDouble();
+		//
+		//			//playerIn.getCooldownTracker().setCooldown(this, 15);
+		//
+		//			if (worldIn.isRemote) {
+		//				worldIn.spawnParticle(EnumParticleTypes.FLAME, xCoord, yCoord, zCoord, x * 10, y * 10, z * 10);	
+		//			} 
+		//			else {
+		//				worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.2F, 0.5F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		//
+		//
+		//
+		//				if (worldIn.isBlockFullCube(new BlockPos(xCoord, yCoord, zCoord)) && worldIn.getBlockState(new BlockPos(xCoord, yCoord + 1, zCoord)).getBlock() == Blocks.AIR) {
+		//					worldIn.setBlockState(new BlockPos(xCoord, yCoord + 1, zCoord), Blocks.FIRE.getDefaultState());
+		//				}
+		//
+		//				for (Object obj : worldIn.getEntitiesWithinAABBExcludingEntity(playerIn, new AxisAlignedBB(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 1, yCoord + 1, zCoord + 1))) {
+		//					if (obj instanceof EntityLivingBase) {
+		//						EntityLivingBase entity = (EntityLivingBase) obj;
+		//						entity.setFire(5);
+		//					}
+		//				}
+		//			}
+		//		}	
+		//		for(int i = 0; i < 100; i++) {
+		//			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, playerIn.posX + x * i + random.nextDouble(), playerIn.posY + y * i + random.nextDouble(), playerIn.posZ + z * i + random.nextDouble(), x * 10, y * 10, z * 10);
+		//		}
+		//
+		//		itemstack.damageItem(1, playerIn);
 
 		//		Vec3d lockVector = entityIn.getForward();
 		//		double x = lockVector.x * 0.8;
@@ -50,18 +98,120 @@ public class ItemFlamethrower extends _ACItem {
 
 	@Override
 	public void onUsingTick(ItemStack stack, EntityLivingBase player, int count) {
-		// TODO Auto-generated method stub
 		super.onUsingTick(stack, player, count);
+		//		System.out.println("tic");
+		//		if(!(player instanceof EntityPlayer)) {
+		//			System.out.println("Returning");
+		//			return;
+		//		}
+		//		
+		//		EntityPlayer playerIn = (EntityPlayer)player;
+		//		World worldIn = player.world;
+
+		//		Vec3d lockVector = playerIn.getLookVec();
+		//		double x = lockVector.x / 10;
+		//		double y = lockVector.y / 10;
+		//		double z = lockVector.z / 10;
+		//		Random random = new Random();
+		//		ItemStack itemstack = playerIn.getHeldItem(playerIn.getActiveHand());
+		//		for (int i = 0; i < 100; i++) {
+		//			double xCoord = playerIn.posX + x * i + random.nextDouble();
+		//			double yCoord = playerIn.posY + y * i + random.nextDouble();
+		//			double zCoord = playerIn.posZ + z * i + random.nextDouble();
+		//
+		//			//playerIn.getCooldownTracker().setCooldown(this, 15);
+		//
+		//			if (worldIn.isRemote) {
+		//				worldIn.spawnParticle(EnumParticleTypes.FLAME, xCoord, yCoord, zCoord, x * 10, y * 10, z * 10);	
+		//			} 
+		//			else {
+		//				worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.2F, 0.5F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		//
+		//
+		//
+		//				if (worldIn.isBlockFullCube(new BlockPos(xCoord, yCoord, zCoord)) && worldIn.getBlockState(new BlockPos(xCoord, yCoord + 1, zCoord)).getBlock() == Blocks.AIR) {
+		//					worldIn.setBlockState(new BlockPos(xCoord, yCoord + 1, zCoord), Blocks.FIRE.getDefaultState());
+		//				}
+		//
+		//				for (Object obj : worldIn.getEntitiesWithinAABBExcludingEntity(playerIn, new AxisAlignedBB(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 1, yCoord + 1, zCoord + 1))) {
+		//					if (obj instanceof EntityLivingBase) {
+		//						EntityLivingBase entity = (EntityLivingBase) obj;
+		//						entity.setFire(5);
+		//					}
+		//				}
+		//			}
+		//		}	
+		//		for(int i = 0; i < 100; i++) {
+		//			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, playerIn.posX + x * i + random.nextDouble(), playerIn.posY + y * i + random.nextDouble(), playerIn.posZ + z * i + random.nextDouble(), x * 10, y * 10, z * 10);
+		//		}
+		//
+		//		itemstack.damageItem(1, playerIn);
+
+
 	}
+
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+		return super.onItemRightClick(worldIn, playerIn, handIn);
+		//		Vec3d lockVector = playerIn.getLookVec();
+		//		double x = lockVector.x / 10;
+		//		double y = lockVector.y / 10;
+		//		double z = lockVector.z / 10;
+		//		Random random = new Random();
+		//ItemStack itemstack = playerIn.getHeldItem(handIn);
+		//		for (int i = 0; i < 100; i++) {
+		//			double xCoord = playerIn.posX + x * i + random.nextDouble();
+		//			double yCoord = playerIn.posY + y * i + random.nextDouble();
+		//			double zCoord = playerIn.posZ + z * i + random.nextDouble();
+		//
+		//			//playerIn.getCooldownTracker().setCooldown(this, 15);
+		//
+		//			if (worldIn.isRemote) {
+		//				worldIn.spawnParticle(EnumParticleTypes.FLAME, xCoord, yCoord, zCoord, x * 10, y * 10, z * 10);	
+		//			} 
+		//			else {
+		//				worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.2F, 0.5F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		//
+		//
+		//
+		//				if (worldIn.isBlockFullCube(new BlockPos(xCoord, yCoord, zCoord)) && worldIn.getBlockState(new BlockPos(xCoord, yCoord + 1, zCoord)).getBlock() == Blocks.AIR) {
+		//					worldIn.setBlockState(new BlockPos(xCoord, yCoord + 1, zCoord), Blocks.FIRE.getDefaultState());
+		//				}
+		//
+		//				for (Object obj : worldIn.getEntitiesWithinAABBExcludingEntity(playerIn, new AxisAlignedBB(xCoord - 1, yCoord - 1, zCoord - 1, xCoord + 1, yCoord + 1, zCoord + 1))) {
+		//					if (obj instanceof EntityLivingBase) {
+		//						EntityLivingBase entity = (EntityLivingBase) obj;
+		//						entity.setFire(5);
+		//					}
+		//				}
+		//			}
+		//		}	
+		//		for(int i = 0; i < 100; i++) {
+		//			worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, playerIn.posX + x * i + random.nextDouble(), playerIn.posY + y * i + random.nextDouble(), playerIn.posZ + z * i + random.nextDouble(), x * 10, y * 10, z * 10);
+		//		}
+		//
+		//		itemstack.damageItem(1, playerIn);
+
+		//stop animaion
+		//return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+	}
+
+	@Override
+	public void onActiveTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+
+//		if(worldIn.isRemote) {
+//			return;
+//		}
+
+		EntityPlayer playerIn = (EntityPlayer)entityIn;
+
 		Vec3d lockVector = playerIn.getLookVec();
 		double x = lockVector.x / 10;
 		double y = lockVector.y / 10;
 		double z = lockVector.z / 10;
 		Random random = new Random();
-		ItemStack itemstack = playerIn.getHeldItem(handIn);
+		ItemStack itemstack = playerIn.getActiveItemStack();
 		for (int i = 0; i < 100; i++) {
 			double xCoord = playerIn.posX + x * i + random.nextDouble();
 			double yCoord = playerIn.posY + y * i + random.nextDouble();
@@ -73,7 +223,7 @@ public class ItemFlamethrower extends _ACItem {
 				worldIn.spawnParticle(EnumParticleTypes.FLAME, xCoord, yCoord, zCoord, x * 10, y * 10, z * 10);	
 			} 
 			else {
-				worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.PLAYERS, 0.2F, 0.5F / (itemRand.nextFloat() * 0.4F + 0.8F));
+				worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.BLOCK_CLOTH_STEP, SoundCategory.PLAYERS, 0.2F, 0.5F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
 
 
@@ -94,8 +244,6 @@ public class ItemFlamethrower extends _ACItem {
 		}
 
 		itemstack.damageItem(1, playerIn);
-		
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
 	}
 
 }

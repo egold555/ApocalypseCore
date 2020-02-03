@@ -85,7 +85,8 @@ public abstract class Feature {
 
 	protected final void registerBlock(_IACBlock block) {
 		if(getTabIcon() != null && block.shouldBeInCreatveTab()) {
-			block.setCreativeTab(tabs.get(this));
+			//shitty
+			((Block)block).setCreativeTab(tabs.get(this));
 		}
 
 		ALL_BLOCKS.add(block);
@@ -93,7 +94,7 @@ public abstract class Feature {
 
 	protected final void registerItem(_IACItem item) {
 		if(getTabIcon() != null && item.shouldBeInCreatveTab()) {
-			item.setCreativeTab(tabs.get(this));
+			((Item)item).setCreativeTab(tabs.get(this));
 		}
 		ALL_ITEMS.add(item);
 	}

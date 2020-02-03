@@ -38,7 +38,7 @@ public class FeatureMisc extends Feature {
 	
 	@Override
 	public void registerBlocks() {
-		registerBlock(blockFluidGasoline = new _ACBlockFluidClassic("fluid_gasoline", fluidGasoline).setFlammability(60, 200));
+		//registerBlock(blockFluidGasoline = new _ACBlockFluidClassic("fluid_gasoline", fluidGasoline).setFlammability(60, 200));
 		registerBlock(exampleBlock = new _ACBlock("example_block"));
 		registerBlock(lootChest = new BlockLootChest());
 	}

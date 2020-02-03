@@ -186,7 +186,13 @@ public class EntityGlowlyThing {
 			Render render = Minecraft.getMinecraft().getRenderManager().getEntityRenderObject(livingBase);
 			if (render instanceof RenderLivingBase)
 			{
-				Field privateStringField = RenderLivingBase.class.getDeclaredField("layerRenderers");
+			
+				String fieldName = "field_177097_h";
+				if(ApocalypseCore.IS_RUNNING_IN_ECLIPSE) {
+					fieldName = "layerRenderers";
+				}
+				
+				Field privateStringField = RenderLivingBase.class.getDeclaredField(fieldName);
 
 				privateStringField.setAccessible(true);
 

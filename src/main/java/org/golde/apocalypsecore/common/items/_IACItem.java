@@ -8,5 +8,5 @@ import net.minecraft.item.Item;
 public interface _IACItem extends _IBObject {
 
 	//Item.java has this, needed for a hacky feature list
-	public Item setCreativeTab(CreativeTabs tab);
+	//public Item setCreativeTab(CreativeTabs tab);
 }

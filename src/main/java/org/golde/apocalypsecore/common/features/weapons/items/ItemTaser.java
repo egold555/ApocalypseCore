@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.common.init.ACSounds;
 import org.golde.apocalypsecore.common.items._ACItem;
+import org.golde.apocalypsecore.common.items._ACItemRightClickToKeepActive;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -23,7 +24,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemTaser extends _ACItem {
+public class ItemTaser extends _ACItemRightClickToKeepActive {
 
 	public ItemTaser() {
 		super("taser");
@@ -35,10 +36,7 @@ public class ItemTaser extends _ACItem {
 					return 0.0F;
 				}
 
-				NBTTagCompound nbt = checkValidTags(stack);
-
-
-				return nbt.getBoolean("active") ? 1.0F : 0.0F;
+				return isActive(stack) ? 1.0F : 0.0F;
 			}
 		});
 	}
@@ -50,59 +48,15 @@ public class ItemTaser extends _ACItem {
 		tooltip.add("When activated:");
 		tooltip.add(" 4 Attack Damage");
 	}
-	
-	@Override
-	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-		NBTTagCompound nbt = checkValidTags(playerIn.getHeldItem(handIn));
-		nbt.setBoolean("active", true);
-		nbt.setInteger("tick", 0);
-		
-		return super.onItemRightClick(worldIn, playerIn, handIn);
-	}
-	
-	@Override
-	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		NBTTagCompound nbt = checkValidTags(stack);
-		if(nbt.getInteger("tick") > 3) {
-			nbt.setBoolean("active", false);
-		}
-		
-		if(nbt.getBoolean("active")) {
-			nbt.setInteger("tick", (nbt.getInteger("tick") + 1));
-			worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 1, 1);
-			worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 0.4f, itemRand.nextFloat() + 0.5f);
-		}
-		
-		
-		
-		super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-	}
-	
-	@Override 
-    public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged)
-    {
-    	if(slotChanged){
-    		return true;
-    	}
-    	return false;
-    }
 
-	private NBTTagCompound checkValidTags(ItemStack is) {
-		if(is == null) {
-			return new NBTTagCompound();
-		}
-		NBTTagCompound nbt = is.getTagCompound();
-		if (nbt == null) {
-			nbt = new NBTTagCompound();
-			is.setTagCompound(nbt);
-		}
-		if (!nbt.hasKey("active")) {
-			nbt.setBoolean("active", false);
-		}
-		if (!nbt.hasKey("tick")) {
-			nbt.setInteger("tick", 0);
-		}
-		return nbt;
+	@Override
+	public void onActiveTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+		worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 1, 1);
+		worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 0.4f, itemRand.nextFloat() + 0.5f);
 	}
+	
+	
+
+	
 
 }

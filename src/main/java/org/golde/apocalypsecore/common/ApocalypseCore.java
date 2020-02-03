@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.golde.apocalypsecore.common.features.thirst.PlayerContainer;
 import org.golde.apocalypsecore.common.proxy.CommonProxy;
 
+import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -36,6 +37,8 @@ public class ApocalypseCore {
     
     public static Logger logger;
     public static Random RANDOM;
+    
+    public static final Boolean IS_RUNNING_IN_ECLIPSE = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
 	
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {

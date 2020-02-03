@@ -10,8 +10,11 @@ import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.food.FeatureFood;
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
+import org.golde.apocalypsecore.common.features.thirst.DrinkRegistry;
+import org.golde.apocalypsecore.common.features.thirst.IDrinkable;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.items._IACItem;
+import org.omg.CORBA._IDLTypeStub;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
@@ -103,6 +106,11 @@ public class FeatureRegistration {
 
 		for(_IACItem item : Feature.getALL_ITEMS()) {
 			event.getRegistry().register((Item)item);
+			
+			if(item instanceof IDrinkable) {
+				DrinkRegistry.addDrink((IDrinkable)item);
+			}
+			
 		}
 		
 	}

@@ -11,6 +11,6 @@ public interface _IACBlock extends _IBObject {
 		return true;
 	}
 	
-	public Block setCreativeTab(CreativeTabs tab); //block has this method, used for features
+	//public Block setCreativeTab(CreativeTabs tab); //block has this method, used for features
 	
 }
