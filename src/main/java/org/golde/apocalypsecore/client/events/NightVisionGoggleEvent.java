@@ -6,7 +6,6 @@ import java.util.List;
 import org.golde.apocalypsecore.client.render.util.EntityGlowlyThing;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
-import org.golde.apocalypsecore.common.init.ACSounds;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -39,7 +38,7 @@ public class NightVisionGoggleEvent {
 				if(!isShaderActive) {
 					isShaderActive = true;
 
-					Minecraft.getMinecraft().player.playSound(ACSounds.NIGHT_VISION_ON, 1, 1);
+					Minecraft.getMinecraft().player.playSound(FeatureWeapons.SOUND_NIGHT_VISION_ON, 1, 1);
 					
 					Minecraft.getMinecraft().entityRenderer.loadShader(new ResourceLocation(ApocalypseCore.MODID, "shaders/post/night_vision.json"));
 				}
@@ -86,7 +85,7 @@ public class NightVisionGoggleEvent {
 					isShaderActive = false;
 					//remove shader
 					Minecraft.getMinecraft().entityRenderer.loadEntityShader(null);
-					Minecraft.getMinecraft().player.playSound(ACSounds.NIGHT_VISION_OFF, 1, 1);
+					Minecraft.getMinecraft().player.playSound(FeatureWeapons.SOUND_NIGHT_VISION_OFF, 1, 1);
 					for(Integer id : glowingMobsLast) {
 						Entity en = Minecraft.getMinecraft().world.getEntityByID(id);
 						if(en != null) {

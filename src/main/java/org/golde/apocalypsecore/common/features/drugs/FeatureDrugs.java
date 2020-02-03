@@ -6,11 +6,14 @@ import org.golde.apocalypsecore.common.features.drugs.item.syringe.ItemSyringeFu
 import org.golde.apocalypsecore.common.features.drugs.item.syringe.SyringeLiquidColor;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.SoundEvent;
 
 public class FeatureDrugs extends Feature {
 
 	public static ItemSyringeEmpty syringeEmpty;
 	public static ItemSyringeEmpty syringeFull;
+	
+	public static SoundEvent SOUND_SYRINGE;
 
 	@Override
 	public void registerItems() {
@@ -26,6 +29,11 @@ public class FeatureDrugs extends Feature {
 	@Override
 	public ItemStack getTabIcon() {
 		return new ItemStack(syringeEmpty);
+	}
+	
+	@Override
+	public void registerSoundEffects() {
+		SOUND_SYRINGE = registerSoundEvent("syringe");
 	}
 
 }

@@ -24,6 +24,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
@@ -38,15 +39,17 @@ public class FeatureWeapons extends Feature {
 	public static _ACItemMeleeWeapon itemBaseBallBatSpiked;
 	public static ItemTaser taser;
 	public static ItemMolotovCocktail molotovCocktail;
-	
+
 	public static ItemNightVisionGoggles nightVisionGoggles;
 	public static ItemGrapplingHook grapplingHook;
-	
+
 	public static BlockLandMine landMine;
-	
-	
-	
-	
+
+	public static SoundEvent SOUND_NIGHT_VISION_ON;
+	public static SoundEvent SOUND_NIGHT_VISION_OFF;
+	public static SoundEvent SOUND_TASER;
+
+
 	@Override
 	public void registerBlocks() {
 		registerBlock(landMine = new BlockLandMine());
@@ -60,7 +63,7 @@ public class FeatureWeapons extends Feature {
 		registerItem(itemBaseBallBatSpiked = new _ACItemMeleeWeapon("bat_spiked", 6, 100, Blocks.PLANKS));
 		registerItem(taser = new ItemTaser());
 		registerItem(molotovCocktail = new ItemMolotovCocktail());
-		
+
 		registerItem(nightVisionGoggles = new ItemNightVisionGoggles());
 		registerItem(grapplingHook = new ItemGrapplingHook());
 	}
@@ -72,7 +75,14 @@ public class FeatureWeapons extends Feature {
 		is.getTagCompound().setBoolean("active", true);
 		return is;
 	}
-	
+
+	@Override
+	public void registerSoundEffects() {
+		SOUND_NIGHT_VISION_ON = registerSoundEvent("nightvision.on");
+		SOUND_NIGHT_VISION_OFF = registerSoundEvent("nightvision.off");
+		SOUND_TASER = registerSoundEvent("taser");
+	}
+
 	@Override
 	public void registerEntities() {
 		registerEntity(EntityEntryBuilder.create()
@@ -80,65 +90,65 @@ public class FeatureWeapons extends Feature {
 				.id(new ResourceLocation(ApocalypseCore.MODID, "smokebomb"), entityId++)
 				.name("smokebomb")
 				.tracker(64, 1, true));
-		
+
 		registerEntity(EntityEntryBuilder.create()
 				.entity(EntitySmokeCloud.class)
 				.id(new ResourceLocation(ApocalypseCore.MODID, "smokecloud"), entityId++)
 				.name("smokecloud")
 				.tracker(64, 1, true));
-		
+
 		registerEntity(EntityEntryBuilder.create()
 				.entity(EntityGrapplingHook.class)
 				.id(new ResourceLocation(ApocalypseCore.MODID, "grapplinghook"), entityId++)
 				.name("grapplinghook")
 				.tracker(64, 1, true));
-		
+
 		registerEntity(EntityEntryBuilder.create()
 				.entity(EntityMolotovCocktail.class)
 				.id(new ResourceLocation(ApocalypseCore.MODID, "molotovcocktail"), entityId++)
 				.name("molotovcocktail")
 				.tracker(64, 1, true));
 	}
-	
+
 	@Override
 	public void regsterEntityRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(EntitySmokeBombThrowable.class, RenderEntitySmokeBombThrowableFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, RenderGrapplingHookFactory.INSTANCE);
 		RenderingRegistry.registerEntityRenderingHandler(EntityMolotovCocktail.class, RenderEntityMolotovCocktailFactory.INSTANCE);
 	}
-	
+
 	@SideOnly(Side.CLIENT)
 	public static class RenderEntitySmokeBombThrowableFactory implements IRenderFactory<EntitySmokeBombThrowable> {
-        public final static RenderEntitySmokeBombThrowableFactory INSTANCE = new RenderEntitySmokeBombThrowableFactory();
-    
-        @Override
-        public Render<EntitySmokeBombThrowable> createRenderFor(RenderManager manager)
-        {
-            return new RenderItemSmokebomb(manager, FeatureWeapons.smokeBomb);
-        }
-    }
-	
-	
+		public final static RenderEntitySmokeBombThrowableFactory INSTANCE = new RenderEntitySmokeBombThrowableFactory();
+
+		@Override
+		public Render<EntitySmokeBombThrowable> createRenderFor(RenderManager manager)
+		{
+			return new RenderItemSmokebomb(manager, FeatureWeapons.smokeBomb);
+		}
+	}
+
+
 	@SideOnly(Side.CLIENT)
 	public static class RenderGrapplingHookFactory implements IRenderFactory<EntityGrapplingHook> {
-        public final static RenderGrapplingHookFactory INSTANCE = new RenderGrapplingHookFactory();
-    
-        @Override
-        public Render<EntityGrapplingHook> createRenderFor(RenderManager manager)
-        {
-            return new RenderEntityGrapplingHook(manager);
-        }
-    }
-	
+		public final static RenderGrapplingHookFactory INSTANCE = new RenderGrapplingHookFactory();
+
+		@Override
+		public Render<EntityGrapplingHook> createRenderFor(RenderManager manager)
+		{
+			return new RenderEntityGrapplingHook(manager);
+		}
+	}
+
 	@SideOnly(Side.CLIENT)
 	public static class RenderEntityMolotovCocktailFactory implements IRenderFactory<EntityMolotovCocktail> {
-        public final static RenderEntityMolotovCocktailFactory INSTANCE = new RenderEntityMolotovCocktailFactory();
-    
-        @Override
-        public Render<EntityMolotovCocktail> createRenderFor(RenderManager manager)
-        {
-            return new RenderEntityMolotovCocktail(manager, FeatureWeapons.molotovCocktail);
-        }
-    }
+		public final static RenderEntityMolotovCocktailFactory INSTANCE = new RenderEntityMolotovCocktailFactory();
+
+		@Override
+		public Render<EntityMolotovCocktail> createRenderFor(RenderManager manager)
+		{
+			return new RenderEntityMolotovCocktail(manager, FeatureWeapons.molotovCocktail);
+		}
+	}
 
 }

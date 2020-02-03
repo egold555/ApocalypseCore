@@ -1,14 +1,11 @@
 package org.golde.apocalypsecore.common.items;
 
-import org.golde.apocalypsecore.common.init.ACSounds;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
 public abstract class _ACItemRightClickToKeepActive extends _ACItem {

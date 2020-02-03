@@ -4,19 +4,14 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.common.init.ACSounds;
-import org.golde.apocalypsecore.common.items._ACItem;
+import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.items._ACItemRightClickToKeepActive;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextFormatting;
@@ -51,8 +46,8 @@ public class ItemTaser extends _ACItemRightClickToKeepActive {
 
 	@Override
 	public void onActiveTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 1, 1);
-		worldIn.playSound(null, entityIn.getPosition(), ACSounds.TASER, SoundCategory.PLAYERS, 0.4f, itemRand.nextFloat() + 0.5f);
+		worldIn.playSound(null, entityIn.getPosition(), FeatureWeapons.SOUND_TASER, SoundCategory.PLAYERS, 1, 1);
+		worldIn.playSound(null, entityIn.getPosition(), FeatureWeapons.SOUND_TASER, SoundCategory.PLAYERS, 0.4f, itemRand.nextFloat() + 0.5f);
 	}
 	
 	

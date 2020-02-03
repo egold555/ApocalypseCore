@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.blocks._ACBlockWithTE;
 import org.golde.apocalypsecore.common.blocks._IACBlock;
 import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
@@ -23,6 +24,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -140,7 +143,6 @@ public class FeatureRegistration {
 		}
 		
 		for(EntityEntryBuilder builder : Feature.getALL_ENTITIES()) {
-			System.err.println("Attempting to register entity " + builder.build().getName());
 			event.getRegistry().register(builder.build());
 		}
 	}
@@ -169,6 +171,18 @@ public class FeatureRegistration {
 		for(Feature f : features) {
 			f.regsterEntityRenderers();
 		}
+	}
+	
+	@SubscribeEvent
+	public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {
+		for(Feature f : features) {
+			f.registerSoundEffects();
+		}
+		
+		for(SoundEvent se : Feature.getALL_SOUNDS()) {
+			event.getRegistry().register(se);
+		}
+		
 	}
 	
 	private static final void registerTileEntities() {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.blocks._ACBlockFluidClassic;
 import org.golde.apocalypsecore.common.blocks._IACBlock;
 import org.golde.apocalypsecore.common.items._IACItem;
@@ -16,6 +17,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidUtil;
@@ -32,6 +35,7 @@ public abstract class Feature {
 	private static HashMap<IItemColor, Block[]> colorMapBlock = new HashMap<IItemColor, Block[]>();
 	private static List<Fluid> ALL_FLUID = new ArrayList<Fluid>();
 	private static List<EntityEntryBuilder> ALL_ENTITIES = new ArrayList<EntityEntryBuilder>();
+	private static List<SoundEvent> ALL_SOUNDS = new ArrayList<SoundEvent>();
 	
 	public void registerBlocks() {};
 	public void registerItems() {};
@@ -46,6 +50,8 @@ public abstract class Feature {
 	
 	@SideOnly(Side.CLIENT)
 	public void regsterEntityRenderers() {};
+	
+	public void registerSoundEffects() {};
 	
 	protected static int entityId = -1;
 
@@ -107,23 +113,33 @@ public abstract class Feature {
 		ALL_ITEMS.add(item);
 	}
 
-	protected final void registerFluid(Fluid fluid) {
-		this.ALL_FLUID.add(fluid);
+	protected static final void registerFluid(Fluid fluid) {
+		ALL_FLUID.add(fluid);
 	}
 
-	protected final void registerItemColorHandler(IItemColor key, Item... item) {
-		this.colorMapItem.put(key, item);
+	protected static final void registerItemColorHandler(IItemColor key, Item... item) {
+		colorMapItem.put(key, item);
 	}
 
-	protected final void registerItemColorHandler(IItemColor key, Block... block) {
-		this.colorMapBlock.put(key, block);
+	protected static final void registerItemColorHandler(IItemColor key, Block... block) {
+		colorMapBlock.put(key, block);
 	}
 	
-	protected final void registerEntity(EntityEntryBuilder builder) {
-		this.ALL_ENTITIES.add(builder);
+	protected static final void registerEntity(EntityEntryBuilder builder) {
+		ALL_ENTITIES.add(builder);
 	}
 
-
+	protected static final SoundEvent registerSoundEvent(String name){
+		ResourceLocation res = new ResourceLocation(ApocalypseCore.MODID, name);
+		SoundEvent evt = new SoundEvent(res).setRegistryName(res);
+		if(evt == null || res == null) {
+			ApocalypseCore.logger.error("Sound '" + name + "' was null");
+		}
+		else {
+			ALL_SOUNDS.add(evt);
+		}
+		return evt;
+	}
 
 	public static final List<_IACBlock> getALL_BLOCKS() {
 		return ALL_BLOCKS;
@@ -147,6 +163,10 @@ public abstract class Feature {
 	
 	public static List<EntityEntryBuilder> getALL_ENTITIES() {
 		return ALL_ENTITIES;
+	}
+	
+	public static List<SoundEvent> getALL_SOUNDS() {
+		return ALL_SOUNDS;
 	}
 
 }
