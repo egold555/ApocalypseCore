@@ -1,7 +1,6 @@
 package org.golde.apocalypsecore.common.features.drugs.item.syringe;
 
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
-import org.golde.apocalypsecore.common.init.ACDamage;
 import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,7 +24,7 @@ public class ItemSyringeEmpty extends _ACItem {
 	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn) {
-		player.attackEntityFrom(ACDamage.INJECTION, 1.0F);
+		player.attackEntityFrom(FeatureDrugs.DAMAGE_SOURCE_INJECTION, 1.0F);
 		worldIn.playSound(null, player.getPosition(), FeatureDrugs.SOUND_SYRINGE, SoundCategory.PLAYERS, 1, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
 		return super.onItemRightClick(worldIn, player, handIn);
 	}

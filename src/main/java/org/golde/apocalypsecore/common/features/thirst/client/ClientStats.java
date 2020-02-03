@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.client;
+package org.golde.apocalypsecore.common.features.thirst.client;
 
 public class ClientStats {
 

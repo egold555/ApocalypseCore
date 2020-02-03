@@ -1,9 +1,9 @@
-package org.golde.apocalypsecore.client.events;
+package org.golde.apocalypsecore.common.features.thirst.client.events;
 
-import org.golde.apocalypsecore.client.ClientStats;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.features.thirst.DrinkRegistry;
 import org.golde.apocalypsecore.common.features.thirst.IDrinkable;
+import org.golde.apocalypsecore.common.features.thirst.client.ClientStats;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
 import org.golde.apocalypsecore.common.network.packets.server.PacketMovement;
 import org.lwjgl.input.Keyboard;

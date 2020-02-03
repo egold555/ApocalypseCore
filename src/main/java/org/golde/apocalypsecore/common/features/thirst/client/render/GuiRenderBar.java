@@ -1,10 +1,10 @@
-package org.golde.apocalypsecore.client.render;
+package org.golde.apocalypsecore.common.features.thirst.client.render;
 
 import java.util.Random;
 
-import org.golde.apocalypsecore.client.ClientStats;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.features.thirst.ThirstConstants;
+import org.golde.apocalypsecore.common.features.thirst.client.ClientStats;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;

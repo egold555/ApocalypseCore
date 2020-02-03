@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.common.network.packets.client;
 
-import org.golde.apocalypsecore.client.ClientStats;
 import org.golde.apocalypsecore.common.features.thirst.ThirstLogic;
+import org.golde.apocalypsecore.common.features.thirst.client.ClientStats;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;

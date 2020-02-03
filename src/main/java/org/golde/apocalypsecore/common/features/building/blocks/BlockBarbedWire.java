@@ -5,7 +5,7 @@ import java.util.Random;
 import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.common.blocks._ACBlock;
-import org.golde.apocalypsecore.common.init.ACDamageSource;
+import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
 
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -43,7 +43,7 @@ public class BlockBarbedWire extends _ACBlock implements IShearable{
 	@Override
 	public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
 		if(entityIn instanceof EntityLivingBase) {
-			((EntityLivingBase) entityIn).attackEntityFrom(ACDamageSource.BARBED_WIRE, 4);
+			((EntityLivingBase) entityIn).attackEntityFrom(FeatureBuilding.DAMAGE_SOURCE_BARBED_WIRE, 4);
 			entityIn.setInWeb();
 		}
 	}

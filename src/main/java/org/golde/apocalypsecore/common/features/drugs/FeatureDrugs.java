@@ -6,6 +6,7 @@ import org.golde.apocalypsecore.common.features.drugs.item.syringe.ItemSyringeFu
 import org.golde.apocalypsecore.common.features.drugs.item.syringe.SyringeLiquidColor;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 
 public class FeatureDrugs extends Feature {
@@ -14,6 +15,8 @@ public class FeatureDrugs extends Feature {
 	public static ItemSyringeEmpty syringeFull;
 	
 	public static SoundEvent SOUND_SYRINGE;
+	
+	public static final DamageSource DAMAGE_SOURCE_INJECTION = new DamageSource("syringe");
 
 	@Override
 	public void registerItems() {

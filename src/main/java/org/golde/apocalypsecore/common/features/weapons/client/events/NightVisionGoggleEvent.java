@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.client.events;
+package org.golde.apocalypsecore.common.features.weapons.client.events;
 
 import java.util.ArrayList;
 import java.util.List;

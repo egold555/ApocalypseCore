@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.common.network.packets.server;
 
-import org.golde.apocalypsecore.client.ClientStats;
 import org.golde.apocalypsecore.common.features.thirst.PlayerContainer;
+import org.golde.apocalypsecore.common.features.thirst.client.ClientStats;
 import org.golde.apocalypsecore.common.network.packets.client.ACPacketParticle;
 
 import io.netty.buffer.ByteBuf;

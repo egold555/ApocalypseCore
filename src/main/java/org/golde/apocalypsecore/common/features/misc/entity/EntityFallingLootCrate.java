@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.entity;
+package org.golde.apocalypsecore.common.features.misc.entity;
 
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
 

@@ -6,6 +6,7 @@ import org.golde.apocalypsecore.common.features.building.blocks.BlockCagedLampOn
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 
 public class FeatureBuilding extends Feature {
 
@@ -27,6 +28,8 @@ public class FeatureBuilding extends Feature {
 	public static BlockCagedLampOn lamp_black;
 	
 	public static BlockBarbedWire barbedWire;
+	
+	public static final DamageSource DAMAGE_SOURCE_BARBED_WIRE = new DamageSource("barbedWire").setDamageBypassesArmor().setDifficultyScaled();
 
 	@Override
 	public void registerBlocks() {

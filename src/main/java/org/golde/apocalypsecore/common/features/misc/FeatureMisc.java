@@ -3,12 +3,12 @@ package org.golde.apocalypsecore.common.features.misc;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.blocks._ACBlock;
 import org.golde.apocalypsecore.common.blocks._ACBlockFluidClassic;
-import org.golde.apocalypsecore.common.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.Feature;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.BlockLootChest;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 import org.golde.apocalypsecore.common.features.misc.client.render.block.TESRLootChest2;
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;
+import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.items.ItemWrench;
 import org.golde.apocalypsecore.common.items._ACItem;
 

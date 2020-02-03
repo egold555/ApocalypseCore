@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.events;
+package org.golde.apocalypsecore.common.features.weapons.event;
 
 import java.util.LinkedHashMap;
 

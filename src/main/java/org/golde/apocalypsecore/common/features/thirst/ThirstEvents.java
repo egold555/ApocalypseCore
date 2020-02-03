@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.common.features.thirst;
 
-import org.golde.apocalypsecore.client.render.GuiRenderBar;
+import org.golde.apocalypsecore.common.features.thirst.client.render.GuiRenderBar;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;

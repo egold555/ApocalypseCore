@@ -2,8 +2,8 @@ package org.golde.apocalypsecore.common.init;
 
 import org.golde.apocalypsecore.client.render.entity.variant.VariantManager;
 import org.golde.apocalypsecore.common.ApocalypseCore;
-import org.golde.apocalypsecore.common.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;
+import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.features.weapons.client.render.entity.RenderEntityGrapplingHook;
 import org.golde.apocalypsecore.common.features.weapons.client.render.entity.RenderEntityMolotovCocktail;

@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.events;
+package org.golde.apocalypsecore.common.features.misc.event;
 
 import java.util.Arrays;
 

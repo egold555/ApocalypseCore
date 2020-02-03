@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.common.entity.EntityFallingLootCrate;
+import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
