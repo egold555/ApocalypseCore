@@ -47,6 +47,7 @@ public class CommonProxy {
 	public void serverStarting(FMLServerStartingEvent e) {
 		e.registerServerCommand(new ACCommandParticle());
 		e.registerServerCommand(new ACCommandTest());
+		FeatureRegistration.serverStarting(e);
 	}
 
 	public void registerRenders() {/*Client Only Method*/}

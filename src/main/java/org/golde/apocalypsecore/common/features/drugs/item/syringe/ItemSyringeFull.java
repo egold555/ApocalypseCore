@@ -25,7 +25,7 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 	
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
-		if(tab == getCreativeTab()) {
+		if(isInCreativeTab(tab)) {
 			for(int i = 0; i < 255; i++) {
 				float hue = i / 255F;
 				Color c = Color.getHSBColor(hue, 1, 1);

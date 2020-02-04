@@ -8,6 +8,7 @@ import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.BlockLootC
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 import org.golde.apocalypsecore.common.features.misc.client.render.block.TESRLootChest2;
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;
+import org.golde.apocalypsecore.common.features.misc.commands.CommandKit;
 import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.items.ItemWrench;
 import org.golde.apocalypsecore.common.features.misc.items.kit.ItemKit;
@@ -15,6 +16,7 @@ import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.command.CommandKill;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
@@ -69,6 +71,11 @@ public class FeatureMisc extends Feature {
 				.id(new ResourceLocation(ApocalypseCore.MODID, "fallinglootcrate"), entityId++)
 				.name("fallinglootcrate")
 				.tracker(64, 1, true));
+	}
+	
+	@Override
+	public void registerSeverCommands() {
+		registerServerCommand(new CommandKit());
 	}
 	
 	@Override

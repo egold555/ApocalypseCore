@@ -66,7 +66,7 @@ public class FeatureRegistration {
 		}
 	}
 	
-	public void serverStarting(FMLServerStartingEvent e) {
+	public static void serverStarting(FMLServerStartingEvent e) {
 		for(Feature feat : features) {
 			feat.registerSeverCommands();
 		}
