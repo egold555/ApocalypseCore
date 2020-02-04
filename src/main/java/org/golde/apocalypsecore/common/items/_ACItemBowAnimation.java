@@ -17,6 +17,13 @@ public abstract class _ACItemBowAnimation extends _ACItem {
 		
 	}
 
+	/*
+	 * CLIENT SIDE CODE CALLED ON SERVER
+	 * FIX ASAP
+	 
+	 */
+	
+	//TODO: FIX CLIENT SIDE CODE ON SERVER
 	@Override
     public void onUpdate(ItemStack stack, World world, Entity entity, int itemSlot, boolean isSelected) {
         super.onUpdate(stack, world, entity, itemSlot, isSelected);

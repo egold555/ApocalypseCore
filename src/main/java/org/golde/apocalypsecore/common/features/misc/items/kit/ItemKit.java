@@ -5,8 +5,6 @@ import java.util.List;
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
 import org.golde.apocalypsecore.common.items._ACItem;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,8 +17,8 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.config.GuiConfigEntries.ChatColorEntry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -53,13 +51,13 @@ public class ItemKit extends _ACItem {
 		AbstractKit kit = getFromName(getKitNameFromTag(is));
 		
 		if(kit == null) {
-			playerIn.sendMessage(new TextComponentString(ChatFormatting.RED + "No kit found."));
+			playerIn.sendMessage(new TextComponentString(TextFormatting.RED + "No kit found."));
 			worldIn.playSound(null, playerIn.getPosition(), SoundEvents.BLOCK_LAVA_POP, SoundCategory.PLAYERS, 1, 1);
 			return new ActionResult<ItemStack>(EnumActionResult.FAIL, is);
 		}
 		else {
 			worldIn.playSound(null, playerIn.getPosition(), SoundEvents.ENTITY_HORSE_ARMOR, SoundCategory.PLAYERS, 1, 1);
-			playerIn.sendMessage(new TextComponentString(ChatFormatting.GREEN + "Kit " + ChatFormatting.GRAY + kit.getName() + ChatFormatting.GREEN + " equipped."));
+			playerIn.sendMessage(new TextComponentString(TextFormatting.GREEN + "Kit " + TextFormatting.GRAY + kit.getName() + TextFormatting.GREEN + " equipped."));
 			kit.go(playerIn);
 			is.shrink(1);
 		}

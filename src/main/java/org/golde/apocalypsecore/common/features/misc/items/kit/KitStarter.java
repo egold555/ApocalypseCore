@@ -3,13 +3,12 @@ package org.golde.apocalypsecore.common.features.misc.items.kit;
 import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 
-import com.mojang.realmsclient.gui.ChatFormatting;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.TextFormatting;
 
 public class KitStarter extends AbstractKit {
 
@@ -59,7 +58,7 @@ public class KitStarter extends AbstractKit {
 	private ItemStack generic(Item item, String name) {
 		ItemStack helmet = new ItemStack(item);
 		helmet.addEnchantment(Enchantments.UNBREAKING, 1);
-		helmet.setStackDisplayName(ChatFormatting.LIGHT_PURPLE + "Starter " + name);
+		helmet.setStackDisplayName(TextFormatting.LIGHT_PURPLE + "Starter " + name);
 		return helmet;
 	}
 	

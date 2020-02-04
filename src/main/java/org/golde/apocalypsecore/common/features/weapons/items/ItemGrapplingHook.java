@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemGrapplingHook extends _ACItemBowAnimation {
+public class ItemGrapplingHook extends _ACItem {
 
 	private boolean isShot = false;
 	
