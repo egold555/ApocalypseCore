@@ -1,6 +1,7 @@
 package org.golde.apocalypsecore.common.proxy;
 
 import org.golde.apocalypsecore.common.features.FeatureRegistration;
+import org.golde.apocalypsecore.common.features.FeatureRegistrationClient;
 import org.golde.apocalypsecore.common.init.ACEntities;
 
 import net.minecraft.client.renderer.color.ItemColors;
@@ -37,15 +38,15 @@ public class ClientProxy extends CommonProxy {
 	public void registerRenders() {
 		//ACBlocks.bindTESR();
 		ACEntities.registerRenders();
-		FeatureRegistration.regsterEntityRenderers();
-		FeatureRegistration.bindTESR();
+		FeatureRegistrationClient.regsterEntityRenderers();
+		FeatureRegistrationClient.bindTESR();
 	}
 	
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		//ACItems.initModels();
 		//ACBlocks.initModels();
-		FeatureRegistration.initModels();
+		FeatureRegistrationClient.initModels();
 	}
 	
 	@Override
@@ -56,7 +57,7 @@ public class ClientProxy extends CommonProxy {
 	@SubscribeEvent
     public static void itemColorHandlers(ColorHandlerEvent.Item event) {
         ItemColors colors = event.getItemColors();
-        FeatureRegistration.registerItemColorHandler(colors);
+        FeatureRegistrationClient.registerItemColorHandler(colors);
         
     }
 	

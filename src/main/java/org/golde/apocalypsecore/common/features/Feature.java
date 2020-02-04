@@ -10,7 +10,6 @@ import org.golde.apocalypsecore.common.blocks._IACBlock;
 import org.golde.apocalypsecore.common.items._IACItem;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.command.CommandBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -32,8 +31,7 @@ public abstract class Feature {
 	private static List<_IACBlock> ALL_BLOCKS = new ArrayList<_IACBlock>();
 	private static List<_IACItem> ALL_ITEMS = new ArrayList<_IACItem>();
 	private static HashMap<Feature, CreativeTabs> tabs = new HashMap<Feature, CreativeTabs>();
-	private static HashMap<IItemColor, Item[]> colorMapItem = new HashMap<IItemColor, Item[]>();
-	private static HashMap<IItemColor, Block[]> colorMapBlock = new HashMap<IItemColor, Block[]>();
+	
 	private static List<Fluid> ALL_FLUID = new ArrayList<Fluid>();
 	private static List<EntityEntryBuilder> ALL_ENTITIES = new ArrayList<EntityEntryBuilder>();
 	private static List<SoundEvent> ALL_SOUNDS = new ArrayList<SoundEvent>();
@@ -42,16 +40,11 @@ public abstract class Feature {
 	public void registerBlocks() {};
 	public void registerItems() {};
 	public abstract ItemStack getTabIcon();
-	@SideOnly(Side.CLIENT)
-	public void bindTESR() {};
 	
-	@SideOnly(Side.CLIENT)
-	public void registerItemColorHandlers() {};
 	public void registerFluids() {};
 	public void registerEntities() {};
 	
-	@SideOnly(Side.CLIENT)
-	public void regsterEntityRenderers() {};
+	
 	
 	public void registerSoundEffects() {};
 	
@@ -121,13 +114,7 @@ public abstract class Feature {
 		ALL_FLUID.add(fluid);
 	}
 
-	protected static final void registerItemColorHandler(IItemColor key, Item... item) {
-		colorMapItem.put(key, item);
-	}
-
-	protected static final void registerItemColorHandler(IItemColor key, Block... block) {
-		colorMapBlock.put(key, block);
-	}
+	
 	
 	protected static final void registerEntity(EntityEntryBuilder builder) {
 		ALL_ENTITIES.add(builder);
@@ -155,14 +142,6 @@ public abstract class Feature {
 
 	public static final List<_IACItem> getALL_ITEMS() {
 		return ALL_ITEMS;
-	}
-
-	public static final HashMap<IItemColor, Block[]> getColorMapBlock() {
-		return colorMapBlock;
-	}
-
-	public static final HashMap<IItemColor, Item[]> getColorMapItem() {
-		return colorMapItem;
 	}
 	
 	public static final List<Fluid> getALL_FLUID() {

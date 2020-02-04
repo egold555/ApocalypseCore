@@ -15,8 +15,6 @@ import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.items._IACItem;
 
 import net.minecraft.block.Block;
-import net.minecraft.client.renderer.color.IItemColor;
-import net.minecraft.client.renderer.color.ItemColors;
 import net.minecraft.command.CommandBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -125,20 +123,7 @@ public class FeatureRegistration {
 		
 	}
 	
-	@SideOnly(Side.CLIENT)
-	public static final void initModels() {
-
-		for(_IACBlock block : Feature.getALL_BLOCKS()) {
-			if(block.shouldRegisterItem()) {
-				block.initModel();
-			}
-		}
-		
-		for(_IACItem item : Feature.getALL_ITEMS()) {
-			item.initModel();
-		}
-
-	}
+	
 	
 	@SubscribeEvent
 	public static void registerEntitys(final RegistryEvent.Register<EntityEntry> event) {
@@ -152,31 +137,7 @@ public class FeatureRegistration {
 		}
 	}
 	
-	public static final void registerItemColorHandler(ItemColors colors) {
-		for(Feature f : features) {
-			f.registerItemColorHandlers();
-		}
-		
-		for(IItemColor c : Feature.getColorMapItem().keySet()) {
-			colors.registerItemColorHandler(c, Feature.getColorMapItem().get(c));
-		}
-		
-		for(IItemColor c : Feature.getColorMapBlock().keySet()) {
-			colors.registerItemColorHandler(c, Feature.getColorMapBlock().get(c));
-		}
-	}
 	
-	public static void bindTESR() {
-		for(Feature f : features) {
-			f.bindTESR();
-		}
-	}
-	
-	public static void regsterEntityRenderers() {
-		for(Feature f : features) {
-			f.regsterEntityRenderers();
-		}
-	}
 	
 	@SubscribeEvent
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> event) {

@@ -14,15 +14,11 @@ import org.golde.apocalypsecore.common.features.misc.items.ItemWrench;
 import org.golde.apocalypsecore.common.features.misc.items.kit.ItemKit;
 import org.golde.apocalypsecore.common.items._ACItem;
 
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
+
 import net.minecraft.command.CommandKill;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -78,30 +74,30 @@ public class FeatureMisc extends Feature {
 		registerServerCommand(new CommandKit());
 	}
 	
-	@Override
-	public void regsterEntityRenderers() {
-		RenderingRegistry.registerEntityRenderingHandler(EntityFallingLootCrate.class, RenderEntityFallingLootCrateFactory.INSTANCE);
-	}
+//	@Override
+//	public void regsterEntityRenderers() {
+//		RenderingRegistry.registerEntityRenderingHandler(EntityFallingLootCrate.class, RenderEntityFallingLootCrateFactory.INSTANCE);
+//	}
 	
-	@SideOnly(Side.CLIENT)
-	public static class RenderEntityFallingLootCrateFactory implements IRenderFactory<EntityFallingLootCrate> {
-        public final static RenderEntityFallingLootCrateFactory INSTANCE = new RenderEntityFallingLootCrateFactory();
-    
-        @Override
-        public Render<EntityFallingLootCrate> createRenderFor(RenderManager manager)
-        {
-            return new RenderFallingLootCrate(manager);
-        }
-    }
+//	@SideOnly(Side.CLIENT)
+//	public static class RenderEntityFallingLootCrateFactory implements IRenderFactory<EntityFallingLootCrate> {
+//        public final static RenderEntityFallingLootCrateFactory INSTANCE = new RenderEntityFallingLootCrateFactory();
+//    
+//        @Override
+//        public Render<EntityFallingLootCrate> createRenderFor(RenderManager manager)
+//        {
+//            return new RenderFallingLootCrate(manager);
+//        }
+//    }
 
 	@Override
 	public ItemStack getTabIcon() {
 		return new ItemStack(wrench);
 	}
 
-	@Override
-	public void bindTESR() {
-		ClientRegistry.bindTileEntitySpecialRenderer(TIleEntityLootChest.class, new TESRLootChest2());
-	}
+//	@Override
+//	public void bindTESR() {
+//		ClientRegistry.bindTileEntitySpecialRenderer(TIleEntityLootChest.class, new TESRLootChest2());
+//	}
 
 }

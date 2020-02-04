@@ -18,8 +18,6 @@ import org.golde.apocalypsecore.common.features.weapons.items.ItemSmokeBomb;
 import org.golde.apocalypsecore.common.features.weapons.items.ItemTaser;
 import org.golde.apocalypsecore.common.items._ACItemMeleeWeapon;
 
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -110,45 +108,6 @@ public class FeatureWeapons extends Feature {
 				.tracker(64, 1, true));
 	}
 
-	@Override
-	public void regsterEntityRenderers() {
-		RenderingRegistry.registerEntityRenderingHandler(EntitySmokeBombThrowable.class, RenderEntitySmokeBombThrowableFactory.INSTANCE);
-		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, RenderGrapplingHookFactory.INSTANCE);
-		RenderingRegistry.registerEntityRenderingHandler(EntityMolotovCocktail.class, RenderEntityMolotovCocktailFactory.INSTANCE);
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static class RenderEntitySmokeBombThrowableFactory implements IRenderFactory<EntitySmokeBombThrowable> {
-		public final static RenderEntitySmokeBombThrowableFactory INSTANCE = new RenderEntitySmokeBombThrowableFactory();
-
-		@Override
-		public Render<EntitySmokeBombThrowable> createRenderFor(RenderManager manager)
-		{
-			return new RenderItemSmokebomb(manager, FeatureWeapons.smokeBomb);
-		}
-	}
-
-
-	@SideOnly(Side.CLIENT)
-	public static class RenderGrapplingHookFactory implements IRenderFactory<EntityGrapplingHook> {
-		public final static RenderGrapplingHookFactory INSTANCE = new RenderGrapplingHookFactory();
-
-		@Override
-		public Render<EntityGrapplingHook> createRenderFor(RenderManager manager)
-		{
-			return new RenderEntityGrapplingHook(manager);
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static class RenderEntityMolotovCocktailFactory implements IRenderFactory<EntityMolotovCocktail> {
-		public final static RenderEntityMolotovCocktailFactory INSTANCE = new RenderEntityMolotovCocktailFactory();
-
-		@Override
-		public Render<EntityMolotovCocktail> createRenderFor(RenderManager manager)
-		{
-			return new RenderEntityMolotovCocktail(manager, FeatureWeapons.molotovCocktail);
-		}
-	}
+	
 
 }
