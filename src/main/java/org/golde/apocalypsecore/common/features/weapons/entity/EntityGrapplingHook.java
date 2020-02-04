@@ -169,7 +169,7 @@ public class EntityGrapplingHook extends Entity implements IProjectile {
         Block block = iblockstate.getBlock();
 
         if (iblockstate.getMaterial() != Material.AIR) {
-            AxisAlignedBB vec31 = iblockstate.getSelectedBoundingBox(this.world, blockpos);
+            AxisAlignedBB vec31 = iblockstate.getCollisionBoundingBox(this.world, blockpos);
 
             if (vec31 != Block.NULL_AABB && vec31.offset(blockpos).contains(new Vec3d(this.posX, this.posY, this.posZ))) {
                 this.inGround = true;

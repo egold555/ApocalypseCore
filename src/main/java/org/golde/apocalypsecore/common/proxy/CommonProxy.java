@@ -4,7 +4,6 @@ import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.command.ACCommandParticle;
 import org.golde.apocalypsecore.common.command.ACCommandTest;
 import org.golde.apocalypsecore.common.features.FeatureRegistration;
-import org.golde.apocalypsecore.common.features.thirst.DrinkRegistry;
 import org.golde.apocalypsecore.common.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.common.init.ACDispenser;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
@@ -12,10 +11,7 @@ import org.golde.apocalypsecore.common.network.ACPacketHandler;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionUtils;
-import net.minecraft.world.World;
-import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -41,7 +37,7 @@ public class CommonProxy {
 		
 		ItemStack water = PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.WATER);
 		
-		DrinkRegistry.addDrink(water, 3, 1.4F, true, 0.4F);
+		
 	}
 
 	public void serverStarting(FMLServerStartingEvent e) {

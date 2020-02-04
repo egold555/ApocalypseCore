@@ -1,6 +1,7 @@
 package org.golde.apocalypsecore.common.features.weapons.entity;
 
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
+import org.golde.apocalypsecore.common.utils.ShittyServerFix;
 
 import io.netty.util.internal.ThreadLocalRandom;
 import net.minecraft.entity.EntityLivingBase;
@@ -77,7 +78,7 @@ public class EntitySmokeBombThrowable extends EntityThrowable {
             this.world.setEntityState(this, (byte)3);
   
             //UNTESTED
-            EntitySmokeCloud cloud = new EntitySmokeCloud(world, EnumDyeColor.byDyeDamage(getColorDamage()).getColorValue());
+            EntitySmokeCloud cloud = new EntitySmokeCloud(world, ShittyServerFix.getColor(EnumDyeColor.byDyeDamage(getColorDamage())));
             cloud.setEmitter(this);
             world.spawnEntity(cloud);
             cloud.onUpdate(); //IDK WHY I NEED TO CALL THIS, but update doesnt automatically start, Forge is fucking stupid

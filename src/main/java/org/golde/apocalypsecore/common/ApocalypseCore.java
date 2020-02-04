@@ -3,12 +3,10 @@ package org.golde.apocalypsecore.common;
 import java.util.Random;
 
 import org.apache.logging.log4j.Logger;
-import org.golde.apocalypsecore.common.features.thirst.PlayerContainer;
 import org.golde.apocalypsecore.common.proxy.CommonProxy;
 
 import net.minecraft.launchwrapper.Launch;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -16,7 +14,6 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
-import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = ApocalypseCore.MODID, name = ApocalypseCore.MODNAME, version = ApocalypseCore.VERSION, dependencies = "", useMetadata = true)
 public class ApocalypseCore {
@@ -65,9 +62,7 @@ public class ApocalypseCore {
     
     @Mod.EventHandler
 	public static void serverClosed(FMLServerStoppedEvent event) {
-		if(FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT) {
-			PlayerContainer.ALL_PLAYERS.clear();
-		}
+		
 	}
 	
     

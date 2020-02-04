@@ -9,8 +9,6 @@ import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.food.FeatureFood;
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
-import org.golde.apocalypsecore.common.features.thirst.DrinkRegistry;
-import org.golde.apocalypsecore.common.features.thirst.IDrinkable;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.items._IACItem;
 
@@ -28,8 +26,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod.EventBusSubscriber
 public class FeatureRegistration {
@@ -115,9 +111,7 @@ public class FeatureRegistration {
 		for(_IACItem item : Feature.getALL_ITEMS()) {
 			event.getRegistry().register((Item)item);
 			
-			if(item instanceof IDrinkable) {
-				DrinkRegistry.addDrink((IDrinkable)item);
-			}
+			
 			
 		}
 		
