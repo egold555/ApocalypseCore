@@ -11,13 +11,13 @@ public class ShittyServerFix {
 		try {
 			return c.getColorValue();
 		}
-		catch(Exception ex1) {
+		catch(Throwable ex1) {
 			try {
 				Field f = EnumDyeColor.class.getField("w");
 				f.setAccessible(true);
 				return (int) f.get(c);
 			}
-			catch(Exception ex2) {
+			catch(Throwable ex2) {
 				
 			}
 		}
