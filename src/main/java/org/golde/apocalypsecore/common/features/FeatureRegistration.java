@@ -1,10 +1,8 @@
 package org.golde.apocalypsecore.common.features;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
-import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.blocks._ACBlockWithTE;
 import org.golde.apocalypsecore.common.blocks._IACBlock;
 import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
@@ -15,22 +13,19 @@ import org.golde.apocalypsecore.common.features.thirst.DrinkRegistry;
 import org.golde.apocalypsecore.common.features.thirst.IDrinkable;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.items._IACItem;
-import org.omg.CORBA._IDLTypeStub;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
 import net.minecraft.client.renderer.color.ItemColors;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.command.CommandBase;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
-import net.minecraftforge.fluids.FluidRegistry.FluidRegisterEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityEntryBuilder;
@@ -68,6 +63,16 @@ public class FeatureRegistration {
 			FluidRegistry.registerFluid(flu);
 			FluidRegistry.addBucketForFluid(flu);
 			System.err.println("===== REGISTERING FLUID: " + flu.getName());
+		}
+	}
+	
+	public void serverStarting(FMLServerStartingEvent e) {
+		for(Feature feat : features) {
+			feat.registerSeverCommands();
+		}
+		
+		for(CommandBase cmdBase : Feature.getALL_COMMANDS()) {
+			e.registerServerCommand(cmdBase);
 		}
 	}
 	

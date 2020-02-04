@@ -10,6 +10,7 @@ import org.golde.apocalypsecore.common.features.misc.client.render.block.TESRLoo
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.items.ItemWrench;
+import org.golde.apocalypsecore.common.features.misc.items.kit.ItemKit;
 import org.golde.apocalypsecore.common.items._ACItem;
 
 import net.minecraft.client.renderer.entity.Render;
@@ -30,6 +31,7 @@ public class FeatureMisc extends Feature {
 	public static _ACItem exampleItem;
 	public static ItemWrench wrench;
 	public static BlockLootChest lootChest;
+	public static ItemKit kit;
 
 //	public static Fluid fluidGasoline;
 //	public static _ACBlockFluidClassic blockFluidGasoline;
@@ -56,6 +58,7 @@ public class FeatureMisc extends Feature {
 	public void registerItems() {
 		registerItem(exampleItem = new _ACItem("example_item"));
 		registerItem(wrench = new ItemWrench());
+		registerItem(kit = new ItemKit());
 	}
 
 	@Override

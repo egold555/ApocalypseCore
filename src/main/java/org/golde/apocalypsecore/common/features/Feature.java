@@ -11,6 +11,7 @@ import org.golde.apocalypsecore.common.items._IACItem;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.color.IItemColor;
+import net.minecraft.command.CommandBase;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -36,6 +37,7 @@ public abstract class Feature {
 	private static List<Fluid> ALL_FLUID = new ArrayList<Fluid>();
 	private static List<EntityEntryBuilder> ALL_ENTITIES = new ArrayList<EntityEntryBuilder>();
 	private static List<SoundEvent> ALL_SOUNDS = new ArrayList<SoundEvent>();
+	private static List<CommandBase> ALL_COMMANDS = new ArrayList<CommandBase>();
 	
 	public void registerBlocks() {};
 	public void registerItems() {};
@@ -52,6 +54,8 @@ public abstract class Feature {
 	public void regsterEntityRenderers() {};
 	
 	public void registerSoundEffects() {};
+	
+	public void registerSeverCommands() {};
 	
 	protected static int entityId = -1;
 
@@ -128,6 +132,10 @@ public abstract class Feature {
 	protected static final void registerEntity(EntityEntryBuilder builder) {
 		ALL_ENTITIES.add(builder);
 	}
+	
+	protected static final void registerServerCommand(CommandBase cd) {
+		ALL_COMMANDS.add(cd);
+	}
 
 	protected static final SoundEvent registerSoundEvent(String name){
 		ResourceLocation res = new ResourceLocation(ApocalypseCore.MODID, name);
@@ -167,6 +175,10 @@ public abstract class Feature {
 	
 	public static List<SoundEvent> getALL_SOUNDS() {
 		return ALL_SOUNDS;
+	}
+	
+	public static List<CommandBase> getALL_COMMANDS() {
+		return ALL_COMMANDS;
 	}
 
 }
