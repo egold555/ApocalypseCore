@@ -2,19 +2,18 @@ package org.golde.apocalypsecore.common.network.packets.client;
 
 import java.util.Arrays;
 
-import org.golde.apocalypsecore.common.ApocalypseCore;
-import org.golde.apocalypsecore.common.utils.ACParticleTypes;
+import org.golde.apocalypsecore.client.ACParticleTypesClient;
+import org.golde.apocalypsecore.common.utils.ACParticleTypesServer;
 
 import io.netty.buffer.ByteBuf;
-import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.world.World;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class ACPacketParticle implements IMessage, IMessageHandler<ACPacketParticle, IMessage> {
 
-	private ACParticleTypes particleType;
+	private ACParticleTypesServer particleType;
 	private double xCoord;
 	private double yCoord;
 	private double zCoord;
@@ -28,11 +27,11 @@ public class ACPacketParticle implements IMessage, IMessageHandler<ACPacketParti
     {
     }
     
-    public ACPacketParticle(ACParticleTypes particleType, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int countIn) {
+    public ACPacketParticle(ACParticleTypesServer particleType, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int countIn) {
     	this(particleType, xCoord, yCoord, zCoord, xSpeed, ySpeed, zSpeed, countIn, new int[0]);
     }
 
-    public ACPacketParticle(ACParticleTypes particleType, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... argumentsIn)
+    public ACPacketParticle(ACParticleTypesServer particleType, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... argumentsIn)
     {
         this.particleType = particleType;
         this.xCoord = xCoord;
@@ -55,14 +54,17 @@ public class ACPacketParticle implements IMessage, IMessageHandler<ACPacketParti
 	@Override
 	public IMessage onMessage(ACPacketParticle msg, MessageContext ctx) {
 		
-		msg.particleType.renderParticle(msg.xCoord, msg.yCoord, msg.zCoord, msg.xSpeed, msg.ySpeed, msg.zSpeed, msg.count, msg.particleArguments);
+		if(ctx.side == Side.CLIENT) {
+			ACParticleTypesClient.getParticleFromServer(msg.particleType).renderParticle(msg.xCoord, msg.yCoord, msg.zCoord, msg.xSpeed, msg.ySpeed, msg.zSpeed, msg.count, msg.particleArguments);
+		}
+		
 		
 		return null;
 	}
 
 	@Override
 	public void fromBytes(ByteBuf buf) {
-		this.particleType = ACParticleTypes.getParticleFromId(buf.readInt());
+		this.particleType = ACParticleTypesServer.getParticleFromId(buf.readInt());
 		
         this.xCoord = buf.readDouble();
         this.yCoord = buf.readDouble();

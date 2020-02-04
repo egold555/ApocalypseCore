@@ -1,7 +1,7 @@
 package org.golde.apocalypsecore.common.features.weapons.entity;
 
+import org.golde.apocalypsecore.client.ACParticleTypesClient;
 import org.golde.apocalypsecore.client.render.particle.ACParticle;
-import org.golde.apocalypsecore.common.utils.ACParticleTypes;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -75,7 +75,7 @@ public class EntityMolotovCocktail extends EntityThrowable {
 			{
 				this.world.spawnParticle(EnumParticleTypes.FLAME, this.posX, this.posY, this.posZ, rand.nextDouble() - 0.5, rand.nextDouble() - 0.5, rand.nextDouble() - 0.5);
 				this.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, this.posX, this.posY, this.posZ, rand.nextDouble() - 0.5, rand.nextDouble() - 0.5, rand.nextDouble() - 0.5);
-				ACParticleTypes.FIREBALL.renderParticle(posX, posY, posZ, 0, 0, 0, 1);
+				ACParticleTypesClient.FIREBALL.renderParticle(posX, posY, posZ, 0, 0, 0, 1);
 			}
 		}
 	}

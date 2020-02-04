@@ -5,9 +5,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import org.golde.apocalypsecore.client.ACParticleTypesClient;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
 import org.golde.apocalypsecore.common.network.packets.client.ACPacketParticle;
-import org.golde.apocalypsecore.common.utils.ACParticleTypes;
+import org.golde.apocalypsecore.common.utils.ACParticleTypesServer;
 import org.golde.apocalypsecore.common.utils.EnumUtils;
 
 import net.minecraft.command.CommandBase;
@@ -15,7 +16,6 @@ import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
@@ -46,10 +46,10 @@ public class ACCommandParticle extends CommandBase {
 	            throw new WrongUsageException("/acparticle <particle> <x> <y> <z> <speed x> <speed y> <speed z> [count] [params] ");
 	        }
 		
-		ACParticleTypes particle;
+		ACParticleTypesServer particle;
 		
 		try {
-			particle = ACParticleTypes.valueOf(args[0]);
+			particle = ACParticleTypesServer.valueOf(args[0]);
 		}
 		catch(Exception notused) {
 			throw new WrongUsageException("Particle not found");
@@ -95,7 +95,7 @@ public class ACCommandParticle extends CommandBase {
     {
         if (args.length == 1)
         {
-            return getListOfStringsMatchingLastWord(args, EnumUtils.getNames(ACParticleTypes.class));
+            return getListOfStringsMatchingLastWord(args, EnumUtils.getNames(ACParticleTypesClient.class));
         }
         else if (args.length > 1 && args.length <= 4)
         {

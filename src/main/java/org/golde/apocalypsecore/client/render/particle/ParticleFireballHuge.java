@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.client.render.particle;
 
-import org.golde.apocalypsecore.common.utils.ACParticleTypes;
+import org.golde.apocalypsecore.client.ACParticleTypesClient;
 
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.entity.Entity;
@@ -38,7 +38,7 @@ public class ParticleFireballHuge extends ACParticle
             double d1 = this.posY + (this.rand.nextDouble() - this.rand.nextDouble()) * 4.0D;
             double d2 = this.posZ + (this.rand.nextDouble() - this.rand.nextDouble()) * 4.0D;
             //this.world.spawnParticle(EnumParticleTypes.EXPLOSION_LARGE, d0, d1, d2, (double)((float)this.timeSinceStart / (float)this.maximumTime), 0.0D, 0.0D);
-            ACParticleTypes.FIREBALL.renderParticle(d0, d1, d2, (double)((float)this.timeSinceStart / (float)this.maximumTime), 0.0D, 0.0D, 1);
+            ACParticleTypesClient.FIREBALL.renderParticle(d0, d1, d2, (double)((float)this.timeSinceStart / (float)this.maximumTime), 0.0D, 0.0D, 1);
         }
 
         ++this.timeSinceStart;

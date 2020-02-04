@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.utils;
+package org.golde.apocalypsecore.client;
 
 import org.golde.apocalypsecore.client.render.particle.ParticleFireballHuge;
 import org.golde.apocalypsecore.client.render.particle.ParticleFireballLarge;
@@ -6,6 +6,7 @@ import org.golde.apocalypsecore.client.render.particle.ParticleGasSmoke;
 import org.golde.apocalypsecore.client.render.particle.ParticleItemIcon;
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.proxy.ClientProxy;
+import org.golde.apocalypsecore.common.utils.ACParticleTypesServer;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.Particle;
@@ -14,7 +15,7 @@ import net.minecraft.item.Item;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.world.World;
 
-public enum ACParticleTypes {
+public enum ACParticleTypesClient {
 	ERROR {
 		@Override
 		protected void onRender(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... args) {
@@ -73,11 +74,11 @@ public enum ACParticleTypes {
 	};
 
 	private final int argCount;
-	ACParticleTypes() {
+	ACParticleTypesClient() {
 		this(0);
 	}
 
-	ACParticleTypes(int argCount) {
+	ACParticleTypesClient(int argCount) {
 		this.argCount = argCount;
 	}
 
@@ -99,12 +100,19 @@ public enum ACParticleTypes {
 
 	protected abstract void onRender(World world, double xCoord, double yCoord, double zCoord, double xSpeed, double ySpeed, double zSpeed, int count, int... args);
 
-	public static ACParticleTypes getParticleFromId(int d) {
-		if(d > ACParticleTypes.values().length - 1) {
-			ApocalypseCore.logger.error("Recievdd particle id '" + d + "' which is bigger then the max particle id of '" + (ACParticleTypes.values().length - 1) + "'! Returning ERROR particle to prevent crash!");
-			return ACParticleTypes.ERROR;
+	public static ACParticleTypesClient getParticleFromServer(ACParticleTypesServer p) {
+		if(p == null) {
+			ApocalypseCore.logger.error("Recieved particle NULL from the server, and it does not exist on the client! Returning ERROR particle to prevent crash!");
+			return ACParticleTypesClient.ERROR;
 		}
-		return ACParticleTypes.values()[d];
+		try {
+			return ACParticleTypesClient.valueOf(p.name());
+		}
+		catch(Throwable e) {
+			ApocalypseCore.logger.error("Recieved particle name '" + p.name() + "' from the server, and it does not exist on the client! Returning ERROR particle to prevent crash!");
+			return ACParticleTypesClient.ERROR;
+		}
+		
 	}
 
 }
