@@ -9,6 +9,7 @@ import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugsClient;
 import org.golde.apocalypsecore.common.features.food.FeatureFood;
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
+import org.golde.apocalypsecore.common.features.misc.FeatureMiscClient;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeaponsClient;
 import org.golde.apocalypsecore.common.items._IACItem;
@@ -23,6 +24,7 @@ public class FeatureRegistrationClient {
 	private static List<FeatureClient> features = new ArrayList<FeatureClient>();
 	
 	static {
+		features.add(new FeatureMiscClient());
 		features.add(new FeatureWeaponsClient());
 		features.add(new FeatureDrugsClient());
 	}
