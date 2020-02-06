@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.common.features.decor.FeatureDecor;
 import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 
@@ -93,7 +93,7 @@ public class ACCommandTest extends CommandBase {
 		ip.addItemStackToInventory(new ItemStack(Items.COOKED_CHICKEN, 32));
 		ip.addItemStackToInventory(new ItemStack(Blocks.TORCH, 64));
 		ip.addItemStackToInventory(new ItemStack(FeatureWeapons.grapplingHook));
-		ip.addItemStackToInventory(new ItemStack(FeatureBuilding.barbedWire, 32));
+		ip.addItemStackToInventory(new ItemStack(FeatureDecor.barbedWire, 32));
 		
 	}
 	

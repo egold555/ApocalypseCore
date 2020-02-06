@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.golde.apocalypsecore.common.blocks._ACBlockWithTE;
 import org.golde.apocalypsecore.common.blocks._IACBlock;
-import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.common.features.decor.FeatureDecor;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.food.FeatureFood;
 import org.golde.apocalypsecore.common.features.misc.FeatureMisc;
@@ -34,7 +34,7 @@ public class FeatureRegistration {
 	
 	static {
 		features.add(new FeatureMisc());
-		features.add(new FeatureBuilding());
+		features.add(new FeatureDecor());
 		features.add(new FeatureFood());
 		features.add(new FeatureWeapons());
 		features.add(new FeatureDrugs());

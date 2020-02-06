@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.golde.apocalypsecore.common.blocks._IACBlock;
-import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.common.features.decor.FeatureDecor;
+import org.golde.apocalypsecore.common.features.decor.FeatureDecorClient;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugsClient;
 import org.golde.apocalypsecore.common.features.food.FeatureFood;
@@ -24,6 +25,7 @@ public class FeatureRegistrationClient {
 	private static List<FeatureClient> features = new ArrayList<FeatureClient>();
 	
 	static {
+		features.add(new FeatureDecorClient());
 		features.add(new FeatureMiscClient());
 		features.add(new FeatureWeaponsClient());
 		features.add(new FeatureDrugsClient());

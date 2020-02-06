@@ -1,6 +1,8 @@
 package org.golde.apocalypsecore.common.features.misc;
 
+import org.golde.apocalypsecore.client.render.item.LayerStaticColor;
 import org.golde.apocalypsecore.common.features.FeatureClient;
+import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 import org.golde.apocalypsecore.common.features.misc.client.render.block.TESRLootChest2;
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;

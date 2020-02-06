@@ -1,14 +1,15 @@
-package org.golde.apocalypsecore.common.features.building;
+package org.golde.apocalypsecore.common.features.decor;
 
 import org.golde.apocalypsecore.common.features.Feature;
-import org.golde.apocalypsecore.common.features.building.blocks.BlockBarbedWire;
-import org.golde.apocalypsecore.common.features.building.blocks.BlockCagedLampOn;
+import org.golde.apocalypsecore.common.features.decor.blocks.BlockBarbedWire;
+import org.golde.apocalypsecore.common.features.decor.blocks.BlockCagedLampOn;
+import org.golde.apocalypsecore.common.features.decor.items.ItemSprayPaint;
 
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 
-public class FeatureBuilding extends Feature {
+public class FeatureDecor extends Feature {
 
 	public static BlockCagedLampOn lamp_white;
 	public static BlockCagedLampOn lamp_orange;
@@ -31,6 +32,8 @@ public class FeatureBuilding extends Feature {
 	
 	public static final DamageSource DAMAGE_SOURCE_BARBED_WIRE = new DamageSource("barbedWire").setDamageBypassesArmor().setDifficultyScaled();
 
+	public static ItemSprayPaint sprayPaint;
+	
 	@Override
 	public void registerBlocks() {
 		registerBlock(lamp_white = new BlockCagedLampOn(EnumDyeColor.WHITE));
@@ -51,6 +54,11 @@ public class FeatureBuilding extends Feature {
 		registerBlock(lamp_black = new BlockCagedLampOn(EnumDyeColor.BLACK));
 		
 		registerBlock(barbedWire = new BlockBarbedWire());
+	}
+	
+	@Override
+	public void registerItems() {
+		registerItem(sprayPaint = new ItemSprayPaint());
 	}
 
 	@Override

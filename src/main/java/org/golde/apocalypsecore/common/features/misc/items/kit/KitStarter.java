@@ -1,6 +1,6 @@
 package org.golde.apocalypsecore.common.features.misc.items.kit;
 
-import org.golde.apocalypsecore.common.features.building.FeatureBuilding;
+import org.golde.apocalypsecore.common.features.decor.FeatureDecor;
 import org.golde.apocalypsecore.common.features.weapons.FeatureWeapons;
 
 import net.minecraft.init.Blocks;
@@ -51,7 +51,7 @@ public class KitStarter extends AbstractKit {
 				new ItemStack(Items.COOKED_CHICKEN, 32),
 				new ItemStack(Blocks.TORCH, 64),
 				new ItemStack(FeatureWeapons.grapplingHook),
-				new ItemStack(FeatureBuilding.barbedWire, 32),
+				new ItemStack(FeatureDecor.barbedWire, 32),
 		};
 	}
 

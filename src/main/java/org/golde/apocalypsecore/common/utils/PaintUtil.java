@@ -50,16 +50,22 @@ public class PaintUtil {
                 world.setBlockState(pos, EventHandler.CANVAS_GROUND.getStateFrom(state));
             else
                 world.setBlockState(pos, EventHandler.CANVAS_ROCK.getStateFrom(state));
-            TileEntityCanvas canvas = (TileEntityCanvas) Objects.requireNonNull(world.getTileEntity(pos));
-            canvas.setInitialData(state, disallowedFaces);
-            canvas.markDirty();
-            
-//            for(EnumFacing f : EnumFacing.VALUES) {
-//            	paintDataServer(canvas, pos, f, scale, data);
-//            }
-            paintDataServer(canvas, pos, facing, scale, data);
+            try {
+            	 TileEntityCanvas canvas = (TileEntityCanvas) Objects.requireNonNull(world.getTileEntity(pos));
+                 canvas.setInitialData(state, disallowedFaces);
+                 canvas.markDirty();
+                 
+//                 for(EnumFacing f : EnumFacing.VALUES) {
+//                 	paintDataServer(canvas, pos, f, scale, data);
+//                 }
+                 paintDataServer(canvas, pos, facing, scale, data);
 
-            return true;
+                 return true;
+            }
+            catch(NullPointerException e) {
+            	/**/
+            	return false;
+            }
         }
         return false;
     

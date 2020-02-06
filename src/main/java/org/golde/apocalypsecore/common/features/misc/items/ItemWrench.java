@@ -45,7 +45,7 @@ public class ItemWrench extends _ACItem {
 //			
 //		}
 		
-		ThreadDownloadUrlSpraypaint.downloadAndSetTexture("http://localhost/websites/spray/?r=255&b=255&f=1&t=Transparent", new ResourceLocationCallback() {
+		ThreadDownloadUrlSpraypaint.downloadAndSetTexture("http://localhost/websites/spray/tst/test.png", new ResourceLocationCallback() {
 			
 			@Override
 			public void onTextureLoaded(BufferedImage bi) {
