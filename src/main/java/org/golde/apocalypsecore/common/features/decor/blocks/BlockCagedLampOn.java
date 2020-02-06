@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.features.building.blocks;
+package org.golde.apocalypsecore.common.features.decor.blocks;
 
 import org.golde.apocalypsecore.common.blocks._ACBlock;
 
