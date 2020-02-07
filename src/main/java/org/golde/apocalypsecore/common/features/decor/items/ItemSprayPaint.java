@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.golde.apocalypsecore.common.items._ACItem;
+import org.golde.apocalypsecore.common.items._ACItemColor;
 import org.golde.apocalypsecore.common.utils.PaintUtil;
 import org.golde.apocalypsecore.common.utils.griffiti.ThreadCreateGraffiti;
 import org.golde.apocalypsecore.common.utils.griffiti.ThreadCreateGraffiti.GraffitiCreatedCallback;
@@ -23,19 +24,12 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import scala.actors.threadpool.Arrays;
 
-public class ItemSprayPaint extends _ACItem {
+public class ItemSprayPaint extends _ACItemColor {
 
 	public ItemSprayPaint() {
 		super("spray_paint");
 		this.setHasSubtypes(true);
 		setMaxStackSize(1);
-	}
-
-	public static void setItemStackColor(ItemStack stack, Color color)
-	{
-		NBTTagCompound tag = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
-		tag.setInteger("color", color.getRGB());
-		stack.setTagCompound(tag);
 	}
 
 	@Override
@@ -46,31 +40,11 @@ public class ItemSprayPaint extends _ACItem {
 				Color c = Color.getHSBColor(hue, 0.85f, 1);
 				ItemStack is = new ItemStack(this);
 
-				setItemStackColor(is, c);
+				this.setColor(is, c);
 				items.add(is);
 			}
 		}
 
-	}
-
-	@Override
-	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-		if(stack.getTagCompound().hasKey("color")) {
-			Color c = new Color(stack.getTagCompound().getInteger("color"));
-			tooltip.add("R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
-		}
-	}
-
-	public static int getColor(ItemStack is) {
-		if(is == null || !(is.getItem() instanceof ItemSprayPaint)){
-			return -1;
-		}
-
-		if(is.getTagCompound() == null || !is.getTagCompound().hasKey("color")) {
-			return -1;
-		}
-
-		return is.getTagCompound().getInteger("color");
 	}
 
 	@Override

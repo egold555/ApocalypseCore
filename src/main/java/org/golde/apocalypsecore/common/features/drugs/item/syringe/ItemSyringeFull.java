@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.util.List;
 
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
+import org.golde.apocalypsecore.common.items._ACItemColor;
 
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -14,13 +15,16 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class ItemSyringeFull extends ItemSyringeEmpty{
+public class ItemSyringeFull extends _ACItemColor {
 
 	public ItemSyringeFull() {
 		super("syringe_full");
 		this.setHasSubtypes(true);
+		this.setMaxDamage(0);
+		setMaxStackSize(16);
 	}
 
 	@Override
@@ -31,7 +35,7 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 				Color c = Color.getHSBColor(hue, 1, 1);
 				ItemStack is = new ItemStack(this);
 				//setItemStackName(is, "R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
-				setItemStackColor(is, c);
+				setColor(is, c);
 				items.add(is);
 			}
 
@@ -58,12 +62,9 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 			//			}
 		}
 
-		if(stack.getTagCompound().hasKey("color")) {
-			Color c = new Color(stack.getTagCompound().getInteger("color"));
-			tooltip.add("R: " + c.getRed() + " G: " + c.getGreen() + " B: " + c.getBlue());
-		}
+		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
-
+	
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn) {
 		ItemStack itemstack = player.getHeldItem(handIn);
@@ -78,15 +79,11 @@ public class ItemSyringeFull extends ItemSyringeEmpty{
 			itemstack = new ItemStack(FeatureDrugs.syringeEmpty);
 		}
 
-		super.onItemRightClick(worldIn, player, handIn);
-		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
-	}
 
-	public static void setItemStackColor(ItemStack stack, Color color)
-	{
-		NBTTagCompound tag = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
-		tag.setInteger("color", color.getRGB());
-		stack.setTagCompound(tag);
+		player.attackEntityFrom(FeatureDrugs.DAMAGE_SOURCE_INJECTION, 1.0F);
+		worldIn.playSound(null, player.getPosition(), FeatureDrugs.SOUND_SYRINGE, SoundCategory.PLAYERS, 1, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + 0.5F);
+
+		return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
 	}
 
 	public static void setItemStackName(ItemStack stack, String name)

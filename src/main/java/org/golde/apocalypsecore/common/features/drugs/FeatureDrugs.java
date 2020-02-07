@@ -11,7 +11,7 @@ import net.minecraft.util.SoundEvent;
 public class FeatureDrugs extends Feature {
 
 	public static ItemSyringeEmpty syringeEmpty;
-	public static ItemSyringeEmpty syringeFull;
+	public static ItemSyringeFull syringeFull;
 	
 	public static SoundEvent SOUND_SYRINGE;
 	

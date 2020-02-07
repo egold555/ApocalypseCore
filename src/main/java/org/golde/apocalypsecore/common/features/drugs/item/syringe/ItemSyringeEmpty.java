@@ -13,13 +13,9 @@ import net.minecraft.world.World;
 public class ItemSyringeEmpty extends _ACItem {
 
 	public ItemSyringeEmpty() {
-		this("syringe_empty");
+		super("syringe_empty");
 		this.setMaxDamage(0);
 		setMaxStackSize(16);
-	}
-	
-	public ItemSyringeEmpty(String name) {
-		super(name);
 	}
 	
 	@Override
