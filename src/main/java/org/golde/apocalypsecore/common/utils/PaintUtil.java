@@ -55,15 +55,14 @@ public class PaintUtil {
                  canvas.setInitialData(state, disallowedFaces);
                  canvas.markDirty();
                  
-//                 for(EnumFacing f : EnumFacing.VALUES) {
-//                 	paintDataServer(canvas, pos, f, scale, data);
-//                 }
                  paintDataServer(canvas, pos, facing, scale, data);
 
                  return true;
             }
             catch(NullPointerException e) {
-            	/**/
+            	//Sometimes Object.requireNonNull fires, not sure why but it doesn't seem to cause an issue
+            	//This just catches it to spare useless error lines in the log
+            	//Probs should figure it out but eh
             	return false;
             }
         }
