@@ -8,6 +8,7 @@ import org.golde.apocalypsecore.common.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.common.init.ACDispenser;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemStack;
@@ -52,4 +53,8 @@ public class CommonProxy {
 		return false;
 	}
 
+	public EntityPlayer getPlayer() {
+		return null;
+	}
+	
 }

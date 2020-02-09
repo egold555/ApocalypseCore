@@ -1,4 +1,4 @@
-package org.golde.apocalypsecore.common.network.packets.client;
+package org.golde.apocalypsecore.common.network.packets;
 
 import java.util.Arrays;
 

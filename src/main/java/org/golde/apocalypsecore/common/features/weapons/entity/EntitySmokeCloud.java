@@ -7,7 +7,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
-import org.golde.apocalypsecore.common.network.packets.client.ACPacketParticle;
+import org.golde.apocalypsecore.common.network.packets.ACPacketParticle;
 import org.golde.apocalypsecore.common.utils.ACParticleTypesServer;
 
 import net.minecraft.entity.Entity;
@@ -59,7 +59,7 @@ public class EntitySmokeCloud extends Entity {
 				if (emitter != null) {
 					this.setPosition(emitter.posX, emitter.posY, emitter.posZ);
 					//ApocalypseCore.proxy.makeSmoke(world, posX, posY, posZ, color, particleAmount, MAX_PROPAGATION_DISTANCE-2, 2);
-					ACPacketHandler.NETWORK.sendToAllAround(new ACPacketParticle(ACParticleTypesServer.SMOKE, posX, posY, posZ, 0, 0, 0, particleAmount, color, MAX_PROPAGATION_DISTANCE-2, 2), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 200));
+					ACPacketHandler.sendToAllAround(new ACPacketParticle(ACParticleTypesServer.SMOKE, posX, posY, posZ, 0, 0, 0, particleAmount, color, MAX_PROPAGATION_DISTANCE-2, 2), new TargetPoint(world.provider.getDimension(), posX, posY, posZ, 200));
 				}
 			}
 

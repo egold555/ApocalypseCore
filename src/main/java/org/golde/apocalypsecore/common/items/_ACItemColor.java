@@ -27,16 +27,17 @@ public abstract class _ACItemColor extends _ACItem {
 		}
 	}
 	
-	public static void setColor(ItemStack stack, Color color)
+	public static ItemStack setColor(ItemStack stack, Color color)
 	{
-		setColor(stack, color.getRGB());
+		return setColor(stack, color.getRGB());
 	}
 	
-	public static void setColor(ItemStack stack, int color)
+	public static ItemStack setColor(ItemStack stack, int color)
 	{
 		NBTTagCompound tag = stack.hasTagCompound() ? stack.getTagCompound() : new NBTTagCompound();
 		tag.setInteger(KEY, color);
 		stack.setTagCompound(tag);
+		return stack;
 	}
 	
 	public static boolean hasColor(ItemStack stack) {

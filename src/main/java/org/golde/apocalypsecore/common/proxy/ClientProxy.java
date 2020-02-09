@@ -4,7 +4,9 @@ import org.golde.apocalypsecore.common.features.FeatureRegistration;
 import org.golde.apocalypsecore.common.features.FeatureRegistrationClient;
 import org.golde.apocalypsecore.common.init.ACEntities;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.color.ItemColors;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -60,5 +62,10 @@ public class ClientProxy extends CommonProxy {
         FeatureRegistrationClient.registerItemColorHandler(colors);
         
     }
+	
+	@Override
+	public EntityPlayer getPlayer() {
+		return Minecraft.getMinecraft().player;
+	}
 	
 }

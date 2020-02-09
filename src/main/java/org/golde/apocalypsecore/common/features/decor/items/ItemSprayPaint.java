@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.List;
 
+import org.golde.apocalypsecore.common.ApocalypseCore;
+import org.golde.apocalypsecore.common.gui.ForgeGuiHandler;
 import org.golde.apocalypsecore.common.items._ACItem;
 import org.golde.apocalypsecore.common.items._ACItemColor;
 import org.golde.apocalypsecore.common.utils.PaintUtil;
@@ -15,6 +17,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -22,6 +25,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import scala.actors.threadpool.Arrays;
 
 public class ItemSprayPaint extends _ACItemColor {
@@ -46,18 +50,43 @@ public class ItemSprayPaint extends _ACItemColor {
 		}
 
 	}
+	
+	@Override
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+		
+		if(playerIn.isSneaking()) {
+
+			playerIn.openGui(ApocalypseCore.instance, ForgeGuiHandler.GUI_INDEX_COLOR_PICKER, worldIn, 0,0,0);
+
+			return new ActionResult<ItemStack>(EnumActionResult.FAIL, playerIn.getHeldItem(handIn));
+		}
+		
+		return super.onItemRightClick(worldIn, playerIn, handIn);
+	}
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+
+		if(player.isSneaking()) {
+
+			player.openGui(ApocalypseCore.instance, ForgeGuiHandler.GUI_INDEX_COLOR_PICKER, worldIn, 0,0,0);
+
+			return EnumActionResult.FAIL;
+		}
 
 		if(worldIn.isRemote) {
 			return EnumActionResult.PASS;
 		}
 
+
+
 		ItemStack is = player.getHeldItemMainhand();
 
 		int colorMain = getColor(player.getHeldItemMainhand());
 		int colorSub = getColor(player.getHeldItemOffhand());
+
+		player.sendMessage(new TextComponentString(colorMain + " " + colorSub));
 
 		ThreadCreateGraffiti.create("TEST", colorMain, colorSub, new GraffitiCreatedCallback() {
 
@@ -99,7 +128,6 @@ public class ItemSprayPaint extends _ACItemColor {
 
 					int[][] datadraw = data.get(offset); 
 
-					//worldIn.setBlockState(newPos, Blocks.COBBLESTONE.getDefaultState());
 					PaintUtil.paintBlockServer(worldIn, newPos, facing.getOpposite(), (byte)1, datadraw);
 					player.sendMessage(new TextComponentString("Finiahsed: " + Arrays.toString(offset)));;
 				}

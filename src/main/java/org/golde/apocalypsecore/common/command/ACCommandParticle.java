@@ -7,7 +7,7 @@ import javax.annotation.Nullable;
 
 import org.golde.apocalypsecore.client.ACParticleTypesClient;
 import org.golde.apocalypsecore.common.network.ACPacketHandler;
-import org.golde.apocalypsecore.common.network.packets.client.ACPacketParticle;
+import org.golde.apocalypsecore.common.network.packets.ACPacketParticle;
 import org.golde.apocalypsecore.common.utils.ACParticleTypesServer;
 import org.golde.apocalypsecore.common.utils.EnumUtils;
 
@@ -86,7 +86,7 @@ public class ACCommandParticle extends CommandBase {
         }
         
         System.out.println(new ACPacketParticle(particle, x, y, z, xs, ys, zs, count, aint).toString());
-        ACPacketHandler.NETWORK.sendToAll(new ACPacketParticle(particle, x, y, z, xs, ys, zs, count, aint));
+        ACPacketHandler.sendToAll(new ACPacketParticle(particle, x, y, z, xs, ys, zs, count, aint));
         
 	}
 	

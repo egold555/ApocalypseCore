@@ -18,7 +18,7 @@ public class ThreadCreateGraffiti {
 				Graffiti g = new Graffiti(GraffitiFonts.getTest(new File("C:\\Users\\eric\\eclipse-workspace\\FontRenderer")), text);
 				if(color2 != -1) {
 					if(color == -1) {
-						g.drawText(new Color(color));
+						g.drawText(new Color(color2));
 					}
 					else {
 						g.drawText(new Color(color2), 5, 5);
