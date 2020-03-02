@@ -1,6 +1,7 @@
 package org.golde.apocalypsecore.common.gui;
 
 import org.golde.apocalypsecore.client.gui.GuiColorWheel;
+import org.golde.apocalypsecore.client.gui.GuiGraffitiText;
 
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,6 +13,7 @@ import net.minecraftforge.fml.common.network.IGuiHandler;
 public class ForgeGuiHandler implements IGuiHandler {
 
 	public static final int GUI_INDEX_COLOR_PICKER = 0;
+	public static final int GUI_INDEX_GRAFFITI_TEXT = 1;
 
 	//Returns Containers
 	@Override
@@ -29,6 +31,10 @@ public class ForgeGuiHandler implements IGuiHandler {
 
 			if(ID == GUI_INDEX_COLOR_PICKER) {
 				return new GuiColorWheel();
+			}
+			
+			if(ID == GUI_INDEX_GRAFFITI_TEXT) {
+				return new GuiGraffitiText();
 			}
 
 		}

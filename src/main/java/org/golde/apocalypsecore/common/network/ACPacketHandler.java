@@ -2,6 +2,7 @@ package org.golde.apocalypsecore.common.network;
 
 import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.network.packets.ACPacketColorGuiClosed;
+import org.golde.apocalypsecore.common.network.packets.ACPacketGraffitiText;
 import org.golde.apocalypsecore.common.network.packets.ACPacketParticle;
 
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +23,7 @@ public class ACPacketHandler {
 
 		ACPacketHandler.NETWORK.registerMessage(ACPacketParticle.class, ACPacketParticle.class, i++, Side.CLIENT);
 		ACPacketHandler.NETWORK.registerMessage(ACPacketColorGuiClosed.class, ACPacketColorGuiClosed.class, i++, Side.SERVER);
+		ACPacketHandler.NETWORK.registerMessage(ACPacketGraffitiText.class, ACPacketGraffitiText.class, i++, Side.SERVER);
 		
 	}
 	

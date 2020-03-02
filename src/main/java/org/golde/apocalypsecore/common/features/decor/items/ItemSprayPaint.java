@@ -39,14 +39,18 @@ public class ItemSprayPaint extends _ACItemColor {
 	@Override
 	public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
 		if(isInCreativeTab(tab)) {
-			for(int i = 0; i < 255; i++) {
-				float hue = i / 255F;
-				Color c = Color.getHSBColor(hue, 0.85f, 1);
-				ItemStack is = new ItemStack(this);
+//			for(int i = 0; i < 255; i++) {
+//				float hue = i / 255F;
+//				Color c = Color.getHSBColor(hue, 0.85f, 1);
+//				ItemStack is = new ItemStack(this);
+//
+//				this.setColor(is, c);
+//				items.add(is);
+//			}
+			ItemStack is = new ItemStack(this);
 
-				this.setColor(is, c);
-				items.add(is);
-			}
+			this.setColor(is, Color.WHITE);
+			items.add(is);
 		}
 
 	}
@@ -71,10 +75,12 @@ public class ItemSprayPaint extends _ACItemColor {
 		if(player.isSneaking()) {
 
 			player.openGui(ApocalypseCore.instance, ForgeGuiHandler.GUI_INDEX_COLOR_PICKER, worldIn, 0,0,0);
-
+			
 			return EnumActionResult.FAIL;
 		}
 
+		player.openGui(ApocalypseCore.instance, ForgeGuiHandler.GUI_INDEX_GRAFFITI_TEXT, worldIn, 0,0,0);
+		
 		if(worldIn.isRemote) {
 			return EnumActionResult.PASS;
 		}
@@ -85,10 +91,19 @@ public class ItemSprayPaint extends _ACItemColor {
 
 		int colorMain = getColor(player.getHeldItemMainhand());
 		int colorSub = getColor(player.getHeldItemOffhand());
+		
+		NBTTagCompound rootMain = player.getHeldItemMainhand().getTagCompound();
+		
+		String text = "MissingNo.";
+		
+		if(rootMain.hasKey("tempText")) {
+			text = rootMain.getString("tempText");
+			rootMain.removeTag("tempText");
+		}
 
 		player.sendMessage(new TextComponentString(colorMain + " " + colorSub));
 
-		ThreadCreateGraffiti.create("TEST", colorMain, colorSub, new GraffitiCreatedCallback() {
+		ThreadCreateGraffiti.create(text, colorMain, colorSub, new GraffitiCreatedCallback() {
 
 			@Override
 			public void onFinish(HashMap<int[], int[][]> data) {
@@ -129,7 +144,7 @@ public class ItemSprayPaint extends _ACItemColor {
 					int[][] datadraw = data.get(offset); 
 
 					PaintUtil.paintBlockServer(worldIn, newPos, facing.getOpposite(), (byte)1, datadraw);
-					player.sendMessage(new TextComponentString("Finiahsed: " + Arrays.toString(offset)));;
+					player.sendMessage(new TextComponentString("Finished: " + Arrays.toString(offset)));;
 				}
 
 			}

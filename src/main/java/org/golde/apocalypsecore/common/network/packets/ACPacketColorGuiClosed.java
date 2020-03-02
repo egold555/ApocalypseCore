@@ -13,9 +13,9 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
 public class ACPacketColorGuiClosed extends ACPacket<ACPacketColorGuiClosed> {
 
-	private int newColor;
-	private Point colorPoint;
-	private float lightness;
+	protected int newColor;
+	protected Point colorPoint;
+	protected float lightness;
 	
 	public ACPacketColorGuiClosed() {
 	}

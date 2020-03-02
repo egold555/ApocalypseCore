@@ -5,6 +5,7 @@ import org.golde.apocalypsecore.common.ApocalypseCore;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
@@ -25,5 +26,13 @@ public abstract class ACPacket <REQ extends IMessage> implements IMessage, IMess
 	public void fromBytes(ByteBuf buf) {};
 	
 	public abstract void onReceived(REQ message, EntityPlayer player);
+	
+	public void writeString(ByteBuf buf, String msg) {
+		ByteBufUtils.writeUTF8String(buf, msg);
+	}
 
+	public String readString(ByteBuf buf) {
+		return ByteBufUtils.readUTF8String(buf);
+	}
+	
 }

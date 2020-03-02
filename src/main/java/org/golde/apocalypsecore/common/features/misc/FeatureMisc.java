@@ -4,7 +4,9 @@ import org.golde.apocalypsecore.common.ApocalypseCore;
 import org.golde.apocalypsecore.common.blocks._ACBlock;
 import org.golde.apocalypsecore.common.features.Feature;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.BlockLootChest;
+import org.golde.apocalypsecore.common.features.misc.commands.CommandDeadBody;
 import org.golde.apocalypsecore.common.features.misc.commands.CommandKit;
+import org.golde.apocalypsecore.common.features.misc.entity.EntityDeadBody;
 import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 import org.golde.apocalypsecore.common.features.misc.items.ItemWrench;
 import org.golde.apocalypsecore.common.features.misc.items.kit.ItemKit;
@@ -58,11 +60,18 @@ public class FeatureMisc extends Feature {
 				.id(new ResourceLocation(ApocalypseCore.MODID, "fallinglootcrate"), entityId++)
 				.name("fallinglootcrate")
 				.tracker(64, 1, true));
+		
+		registerEntity(EntityEntryBuilder.create()
+				.entity(EntityDeadBody.class)
+				.id(new ResourceLocation(ApocalypseCore.MODID, "deadbody"), entityId++)
+				.name("deadbody")
+				.tracker(64, 1, true));
 	}
 	
 	@Override
 	public void registerSeverCommands() {
 		registerServerCommand(new CommandKit());
+		registerServerCommand(new CommandDeadBody());
 	}
 	
 

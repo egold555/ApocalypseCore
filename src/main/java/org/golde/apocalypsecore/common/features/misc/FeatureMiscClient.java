@@ -5,7 +5,9 @@ import org.golde.apocalypsecore.common.features.FeatureClient;
 import org.golde.apocalypsecore.common.features.drugs.FeatureDrugs;
 import org.golde.apocalypsecore.common.features.misc.blocks.lootchest.TIleEntityLootChest;
 import org.golde.apocalypsecore.common.features.misc.client.render.block.TESRLootChest2;
+import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderDeadBody;
 import org.golde.apocalypsecore.common.features.misc.client.render.entity.RenderFallingLootCrate;
+import org.golde.apocalypsecore.common.features.misc.entity.EntityDeadBody;
 import org.golde.apocalypsecore.common.features.misc.entity.EntityFallingLootCrate;
 
 import net.minecraft.client.renderer.entity.Render;
@@ -21,6 +23,7 @@ public class FeatureMiscClient extends FeatureClient {
 	@Override
 	public void regsterEntityRenderers() {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFallingLootCrate.class, RenderEntityFallingLootCrateFactory.INSTANCE);
+		RenderingRegistry.registerEntityRenderingHandler(EntityDeadBody.class, RenderEntityDeadBodyFactory.INSTANCE);
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -31,6 +34,17 @@ public class FeatureMiscClient extends FeatureClient {
         public Render<EntityFallingLootCrate> createRenderFor(RenderManager manager)
         {
             return new RenderFallingLootCrate(manager);
+        }
+    }
+	
+	@SideOnly(Side.CLIENT)
+	public static class RenderEntityDeadBodyFactory implements IRenderFactory<EntityDeadBody> {
+        public final static RenderEntityDeadBodyFactory INSTANCE = new RenderEntityDeadBodyFactory();
+    
+        @Override
+        public Render<EntityDeadBody> createRenderFor(RenderManager manager)
+        {
+            return new RenderDeadBody(manager);
         }
     }
 	
